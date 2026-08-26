@@ -39,8 +39,8 @@ window.IB_DATA.GOOGL = {
       "占位——请替换成你的真实数字。公司质量和股票估值下面特意分开：好公司不等于任何价格都能买。",
     shares: 100,
     avgCost: 165.0,
-    currentPrice: 205.0, // 手动快照，非实时。复盘时手动更新。
-    priceAsOf: "2026-08-26", // currentPrice 最后设定的日期，让盈亏诚实地显示为「快照」
+    currentPrice: 342.37, // 2026-08-12 网络行情快照，非实时
+    priceAsOf: "2026-08-12", // currentPrice 最后设定的日期，让盈亏诚实地显示为「快照」
     portfolioWeight: 8.0, // %
     targetWeight: 10.0, // %
     addRange: "跌破约 $180 加仓，或出现任何非结构性的 15%+ 回撤时加仓",

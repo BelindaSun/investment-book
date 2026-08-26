@@ -26,8 +26,8 @@ window.IB_DATA.NVDA = {
     note: "占位——请替换成你的真实数字。质量和估值下面分开：好公司不等于任何价格都能买。",
     shares: 50,
     avgCost: 80.0,
-    currentPrice: 121.0, // 示意，手动快照，非实时
-    priceAsOf: "2026-08-26",
+    currentPrice: 224.09, // 2026-08-12 网络行情快照，非实时
+    priceAsOf: "2026-08-12",
     portfolioWeight: 12.0,
     targetWeight: 12.0,
     addRange: "回撤到成本附近、或非结构性的 20%+ 板块回调时考虑加仓",
