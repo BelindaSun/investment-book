@@ -8,6 +8,21 @@ Wiki (which does horizontal market-move analysis). Keep the two complementary,
 not duplicative: link to Stock Why Wiki for "why the market moved," keep this
 book focused on "does it change my thesis."
 
+## Views
+- **Portfolio home** (`#/`) is the landing view: all holdings as rows, grouped by
+  `tier`, each showing thesis status, weight, snapshot return, and staleness
+  (flagged if `updated` is > `STALE_DAYS` = 45 days old). This is the scaling
+  answer — you scan the forest here and drill into a company only when it moved.
+- **Company view** (`#/TICKER`) renders only the sections a company actually has.
+
+## Depth scales with tier — don't fill every section for every company
+- `tier`: `core` (full 12 sections) · `active` (Overview + Thesis + Timeline +
+  Risks + Position) · `watch` (Overview only). Depth should track how much
+  capital/attention the holding earns. Empty sections are hidden automatically;
+  do NOT pad a watch-tier company to look like a core one. If you can't even fill
+  the `active` minimum, that's a signal the position isn't understood — surface
+  it, don't paper over it. Give every company a short `tagline` for its home row.
+
 ## Golden rules
 - **Never put company facts in `app.js`.** It is a generic template. All content
   lives in `data/companies/<ticker>.js`.

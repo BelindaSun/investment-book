@@ -32,20 +32,43 @@
 
   // ---- section registry -------------------------------------------------
   // id, number, label, and a render(company) → HTML string
+  // `has(company)` decides whether a section shows at all. Sparse companies
+  // (Watch/starter tier) simply don't fill the deeper sections, and the nav +
+  // page skip them — depth scales with how much the company earns your attention.
+  // Section numbers are fixed identities, so a sparse company shows e.g. 01/09/12.
+  const nonEmpty = (a) => !!(a && a.length);
   const SECTIONS = [
-    { id: "overview", n: "01", label: "Overview", render: renderOverview },
-    { id: "thesis", n: "02", label: "Core Thesis", render: renderThesis },
-    { id: "business", n: "03", label: "Business", render: renderBusiness },
-    { id: "ai-moat", n: "04", label: "AI & Moat", render: renderAiMoat },
-    { id: "drivers", n: "05", label: "Drivers & Ecosystem", render: renderDrivers },
-    { id: "competition", n: "06", label: "Competition", render: renderCompetition },
-    { id: "metrics", n: "07", label: "Key Metrics", render: renderMetrics },
-    { id: "financials", n: "08", label: "Financials & Valuation", render: renderFinancials },
-    { id: "timeline", n: "09", label: "Timeline", render: renderTimeline },
-    { id: "evolution", n: "10", label: "Thesis Evolution", render: renderEvolution },
-    { id: "risks", n: "11", label: "Risks / Invalidation", render: renderRisks },
-    { id: "position", n: "12", label: "My Position", render: renderPosition },
+    { id: "overview", n: "01", label: "Overview", render: renderOverview, has: () => true },
+    { id: "thesis", n: "02", label: "Core Thesis", render: renderThesis, has: (c) => nonEmpty(c.theses) },
+    { id: "business", n: "03", label: "Business", render: renderBusiness, has: (c) => nonEmpty(c.business) },
+    { id: "ai-moat", n: "04", label: "AI & Moat", render: renderAiMoat, has: (c) => !!c.aiMoat },
+    { id: "drivers", n: "05", label: "Drivers & Ecosystem", render: renderDrivers, has: (c) => nonEmpty(c.drivers) || !!c.ecosystem },
+    { id: "competition", n: "06", label: "Competition", render: renderCompetition, has: (c) => nonEmpty(c.competition) },
+    { id: "metrics", n: "07", label: "Key Metrics", render: renderMetrics, has: (c) => nonEmpty(c.metrics) },
+    { id: "financials", n: "08", label: "Financials & Valuation", render: renderFinancials, has: (c) => !!(c.financials && nonEmpty(c.financials.rows)) },
+    { id: "timeline", n: "09", label: "Timeline", render: renderTimeline, has: (c) => nonEmpty(c.timeline) },
+    { id: "evolution", n: "10", label: "Thesis Evolution", render: renderEvolution, has: (c) => nonEmpty(c.thesisEvolution) },
+    { id: "risks", n: "11", label: "Risks / Invalidation", render: renderRisks, has: (c) => nonEmpty(c.risks) },
+    { id: "position", n: "12", label: "My Position", render: renderPosition, has: (c) => !!c.position },
   ];
+
+  // ---- tiers + staleness ------------------------------------------------
+  const STALE_DAYS = 45; // a thesis untouched longer than this gets a review flag
+  const TIERS = [
+    { key: "core", label: "Core conviction", short: "Core" },
+    { key: "active", label: "Active", short: "Active" },
+    { key: "watch", label: "Watch / starter", short: "Watch" },
+  ];
+  const tierOf = (c) => {
+    const t = c && c.tier ? String(c.tier).toLowerCase() : "active";
+    return TIERS.some((x) => x.key === t) ? t : "active";
+  };
+  function daysSince(dateStr) {
+    if (!dateStr) return null;
+    const d = new Date(dateStr + "T00:00:00");
+    if (isNaN(d.getTime())) return null;
+    return Math.floor((Date.now() - d.getTime()) / 86400000);
+  }
 
   // ---- boot: load company data files, then render -----------------------
   function loadCompanies(tickers) {
@@ -66,62 +89,152 @@
     );
   }
 
+  let currentTickers = [];
+  let currentTicker; // undefined = nothing rendered yet; null = portfolio home; string = a company
+
   const manifest = window.IB_MANIFEST || [];
   loadCompanies(manifest).then((loaded) => {
-    const tickers = loaded.filter(Boolean).filter((t) => window.IB_DATA && window.IB_DATA[t]);
-    if (!tickers.length) {
+    currentTickers = loaded.filter(Boolean).filter((t) => window.IB_DATA && window.IB_DATA[t]);
+    if (!currentTickers.length) {
       $("#main").innerHTML =
         '<div class="section"><h1 class="section-title">No company data loaded</h1>' +
         '<p class="section-lede">Add a ticker to <code>data/manifest.js</code> and a matching file in <code>data/companies/</code>.</p></div>';
       return;
     }
-    buildSwitcher(tickers);
-    buildNav();
+    buildSwitcher();
     wireChrome();
-    selectCompany(tickers[0]);
+    route();
+    window.addEventListener("hashchange", route);
   });
 
-  // ---- sidebar: company switcher + section nav --------------------------
-  let currentTicker = null;
+  // ---- routing: home (#/) vs company (#/TICKER) -------------------------
+  function route() {
+    const m = (location.hash || "").match(/^#\/([A-Za-z0-9.\-]+)$/);
+    const target = m && window.IB_DATA[m[1].toUpperCase()] ? m[1].toUpperCase() : null;
+    if (target === currentTicker) return; // already showing this view
+    if (target) selectCompany(target);
+    else showHome();
+  }
 
-  function buildSwitcher(tickers) {
+  // ---- sidebar: company switcher (grouped by tier) ----------------------
+  function buildSwitcher() {
     const wrap = $("#companySwitcher");
     wrap.innerHTML = "";
-    tickers.forEach((t) => {
-      const c = window.IB_DATA[t];
-      const btn = el("button", "company-btn", `<span class="cb-ticker">${esc(t)}</span><span class="cb-name">${esc(c.name || "")}</span>`);
-      btn.dataset.ticker = t;
-      btn.addEventListener("click", () => selectCompany(t));
-      wrap.appendChild(btn);
+    TIERS.forEach((tier) => {
+      const items = currentTickers.filter((t) => tierOf(window.IB_DATA[t]) === tier.key);
+      if (!items.length) return;
+      wrap.appendChild(el("div", "switch-tier", esc(tier.short)));
+      items.forEach((t) => {
+        const c = window.IB_DATA[t];
+        const btn = el("button", "company-btn", `<span class="cb-ticker">${esc(t)}</span><span class="cb-name">${esc(c.name || "")}</span>`);
+        btn.dataset.ticker = t;
+        btn.addEventListener("click", () => selectCompany(t));
+        wrap.appendChild(btn);
+      });
     });
   }
 
-  function buildNav() {
+  function buildNav(sections) {
     const nav = $("#sectionNav");
     nav.innerHTML = "";
-    SECTIONS.forEach((s) => {
+    sections.forEach((s) => {
       const a = el("a", null, `<span class="n">${s.n}</span><span>${esc(s.label)}</span>`);
       a.href = "#" + s.id;
       a.dataset.section = s.id;
-      a.addEventListener("click", () => closeNav());
+      a.addEventListener("click", (e) => {
+        e.preventDefault();
+        const node = document.getElementById(s.id);
+        if (node) node.scrollIntoView();
+        closeNav();
+      });
       nav.appendChild(a);
     });
   }
 
-  function selectCompany(t) {
-    currentTicker = t;
-    const c = window.IB_DATA[t];
-    document.querySelectorAll(".company-btn").forEach((b) => b.classList.toggle("active", b.dataset.ticker === t));
-    $("#topbarTitle").textContent = t + " · Investment Book";
-    document.title = t + " · Investment Book";
-    renderCompany(c);
+  // ---- portfolio home ---------------------------------------------------
+  function showHome() {
+    currentTicker = null;
+    document.querySelectorAll(".company-btn").forEach((b) => b.classList.remove("active"));
+    $("#homeLink").classList.add("active");
+    $("#sectionNav").innerHTML = "";
+    $("#topbarTitle").textContent = "Investment Book";
+    document.title = "My Investment Book";
+    const main = $("#main");
+    main.innerHTML = renderHome();
+    main.querySelectorAll(".pf-row").forEach((r) => r.addEventListener("click", () => selectCompany(r.dataset.ticker)));
+    if (spyObserver) spyObserver.disconnect();
+    if (location.hash !== "#/") location.hash = "#/";
     window.scrollTo(0, 0);
   }
 
-  function renderCompany(c) {
+  function renderHome() {
+    const companies = currentTickers.map((t) => window.IB_DATA[t]);
+    const holdings = companies.length;
+    const totalWeight = companies.reduce((s, c) => s + num(c.position && c.position.portfolioWeight), 0);
+    const staleCount = companies.filter((c) => {
+      const d = daysSince(c.updated);
+      return d != null && d > STALE_DAYS;
+    }).length;
+
+    const groups = TIERS.map((tier) => {
+      const rows = companies.filter((c) => tierOf(c) === tier.key);
+      if (!rows.length) return "";
+      return `<div class="tier-group">
+        <div class="tier-head">${esc(tier.label)} <span class="tier-count">${rows.length}</span></div>
+        <div class="pf-rows">${rows.map(homeRow).join("")}</div>
+      </div>`;
+    }).join("");
+
+    return `
+      <div class="home-head">
+        <div class="eyebrow">Portfolio</div>
+        <h1 class="section-title">My Investment Book</h1>
+        <p class="section-lede">${holdings} holding${holdings === 1 ? "" : "s"} · ${totalWeight ? totalWeight.toFixed(0) + "% of portfolio tracked" : "weights not set"}${staleCount ? ` · <span class="stale-inline">${staleCount} need${staleCount === 1 ? "s" : ""} review</span>` : ""}</p>
+      </div>
+      <div class="pf-head"><span></span><span>Holding</span><span>Thesis</span><span>Weight</span><span>Return</span><span>Updated</span><span>Why</span></div>
+      ${groups}
+    `;
+  }
+
+  function homeRow(c) {
+    const p = c.position || {};
+    const ret =
+      p.avgCost != null && p.currentPrice != null && num(p.avgCost)
+        ? ((num(p.currentPrice) - num(p.avgCost)) / num(p.avgCost)) * 100
+        : null;
+    const d = daysSince(c.updated);
+    const stale = d != null && d > STALE_DAYS;
+    const age = d == null ? "—" : d <= 0 ? "today" : d + "d";
+    return `<button class="pf-row" data-ticker="${esc(c.ticker)}">
+      <span class="pf-dot ${statusClass(c.thesisStatus)}"><span class="dot"></span></span>
+      <span class="pf-id"><span class="pf-ticker">${esc(c.ticker)}</span><span class="pf-name">${esc(c.name || "")}</span></span>
+      <span class="pf-thesis ${statusClass(c.thesisStatus)}">${esc(c.thesisStatus || "—")}</span>
+      <span class="pf-weight">${p.portfolioWeight != null ? p.portfolioWeight + "%" : "—"}</span>
+      <span class="pf-return ${ret == null ? "" : ret >= 0 ? "pos" : "neg"}">${ret == null ? "—" : (ret >= 0 ? "+" : "") + ret.toFixed(0) + "%"}</span>
+      <span class="pf-age ${stale ? "stale" : ""}" title="${d == null ? "" : "updated " + d + " days ago"}">${stale ? "⚠ " : ""}${age}</span>
+      <span class="pf-why">${esc(c.tagline || c.oneLiner || "")}</span>
+    </button>`;
+  }
+
+  // ---- company view -----------------------------------------------------
+  function selectCompany(t) {
+    currentTicker = t;
+    const c = window.IB_DATA[t];
+    $("#homeLink").classList.remove("active");
+    document.querySelectorAll(".company-btn").forEach((b) => b.classList.toggle("active", b.dataset.ticker === t));
+    $("#topbarTitle").textContent = t + " · Investment Book";
+    document.title = t + " · Investment Book";
+    const sections = SECTIONS.filter((s) => s.has(c));
+    buildNav(sections);
+    renderCompany(c, sections);
+    if (location.hash !== "#/" + t) location.hash = "#/" + t;
+    window.scrollTo(0, 0);
+  }
+
+  function renderCompany(c, sections) {
     const main = $("#main");
     main.innerHTML = "";
-    SECTIONS.forEach((s) => {
+    sections.forEach((s) => {
       const wide = ["financials"].includes(s.id);
       const sec = el("section", "section" + (wide ? " wide" : ""));
       sec.id = s.id;
@@ -139,17 +252,16 @@
 
   function renderOverview(c) {
     const p = c.position || {};
-    const curVal = num(p.shares) * num(p.currentPrice);
-    const cost = num(p.shares) * num(p.avgCost);
-    const pl = curVal - cost;
-    const plPct = cost ? (pl / cost) * 100 : 0;
-    const plCls = pl >= 0 ? "pos" : "neg";
+    // Return % is price-based (cost vs price) — independent of shares, so it works
+    // for a watch position that has no share count yet.
+    const retPct = num(p.avgCost) && p.currentPrice != null ? ((num(p.currentPrice) - num(p.avgCost)) / num(p.avgCost)) * 100 : null;
+    const retCls = retPct == null ? "" : retPct >= 0 ? "pos" : "neg";
 
     const posItems = [
       ["Avg cost", p.avgCost != null ? "$" + fmt(p.avgCost) : "—"],
       ["Current", p.currentPrice != null ? "$" + fmt(p.currentPrice) : "—"],
       ["Weight", p.portfolioWeight != null ? p.portfolioWeight + "%" : "—"],
-      ["Return", (p.avgCost != null && p.currentPrice != null) ? `<span class="${plCls}">${pl >= 0 ? "+" : ""}${plPct.toFixed(1)}%</span>` : "—"],
+      ["Return", retPct == null ? "—" : `<span class="${retCls}">${retPct >= 0 ? "+" : ""}${retPct.toFixed(1)}%</span>`],
     ]
       .map(([k, v]) => `<div class="pos-item"><div class="k">${k}</div><div class="v">${v}</div></div>`)
       .join("");
@@ -202,7 +314,7 @@
         </div>
         <div class="panel">
           <div class="panel-label">Thesis Health</div>
-          <div class="health-rows">${health}</div>
+          <div class="health-rows">${health || '<div class="empty-note">No theses yet — add them when this graduates from a watch position.</div>'}</div>
         </div>
       </div>
 
@@ -422,17 +534,23 @@
   function renderPosition(c) {
     const p = c.position || {};
     const head = sectionHead("12 · My Position", "My Position", "The private ledger. Company quality and stock valuation are kept separate on purpose — a great company is not a buy at any price.");
+    const hasShares = num(p.shares) > 0;
+    const retPct = num(p.avgCost) && p.currentPrice != null ? ((num(p.currentPrice) - num(p.avgCost)) / num(p.avgCost)) * 100 : null;
     const curVal = num(p.shares) * num(p.currentPrice);
-    const cost = num(p.shares) * num(p.avgCost);
-    const pl = curVal - cost;
-    const plPct = cost ? (pl / cost) * 100 : 0;
+    const pl = curVal - num(p.shares) * num(p.avgCost);
+    const plCell =
+      hasShares && p.avgCost != null && p.currentPrice != null
+        ? `<span class="${pl >= 0 ? "pos" : "neg"}">${pl >= 0 ? "+" : ""}$${fmt(pl)} (${retPct >= 0 ? "+" : ""}${retPct.toFixed(1)}%)</span>`
+        : retPct != null
+        ? `<span class="${retPct >= 0 ? "pos" : "neg"}">${retPct >= 0 ? "+" : ""}${retPct.toFixed(1)}%</span>`
+        : "—";
 
     const rows = [
       ["Shares", p.shares != null ? fmt(p.shares) : "—"],
       ["Average cost", p.avgCost != null ? "$" + fmt(p.avgCost) : "—"],
       ["Current price", p.currentPrice != null ? "$" + fmt(p.currentPrice) : "—"],
-      ["Current value", p.currentPrice != null ? "$" + fmt(curVal) : "—"],
-      ["Unrealized P/L", p.avgCost != null ? `<span class="${pl >= 0 ? "pos" : "neg"}">${pl >= 0 ? "+" : ""}$${fmt(pl)} (${pl >= 0 ? "+" : ""}${plPct.toFixed(1)}%)</span>` : "—"],
+      ["Current value", hasShares && p.currentPrice != null ? "$" + fmt(curVal) : "—"],
+      ["Unrealized P/L", plCell],
       ["Portfolio weight", p.portfolioWeight != null ? p.portfolioWeight + "%" : "—"],
       ["Target weight", p.targetWeight != null ? p.targetWeight + "%" : "—"],
     ]
@@ -536,6 +654,10 @@
     $("#themeToggleMobile").addEventListener("click", cycle);
     $("#hamburger").addEventListener("click", () => $("#app").classList.toggle("nav-open"));
     $("#scrim").addEventListener("click", closeNav);
+    const goHome = () => { showHome(); closeNav(); };
+    $("#homeLink").addEventListener("click", goHome);
+    const brand = $("#brandHome");
+    if (brand) brand.addEventListener("click", goHome);
   }
   function closeNav() { $("#app").classList.remove("nav-open"); }
 

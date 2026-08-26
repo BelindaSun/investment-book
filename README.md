@@ -27,9 +27,27 @@ no database, no login.
   (A local server is only needed if double-click ever fails to load the data
   files in your browser; most browsers load them fine from `file://`.)
 
-The reading flow follows the decision loop: **Overview** (one-screen cockpit) →
-**Core Thesis** → the evidence sections → **Timeline** (Event→Thesis→Action) →
-**Thesis Evolution** → **Risks/Invalidation** → **My Position**.
+You land on the **Portfolio home** — every holding as one row, grouped by tier,
+showing thesis status, weight, snapshot return, and how long since you last
+touched it (anything older than 45 days is flagged *needs review*). Scan the
+forest here; click a row to drill into a company.
+
+Inside a company, the reading flow follows the decision loop: **Overview**
+(one-screen cockpit) → **Core Thesis** → the evidence sections → **Timeline**
+(Event→Thesis→Action) → **Thesis Evolution** → **Risks/Invalidation** →
+**My Position**.
+
+**Depth scales with tier**, so 10 companies don't become 10× the work:
+
+| tier | shows | for |
+| --- | --- | --- |
+| `core` | all 12 sections | real conviction, sized positions |
+| `active` | Overview + Thesis + Timeline + Risks + Position | held, decision-critical |
+| `watch` | just the Overview | starters / watchlist |
+
+Sections you don't fill are simply hidden — a watch-tier company shows a short
+nav, not a fake 12. If you can't even fill the `active` minimum, that's a signal
+you don't understand the position well enough to size it up.
 
 Theme toggle (bottom-left of the sidebar) cycles Default → Sepia → Dark.
 

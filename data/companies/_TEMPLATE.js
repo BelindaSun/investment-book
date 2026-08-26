@@ -31,8 +31,14 @@ window.IB_DATA = window.IB_DATA || {};
 window.IB_DATA.TICKER = {
   ticker: "TICKER",
   name: "Company Name Inc.",
+  tier: "active", // core | active | watch — controls depth + grouping on the portfolio home.
+                  //   core   = full conviction: fill all 12 sections.
+                  //   active = decision-critical minimum: Overview + Thesis + Timeline + Risks + Position.
+                  //   watch  = one-screen: just the Overview fields below.
+                  // You don't have to fill every section — empty ones are hidden from nav and page.
+  tagline: "Very short line shown on the portfolio home row.",
   oneLiner: "One sentence: what this company fundamentally is / the question it's answering.",
-  updated: "YYYY-MM-DD",
+  updated: "YYYY-MM-DD", // keep current — the portfolio home flags anything untouched > 45 days.
   thesisStatus: "Healthy",
   statusNote: "One paragraph: the current state of the case in plain language.",
 

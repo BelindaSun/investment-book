@@ -19,6 +19,8 @@ window.IB_DATA = window.IB_DATA || {};
 window.IB_DATA.GOOGL = {
   ticker: "GOOGL",
   name: "Alphabet Inc.",
+  tier: "core", // core | active | watch — sets depth + grouping on the portfolio home
+  tagline: "Cash machine funding a credible bid to own the AI transition.", // short line for the portfolio row
   oneLiner:
     "The company that organizes the world's information — now testing whether it can own the AI transition it helped invent, instead of being disrupted by it.",
   updated: "2026-08-26",
