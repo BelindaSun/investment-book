@@ -7,6 +7,7 @@ window.IB_DATA.AVGO = {
   ticker: "AVGO",
   name: "Broadcom Inc.",
   tier: "active",
+  holdingStatus: "held",
   tagline: "帮超大厂造反 NVDA 的定制芯片 + VMware 软件收租。",
   oneLiner:
     "一手做定制 AI ASIC（帮超大厂造「非 NVDA」的芯片），一手靠 VMware 等软件收高黏性的租。悬念在定制 ASIC 的持续性、软件整合的兑现，以及客户高度集中。",
@@ -14,6 +15,15 @@ window.IB_DATA.AVGO = {
   thesisStatus: "Healthy",
   statusNote:
     "定制 AI ASIC 让它成为「自研芯片浪潮」的军火商——超大厂越想摆脱 NVDA，越依赖 Broadcom。VMware 把它变成软硬结合、现金流更稳的公司。风险在客户集中、债务/整合，以及定制订单的周期性。",
+
+  currentDecision: "持有",
+  decisionReason:
+    "定制 ASIC 是自研浪潮的直接受益者、软件抬毛利与黏性；但客户集中 + 并购债务、估值偏高。当前不动仓位，等财报确认基本面。",
+  nextDecisionTriggers: [
+    "定制 ASIC 订单能见度下降、或主要客户转回通用 GPU",
+    "软件客户大规模流失、或整合未兑现协同",
+    "主要客户之一大幅削减定制订单",
+  ],
 
   whyIOwnIt: [
     "定制 AI ASIC 的头号玩家——超大厂造「非 NVDA」芯片都要找它，是自研浪潮的直接受益者。",
@@ -47,7 +57,7 @@ window.IB_DATA.AVGO = {
       marketMisunderstanding: "市场常把 AI 芯片叙事等同于 NVDA；Broadcom 是押注「客户自研替代」的另一面，且不需要赌哪家赢。",
       supporting: [
         { text: "是多家超大厂定制 AI 芯片的关键设计合作方。", tag: "FACT" },
-        { text: "AI 相关订单/backlog 持续增长（ARK 等机构 2026-08 加仓）。", tag: "FACT" },
+        { text: "AI 定制芯片相关订单/backlog 增长（具体数字以财报为准，待核实）。", tag: "INFERENCE" },
       ],
       contrary: [
         { text: "定制订单集中在少数超大厂，能见度受其 capex 摆布。", tag: "FACT" },
@@ -100,14 +110,15 @@ window.IB_DATA.AVGO = {
 
   timeline: [
     { date: "2026-08-26", event: "为 AVGO 开立投资账本（起点）", whyItMatters: "基线快照。", node: "全部", thesisImpact: "flat", action: "不动仓位——建立记录。", source: null, related: null },
-    { date: "2026-08-xx", event: "ARK 等机构加仓 AI 芯片股（含 AVGO）", whyItMatters: "反映市场对「定制 ASIC」叙事的认可，是情绪面确认，非基本面新信息。", node: "定制 ASIC", thesisImpact: "flat", action: "不动仓位；把机构加仓当情绪，等财报确认基本面。", source: { label: "AVGO 行情综合（2026-08）", url: "https://tickeron.com/ticker/AVGO/" }, related: { label: "Stock Why 维基", url: "https://belindasun.github.io/stock-why-wiki/" } },
+    { date: "2026-08", datePrecision: "month", event: "资金面：ARK 等机构加仓 AI 芯片股（含 AVGO）", whyItMatters: "这是 fund flow / 情绪面，不是基本面证据——刻意放在时间线而非 thesis 的支持证据里。真正要等的是财报里的定制 ASIC 订单与毛利。", node: "情绪 / 资金面", thesisImpact: "flat", action: "不动仓位；把机构加仓当情绪，等财报确认基本面。", source: { label: "资金流报道（aggregator，仅供参考）", url: "https://tickeron.com/ticker/AVGO/" }, related: { label: "Stock Why 维基", url: "https://belindasun.github.io/stock-why-wiki/" } },
   ],
 
-  risks: [
-    { thesis: "定制 ASIC", condition: "若 定制 ASIC 订单能见度下降、或主要客户转回通用 GPU，则 定制芯片逻辑削弱。", status: "Strong" },
-    { thesis: "软件护城河", condition: "若 软件客户大规模流失、或整合未能兑现协同，则 软件护城河逻辑削弱。", status: "Healthy" },
-    { thesis: "集中 / 债务", condition: "若 主要客户之一大幅削减定制订单、且债务负担限制回旋空间，则 财务与估值同步承压。", status: "Watching" },
+  thesisEvolution: [
+    { date: "2026-08-26", label: "AI 辅助初稿（待认领）", note: "本档案由 Claude 辅助生成初稿，尚未经 Belinda 逐条确认。Review 后再新增「Day Zero：thesis 正式认领」。" },
   ],
+
+  // 逐条证伪条件在各 thesis 的 invalidation（唯一真相来源，页面自动派生）。此处只留跨逻辑 / 存续性风险。AVGO 暂无。
+  risks: [],
 
   stockWhy: { label: "AVGO · Stock Why 维基", url: "https://belindasun.github.io/stock-why-wiki/", note: "市场波动的因果溯源在 Stock Why 维基；这本账本只问它是否改变了逻辑。" },
 };

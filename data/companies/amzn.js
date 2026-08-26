@@ -7,6 +7,7 @@ window.IB_DATA.AMZN = {
   ticker: "AMZN",
   name: "Amazon.com Inc.",
   tier: "core",
+  holdingStatus: "held",
   tagline: "AWS 印钱、广告加速、零售回血——三条腿的复利机器。",
   oneLiner:
     "一台被当成「零售公司」定价、实则由 AWS 和广告驱动利润的复利机器。真正的悬念是：AWS 能否在 AI 时代二次加速，零售利润率的结构性改善能否延续。",
@@ -14,6 +15,20 @@ window.IB_DATA.AMZN = {
   thesisStatus: "Healthy",
   statusNote:
     "AWS 是利润引擎，广告是隐藏的高毛利增长极，零售利润率在结构性改善。开放风险集中在 AWS 增速与 AI 份额、以及巨额 capex 的回报。市场常低估「非零售」利润的占比。",
+
+  currentDecision: "持有",
+  decisionReason:
+    "AWS + 广告的利润质量被合并报表低估；零售利润率在改善。关注 AWS 的 AI 份额与 capex 回报。当前不动仓位。",
+  nextDecisionTriggers: [
+    "AWS 增速持续低于云同侪、或营业利润率下滑",
+    "广告增速大幅放缓至个位数",
+    "零售营业利润率重新转负（且无一次性因素）",
+    "CapEx 持续攀升而 FCF 长期为负",
+  ],
+
+  sources: {
+    "px-2026-08-12": { label: "大型科技股行情（Motley Fool 汇总）", url: "https://www.fool.com/investing/2026/08/12/alphabet-amazon-meta-platforms-and-microsoft-this/", date: "2026-08-12", type: "media" },
+  },
 
   whyIOwnIt: [
     "AWS 印钱——云第一名，且靠 Bedrock + 自研 Trainium 在 AI 时代二次加速。",
@@ -47,7 +62,7 @@ window.IB_DATA.AMZN = {
       marketMisunderstanding: "市场按「零售低毛利」给整体定价，低估了 AWS + 广告的利润质量。",
       supporting: [
         { text: "AWS 贡献了绝大部分营业利润。", tag: "FACT" },
-        { text: "自研 Trainium/Inferentia 降低对 NVDA 的成本依赖。", tag: "FACT" },
+        { text: "自研 Trainium/Inferentia 意在降低对 NVDA 的成本依赖（实际采纳规模与降本幅度待验证）。", tag: "INFERENCE" },
       ],
       contrary: [
         { text: "Azure、Google Cloud 增速更快，AI 心智一度领先。", tag: "FACT" },
@@ -208,7 +223,7 @@ window.IB_DATA.AMZN = {
 
   timeline: [
     { date: "2026-08-26", event: "为 AMZN 开立投资账本（起点）", whyItMatters: "基线快照。", node: "全部", thesisImpact: "flat", action: "不动仓位——建立记录。", source: null, related: null },
-    { date: "2026-08-xx", event: "占位——财报（AWS 增速/利润率、广告、零售利润率）", whyItMatters: "对三条核心逻辑的主要检验。", node: "AWS / 广告 / 零售", thesisImpact: "flat", action: "确认前不动仓位。", source: null, related: { label: "Stock Why 维基", url: "https://belindasun.github.io/stock-why-wiki/" } },
+    { date: "2026-08", datePrecision: "month", event: "占位——财报（AWS 增速/利润率、广告、零售利润率）", whyItMatters: "对三条核心逻辑的主要检验。", node: "AWS / 广告 / 零售", thesisImpact: "flat", action: "确认前不动仓位。", source: null, related: { label: "Stock Why 维基", url: "https://belindasun.github.io/stock-why-wiki/" } },
   ],
 
   thesisEvolution: [
@@ -216,15 +231,12 @@ window.IB_DATA.AMZN = {
     { date: "2015–2022", label: "AWS 重估 + 广告崛起", note: "AWS 成为利润引擎，广告成第三极，公司被重新定价为科技巨头。" },
     { date: "2023–2025", label: "降本增效 + AI 云", note: "物流区域化改善零售利润率；Bedrock + 自研芯片切入 AI。" },
     { date: "2026（当前）", label: "健康，聚焦 AWS 二次加速", note: "关注 AWS 的 AI 份额、广告延续、capex 回报。仓位接近目标。" },
+    { date: "2026-08-26", label: "AI 辅助初稿（待认领）", note: "本档案由 Claude 辅助生成初稿，尚未经 Belinda 逐条确认。Review 后再新增「Day Zero：thesis 正式认领」。" },
     { date: "未来", label: "什么会让我改变主意", note: "留白。AWS 增速或零售利润率的实质变化时更新。" },
   ],
 
-  risks: [
-    { thesis: "AWS 引擎", condition: "若 AWS 增速持续低于云同侪、且营业利润率下滑，则 利润引擎逻辑转弱。", status: "Watching" },
-    { thesis: "广告", condition: "若 广告增速大幅放缓至个位数，则 高毛利增长极逻辑减弱。", status: "Strengthening" },
-    { thesis: "零售利润率", condition: "若 零售营业利润率重新转负、且无一次性因素，则 改善逻辑逆转。", status: "Healthy" },
-    { thesis: "CapEx / 监管", condition: "若 capex 持续攀升而 FCF 长期为负、且 AWS 未加速，则 资本回报逻辑转弱→减仓。", status: "Watching" },
-  ],
+  // 逐条证伪条件在各 thesis 的 invalidation（唯一真相来源，页面自动派生）。此处只留跨逻辑 / 存续性风险。AMZN 暂无。
+  risks: [],
 
   stockWhy: { label: "AMZN · Stock Why 维基", url: "https://belindasun.github.io/stock-why-wiki/", note: "市场波动的因果溯源在 Stock Why 维基；这本账本只问它是否改变了逻辑。" },
 };

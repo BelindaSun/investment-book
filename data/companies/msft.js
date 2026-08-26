@@ -7,6 +7,7 @@ window.IB_DATA.MSFT = {
   ticker: "MSFT",
   name: "Microsoft Corp.",
   tier: "core",
+  holdingStatus: "held",
   tagline: "把 AI 塞进每一个企业工作流，靠 Azure + Copilot 收租。",
   oneLiner:
     "全世界最强的企业分发渠道，正试图把它变成 AI 的收费入口。真正的悬念不是「AI 强不强」，而是 Copilot 能否规模化变现，以及与 OpenAI 的关系到底是资产还是风险。",
@@ -14,6 +15,20 @@ window.IB_DATA.MSFT = {
   thesisStatus: "Healthy",
   statusNote:
     "核心引擎（Azure、M365、Windows）稳健且高毛利，企业分发是把 AI 变现的最短路径。开放风险集中在三处：Copilot 变现的实际留存、OpenAI 关系的竞合与治理、以及巨额 AI capex 的回报节奏。",
+
+  currentDecision: "持有",
+  decisionReason:
+    "企业分发是变现 AI 最短的路，Azure + OpenAI 领先；但 Copilot 留存、OpenAI 竞合、capex 回报三处待验证。当前不动仓位。",
+  nextDecisionTriggers: [
+    "Copilot 座席增长或续约率出现明显拐点（正或负）",
+    "Azure 增速掉档、或云毛利率下滑",
+    "OpenAI 关系从合作滑向实质竞争",
+    "CapEx 持续攀升而 FCF 停滞",
+  ],
+
+  sources: {
+    "px-2026-08-12": { label: "大型科技股行情（Motley Fool 汇总）", url: "https://www.fool.com/investing/2026/08/12/alphabet-amazon-meta-platforms-and-microsoft-this/", date: "2026-08-12", type: "media" },
+  },
 
   whyIOwnIt: [
     "全球企业软件的默认底座——把 AI 卖给已经在付费的数亿座席，几乎零获客成本。",
@@ -65,12 +80,12 @@ window.IB_DATA.MSFT = {
       status: "Strengthening",
       trend: "up",
       statement:
-        "Azure 借 OpenAI 独家关系和 AI 工作负载，把增长与心智都拉到云市场前列，同时用自研 Maia 芯片对冲对 NVDA 的成本依赖。",
+        "Azure 借与 OpenAI 的深度合作关系（商业条款可能随合同演变）和 AI 工作负载，把增长与心智都拉到云市场前列，同时用自研 Maia 芯片试图对冲对 NVDA 的成本依赖。",
       marketMisunderstanding:
         "空头担心 capex 吞噬利润。我的看法：只要 AI 消费转化为经常性 Azure 收入，capex 就是在铺高毛利的租金管道。",
       supporting: [
         { text: "Azure 增速由 AI 工作负载明显拉动。", tag: "FACT" },
-        { text: "自研 Maia 芯片降低长期算力成本。", tag: "FACT" },
+        { text: "自研 Maia 芯片旨在降低长期算力成本（实际部署规模与经济性尚待验证）。", tag: "INFERENCE" },
       ],
       contrary: [
         { text: "AWS 更大、Google Cloud 增速也快，竞争激烈。", tag: "FACT" },
@@ -107,7 +122,7 @@ window.IB_DATA.MSFT = {
       statement:
         "OpenAI 关系既是微软 AI 领先的来源，也带来治理、成本和竞合风险——OpenAI 既是伙伴，也在向企业直接扩张，可能与微软争食。",
       marketMisunderstanding: "市场时而把 OpenAI 当纯资产、时而当纯风险；现实是两者兼有，需要动态看。",
-      supporting: [{ text: "独家云关系 + 优先技术获取带来领先。", tag: "FACT" }],
+      supporting: [{ text: "深度云合作 + 优先技术获取带来领先（关系条款可能随合同变化）。", tag: "INFERENCE" }],
       contrary: [
         { text: "OpenAI 直接做企业产品，与微软存在竞合。", tag: "FACT" },
         { text: "OpenAI 治理动荡曾外溢到微软叙事。", tag: "FACT" },
@@ -211,7 +226,7 @@ window.IB_DATA.MSFT = {
 
   timeline: [
     { date: "2026-08-26", event: "为 MSFT 开立投资账本（起点）", whyItMatters: "基线快照。", node: "全部", thesisImpact: "flat", action: "不动仓位——建立记录。", source: null, related: null },
-    { date: "2026-08-xx", event: "占位——财报（Azure 增速 / Copilot 采纳 / capex 指引）", whyItMatters: "对 Azure 与 Copilot 变现两条逻辑的主要检验。", node: "Azure / Copilot", thesisImpact: "flat", action: "确认前不动仓位。", source: null, related: { label: "Stock Why 维基", url: "https://belindasun.github.io/stock-why-wiki/" } },
+    { date: "2026-08", datePrecision: "month", event: "占位——财报（Azure 增速 / Copilot 采纳 / capex 指引）", whyItMatters: "对 Azure 与 Copilot 变现两条逻辑的主要检验。", node: "Azure / Copilot", thesisImpact: "flat", action: "确认前不动仓位。", source: null, related: { label: "Stock Why 维基", url: "https://belindasun.github.io/stock-why-wiki/" } },
   ],
 
   thesisEvolution: [
@@ -219,16 +234,12 @@ window.IB_DATA.MSFT = {
     { date: "2014–2022", label: "Nadella 的云转型", note: "Azure + 订阅化把公司重塑为云巨头，重回增长与重估。" },
     { date: "2023–2025", label: "OpenAI + Copilot 的 AI 时代", note: "抢先接入 OpenAI，Copilot 铺向全线产品，AI 叙事领先。" },
     { date: "2026（当前）", label: "健康，聚焦变现与 capex 回报", note: "关注 Copilot 留存、OpenAI 竞合、capex→FCF。仓位接近目标。" },
+    { date: "2026-08-26", label: "AI 辅助初稿（待认领）", note: "本档案由 Claude 辅助生成初稿，尚未经 Belinda 逐条确认。Review 后再新增「Day Zero：thesis 正式认领」。" },
     { date: "未来", label: "什么会让我改变主意", note: "留白。Copilot 变现或 OpenAI 关系的实质变化时更新。" },
   ],
 
-  risks: [
-    { thesis: "企业分发", condition: "若 Copilot 座席增长停滞、且续约率下滑，则 企业分发变现逻辑转弱。", status: "Watching" },
-    { thesis: "Azure AI", condition: "若 Azure 增速掉档、同时云毛利率下滑，则 AI 云逻辑进入观察。", status: "Strengthening" },
-    { thesis: "Copilot 变现", condition: "若 Copilot 试点大面积不转正、或被迫降价，则 变现逻辑削弱。", status: "Watching" },
-    { thesis: "OpenAI 依赖", condition: "若 OpenAI 转向竞争、且自研模型未能补位，则 AI 领先来源受损。", status: "Watching" },
-    { thesis: "CapEx 回报", condition: "若 capex 连续攀升而 FCF 停滞、且 Azure 未加速，则 资本回报逻辑转弱→减仓。", status: "Watching" },
-  ],
+  // 逐条证伪条件在各 thesis 的 invalidation（唯一真相来源，页面自动派生）。此处只留跨逻辑 / 存续性风险。MSFT 暂无。
+  risks: [],
 
   stockWhy: { label: "MSFT · Stock Why 维基", url: "https://belindasun.github.io/stock-why-wiki/", note: "市场波动的因果溯源在 Stock Why 维基；这本账本只问它是否改变了逻辑。" },
 };

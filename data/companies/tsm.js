@@ -7,13 +7,28 @@ window.IB_DATA.TSM = {
   ticker: "TSM",
   name: "Taiwan Semiconductor (TSMC)",
   tier: "active",
+  holdingStatus: "held",
   tagline: "所有人的芯片都在这里流片——AI 时代的收费站，但坐在地缘断层线上。",
   oneLiner:
-    "全球先进制程近乎垄断的代工厂。NVDA、AAPL、AMD、超大厂自研芯片全在这里流片。悬念不在需求，而在两件事：约 75% 毛利/高 capex 的平衡，以及台湾的地缘尾部风险。",
+    "全球先进制程近乎垄断的代工厂。NVDA、AAPL、AMD、超大厂自研芯片全在这里流片。悬念不在需求，而在两件事：高毛利（2026 Q2 约 67.7%）与高 capex 的平衡，以及台湾的地缘尾部风险。",
   updated: "2026-08-26",
   thesisStatus: "Strong",
   statusNote:
     "先进制程与 CoWoS 封装近乎垄断，是整条 AI 供应链的收费站。2026 Q2 收入 $40.2B、毛利率 67.7%，均超预期，并上调全年增长指引至略高于 40%、capex 升至 $18.75–20B（AI 需求强劲）。唯一的重大尾部是台湾地缘风险。",
+
+  currentDecision: "持有",
+  decisionReason:
+    "先进制程/CoWoS 近乎垄断、定价权强，Q2 超预期确认 AI 需求；主要变量是 capex 强度与地缘。当前不动仓位。",
+  nextDecisionTriggers: [
+    "竞争对手在先进节点实现规模量产并抢走大客户",
+    "capex 持续攀升而毛利率结构性下滑",
+    "台湾地缘风险实质升级",
+  ],
+
+  sources: {
+    "q2-2026": { label: "TSMC 2026 Q2 业绩（以官方 IR 为准）", url: "https://investor.tsmc.com/", date: "2026-07", type: "IR" },
+    "px-2026-08-24": { label: "TSM 行情（stockanalysis 汇总）", url: "https://stockanalysis.com/stocks/tsm/", date: "2026-08-24", type: "media" },
+  },
 
   whyIOwnIt: [
     "先进制程近乎垄断——几乎所有 AI 芯片都必须经过它，是「卖铲人的卖铲人」。",
@@ -46,8 +61,8 @@ window.IB_DATA.TSM = {
         "在最先进制程和 CoWoS 封装上，TSMC 几乎没有对手（三星、Intel 代工落后）。所有想要最强 AI 芯片的客户都必须来，赋予它罕见的定价权。",
       marketMisunderstanding: "市场把它当「周期性代工厂」；实际它在先进节点上是近乎垄断的收费站。",
       supporting: [
-        { text: "2026 Q2 毛利率 67.7%、收入 $40.2B，双双超预期。", tag: "FACT" },
-        { text: "上调 2026 全年增长指引至略高于 40%。", tag: "FACT" },
+        { text: "2026 Q2 毛利率 67.7%、收入 $40.2B，双双超预期。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
+        { text: "上调 2026 全年增长指引至略高于 40%。", tag: "FACT", source: "q2-2026", asOf: "2026-07" },
         { text: "CoWoS 封装产能是 AI 芯片的行业瓶颈。", tag: "FACT" },
       ],
       contrary: [
@@ -68,7 +83,7 @@ window.IB_DATA.TSM = {
       marketMisunderstanding: "多头只看增长，空头只看 capex；关键是两者的净效果——高毛利能否覆盖高投入。",
       supporting: [
         { text: "AI 需求推动产能满载与提价。", tag: "FACT" },
-        { text: "毛利率维持在约 67–70% 的高位。", tag: "FACT" },
+        { text: "毛利率维持在约 67–70% 的高位（2026 Q2 为 67.7%）。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
       ],
       contrary: [
         { text: "capex 逐年抬升，压制短期自由现金流。", tag: "FACT" },
@@ -100,14 +115,16 @@ window.IB_DATA.TSM = {
 
   timeline: [
     { date: "2026-08-26", event: "为 TSM 开立投资账本（起点）", whyItMatters: "基线快照。", node: "全部", thesisImpact: "flat", action: "不动仓位——建立记录。", source: null, related: null },
-    { date: "2026-07-xx", event: "Q2 财报超预期：收入 $40.2B、毛利率 67.7%，上调全年指引至 >40%、capex 升至 $18.75–20B", whyItMatters: "确认 AI 需求强劲、定价权稳固；capex 上调需盯毛利与 FCF 平衡。", node: "制程垄断 / AI 需求 vs capex", thesisImpact: "up", action: "不动仓位；逻辑得到强化。", source: { label: "TSM 行情/财报综合（2026-08）", url: "https://stockanalysis.com/stocks/tsm/" }, related: { label: "Stock Why 维基：TSM", url: "https://belindasun.github.io/stock-why-wiki/" } },
+    { date: "2026-07", datePrecision: "month", event: "Q2 财报超预期：收入 $40.2B、毛利率 67.7%，上调全年指引至 >40%、capex 升至 $18.75–20B", whyItMatters: "确认 AI 需求强劲、定价权稳固；capex 上调需盯毛利与 FCF 平衡。", node: "制程垄断 / AI 需求 vs capex", thesisImpact: "up", action: "不动仓位；逻辑得到强化。", source: { label: "TSMC IR（官方为准）", url: "https://investor.tsmc.com/" }, related: { label: "Stock Why 维基：TSM", url: "https://belindasun.github.io/stock-why-wiki/" } },
   ],
 
-  risks: [
-    { thesis: "制程垄断", condition: "若 竞争对手在先进节点实现规模量产、且抢走大客户，则 制程垄断逻辑削弱。", status: "Strong" },
-    { thesis: "AI 需求 vs capex", condition: "若 capex 持续攀升而毛利率结构性下滑，则 增长/资本平衡逻辑转弱。", status: "Healthy" },
-    { thesis: "地缘", condition: "若 台湾地缘风险实质升级（冲突/封锁/严厉管制），则 整个投资逻辑面临重大重估。", status: "Watching" },
+  thesisEvolution: [
+    { date: "2026-08-26", label: "AI 辅助初稿（待认领）", note: "本档案由 Claude 辅助生成初稿，尚未经 Belinda 逐条确认。Review 后再新增「Day Zero：thesis 正式认领」。" },
   ],
+
+  // 逐条证伪条件在各 thesis 的 invalidation（唯一真相来源，页面自动派生）。
+  // 台湾地缘属存续性风险，但已作为一条独立 thesis（含 invalidation）处理，故此处不重复。
+  risks: [],
 
   stockWhy: { label: "TSM · Stock Why 维基", url: "https://belindasun.github.io/stock-why-wiki/", note: "TSM 的市场波动因果溯源在 Stock Why 维基（那边已有 TSM 档案）；这本账本只问它是否改变了逻辑。" },
 };

@@ -205,6 +205,48 @@ h2.section-title { font-size: 1.5rem; margin: 0 0 6px; font-weight: 600; }
 .pf-age.stale { color: var(--down); }
 .pf-why { font-family: var(--font-sans); font-size: 0.85rem; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
+/* ---------------- Holding badge (held / watchlist / exited) ---------------- */
+.hold-badge, .pf-hold {
+  display: inline-flex; align-items: center; font-family: var(--font-sans);
+  font-size: 0.78rem; font-weight: 600; padding: 3px 11px; border-radius: 999px;
+  border: 1px solid var(--border); white-space: nowrap;
+}
+.hold-held { color: var(--ok); border-color: var(--ok-soft); background: var(--ok-soft); }
+.hold-watchlist { color: var(--watch); border-color: var(--watch-soft); background: var(--watch-soft); }
+.hold-exited, .hold-not-held { color: var(--text-muted); background: var(--bg-panel-2); }
+.pf-hold { font-size: 0.76rem; padding: 1px 9px; }
+
+.not-held { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; padding: 4px 0; }
+.not-held-text { font-family: var(--font-sans); font-size: 0.88rem; color: var(--text-muted); }
+
+/* ---------------- Decision signal ---------------- */
+.decision {
+  border: 1px solid var(--border); border-left: 3px solid var(--accent);
+  border-radius: 0 12px 12px 0; background: var(--bg-panel);
+  padding: 16px 20px; margin-bottom: 14px;
+}
+.decision-head { display: flex; align-items: baseline; gap: 12px; }
+.decision-k { font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-faint); }
+.decision-v { font-size: 1.25rem; font-weight: 600; color: var(--accent-strong); }
+.decision-reason { font-family: var(--font-sans); font-size: 0.92rem; color: var(--text-muted); margin-top: 8px; }
+.decision-triggers { margin-top: 12px; }
+.dt-label { font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 6px; }
+.decision-triggers ul { margin: 0; padding-left: 18px; }
+.decision-triggers li { font-size: 0.94rem; margin-bottom: 4px; }
+
+/* ---------------- Evidence source chip ---------------- */
+.evi-meta { font-family: var(--font-sans); font-size: 0.76rem; color: var(--text-faint); white-space: nowrap; }
+.evi-src { color: var(--link); text-decoration: none; }
+.evi-src:hover { text-decoration: underline; }
+.evi-src.missing { color: var(--down); cursor: help; }
+
+.risk-subhead {
+  font-family: var(--font-sans); font-size: 0.74rem; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--text-faint);
+  margin: 28px 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--border-soft);
+}
+.risk-subhead:first-of-type { margin-top: 6px; }
+
 /* ---------------- Overview cockpit ---------------- */
 .cockpit-head { margin-bottom: 30px; }
 .cockpit-ticker { font-family: var(--font-mono); font-weight: 700; font-size: 2.4rem; letter-spacing: 0.02em; }

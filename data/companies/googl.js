@@ -18,7 +18,8 @@ window.IB_DATA = window.IB_DATA || {};
 window.IB_DATA.GOOGL = {
   ticker: "GOOGL",
   name: "Alphabet Inc.",
-  tier: "core", // core | active | watch —— 决定在组合首页的深度与分组
+  tier: "core", // 研究深度：core | active | watch
+  holdingStatus: "held", // 是否真正持有：held | watchlist | exited | not-held（与 tier 分开）
   tagline: "现金机器，正拿它去下注赢下 AI 转型。",
   oneLiner:
     "这家把全世界信息组织起来的公司，如今要验证：它能不能拥有自己参与发明的这场 AI 转型，而不是被它颠覆。",
@@ -26,6 +27,22 @@ window.IB_DATA.GOOGL = {
   thesisStatus: "Healthy",
   statusNote:
     "核心现金引擎（Search、YouTube、Cloud）强劲且在复利。唯一悬而未决的问题——AI 到底会扩大还是侵蚀 Search 的护城河——目前正朝对 Alphabet 有利的方向被解决，但这是要盯着看的事，不是可以直接假设的事。",
+
+  // 决策信号：Thesis → Decision（不生成任何自动交易动作）
+  currentDecision: "持有",
+  decisionReason:
+    "核心现金引擎强劲、AI 全栈优势在增强；估值相对同侪仍有折价，不需要为「AI 领导地位」付溢价。当前证据不支持任何仓位变动。",
+  nextDecisionTriggers: [
+    "Search 收入增速连续两季明显恶化，或查询份额可见地流向无法变现的 AI 助手",
+    "AI Overview 变现出现实质证据（正向或负向）",
+    "CapEx → FCF 转化显著改善或恶化",
+    "反垄断出现触及默认分发的最终补救",
+  ],
+
+  // 来源登记表（轻量）：证据可用 source 引用这里的 key；不是每条 FACT 都必须有。
+  sources: {
+    "px-2026-08-12": { label: "大型科技股行情（Motley Fool 汇总）", url: "https://www.fool.com/investing/2026/08/12/alphabet-amazon-meta-platforms-and-microsoft-this/", date: "2026-08-12", type: "media" },
+  },
 
   // 电梯陈述。如果你没法用几句话说清为什么持有，那你不是拥有它，是在租它。
   whyIOwnIt: [
@@ -90,8 +107,8 @@ window.IB_DATA.GOOGL = {
       marketMisunderstanding:
         "ChatGPT 之后，市场把 Google 划为「落后」。Gemini 的走势加上 TPU 的成本优势暗示的恰恰相反：它也许是位置最好的，而不是受威胁最大的。",
       supporting: [
-        { text: "TPU 让 Google 的训练/推理成本结构性地低于外购商用 GPU。", tag: "FACT" },
-        { text: "Gemini 在主要基准上已基本追平与前沿对手的差距。", tag: "FACT" },
+        { text: "在其自有工作负载上，TPU 可能让 Google 的训练/推理成本结构性低于外购商用 GPU（无公开单位成本披露，属推断而非确证）。", tag: "INFERENCE" },
+        { text: "Gemini 在多数公开基准上已大幅缩小与前沿对手的差距（基准口径各异，领先可争夺）。", tag: "INFERENCE" },
         { text: "DeepMind 是一道真正的研究护城河（AlphaFold 级别的产出），不只是个产品团队。", tag: "FACT" },
         { text: "自持全栈意味着 AI 利润率能随使用量放大而改善，而不只是成本在涨。", tag: "THESIS" },
       ],
@@ -364,7 +381,8 @@ window.IB_DATA.GOOGL = {
       related: null,
     },
     {
-      date: "2026-08-xx",
+      date: "2026-08",
+      datePrecision: "month",
       event: "占位——例如 FY26 Q2 财报（Cloud 增速 / 利润率、capex 指引）",
       whyItMatters:
         "财报是对 Cloud 拐点和 capex→FCF 两条逻辑的主要现实检验。公布后填入真实数字。",
@@ -375,7 +393,8 @@ window.IB_DATA.GOOGL = {
       related: { label: "Stock Why 维基：GOOGL", url: "https://belindasun.github.io/stock-why-wiki/" },
     },
     {
-      date: "2026-08-xx",
+      date: "2026-08",
+      datePrecision: "month",
       event: "占位——反垄断补救措施进展（Search / 广告技术）",
       whyItMatters:
         "唯一能直接打到分发护城河的输入。任何针对默认搜索位置的最终补救，都会牵动监管这条逻辑。",
@@ -404,44 +423,21 @@ window.IB_DATA.GOOGL = {
       note: "核心逻辑完好且在增强（AI 全栈、Cloud）。开放风险集中在两处：capex→FCF 转化，以及反垄断分发补救。仓位维持在接近目标的水平。",
     },
     {
+      date: "2026-08-26",
+      label: "AI 辅助初稿（待认领）",
+      note: "本档案由 Claude 辅助生成初稿，尚未经 Belinda 逐条确认。Review 后再新增「Day Zero：thesis 正式认领」——从那一刻起，未来才能真正追踪：原始信念 → 证据 → 信念改变。",
+    },
+    {
       date: "未来",
       label: "什么会让我改变主意",
       note: "特意留白。每当有真实证据强化、修改或证伪一条逻辑，就更新这一页——这是整本账本里最有长期价值的记录。",
     },
   ],
 
-  risks: [
-    {
-      thesis: "Search 韧性",
-      condition:
-        "若用户行为结构性地从搜索转向 AI 助手，且 Google 未能守住分发与变现，则 Search 护城河逻辑被削弱。",
-      status: "Watching",
-    },
-    {
-      thesis: "AI 全栈",
-      condition:
-        "若 Gemini 在能力上决定性且持续落后，且分发未能转化为 AI 使用量，则全栈优势没有兑现→逻辑转弱。",
-      status: "Healthy",
-    },
-    {
-      thesis: "Cloud 利润引擎",
-      condition:
-        "若 Cloud 营业利润率扩张停滞或反转、同时增速掉到约 20% 以下，则利润引擎逻辑进入观察。",
-      status: "Strong",
-    },
-    {
-      thesis: "CapEx → FCF",
-      condition:
-        "若 capex 连续 4 个季度以上继续攀升、而 FCF 停滞或下滑，且 Cloud 增速没有加速，则资本在被摧毁→减仓。",
-      status: "Watching",
-    },
-    {
-      thesis: "监管",
-      condition:
-        "若一份最终反垄断补救结构性地剥夺了搜索分发默认位置，且流量 / 份额下滑，则 Search 护城河被实质性削弱。",
-      status: "Watching",
-    },
-  ],
+  // 风险 / 证伪：逐条逻辑的证伪条件已在各 thesis 的 invalidation 里（唯一真相来源，
+  // 「风险 / 证伪」页自动派生，不再重复维护）。这里只放无法归属于单一 thesis 的
+  // 跨逻辑 / 存续性风险（战争、财务造假、关键人灾难、结构性监管等）。GOOGL 暂无。
+  risks: [],
 
   // 回链 Stock Why 维基（市场事件 / 因果分析放在那边）。
   stockWhy: {

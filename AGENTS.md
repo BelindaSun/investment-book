@@ -23,6 +23,52 @@ book focused on "does it change my thesis."
   the `active` minimum, that's a signal the position isn't understood — surface
   it, don't paper over it. Give every company a short `tagline` for its home row.
 
+## tier ≠ holdingStatus (keep them separate)
+- `tier` = **research depth** (core/active/watch). `holdingStatus` = **whether it's
+  actually owned** (`held` | `watchlist` | `exited` | `not-held`). A company can be
+  deep-research (core) but not held, or lightly-tracked (watch) and held.
+- Only `held` names count toward the home's total weight/return and show a real
+  position. `watchlist`/`exited` never render a fabricated position — the position
+  panel shows the state, and "我为什么持有" auto-flips to "我为什么关注 / 当初为什么持有".
+- The home says "N 个跟踪标的", not "holdings".
+
+## Decision signal (Thesis → Decision, no auto-trades)
+- Each company may set `currentDecision` (持有/观察/等待/减仓观察/需复盘),
+  `decisionReason` (one line), and `nextDecisionTriggers` (2–3). Never emit a
+  BUY/SELL action or a numeric score. Triggers name what would force a *re-decision*.
+
+## Evidence sources & quality
+- `sources: { key: {label,url,date,type} }` is a per-company registry. Evidence
+  items reference it via `source: "key"` and carry `asOf: "<date>"` (when the fact
+  held). Not every FACT needs a source; **numeric / thesis-critical ones should**.
+- Source priority: **company IR / SEC / earnings call / official > quality media >
+  aggregators**. Don't build a core thesis on Motley Fool / Tickeron / StockAnalysis
+  if a primary source exists. **Fund flow / analyst activity ("ARK bought X") is
+  sentiment → Timeline, NOT a fundamental supporting-evidence item.**
+- Don't tag a sweeping judgment as FACT without scope (e.g. "TPU is structurally
+  cheaper"). If it can't be sourced/scoped, tag INFERENCE.
+
+## Dates — no fake precision
+- Never write `2026-08-xx`. Month-only → `date: "2026-08"` + `datePrecision: "month"`.
+  Exact day → full `YYYY-MM-DD` (omit datePrecision). Same for evidence `asOf`.
+
+## Risks are derived, not duplicated
+- Per-thesis falsifiers live ONLY in each thesis's `invalidation`. The Risks page
+  auto-derives from all thesis invalidations. The standalone `risks: []` array is
+  ONLY for cross-thesis / existential risks (war, fraud, key-person, structural
+  regulation). Usually empty. Never restate a thesis invalidation there.
+
+## Day Zero
+- A new file starts with a `thesisEvolution` entry `"AI 辅助初稿（待认领）"` — it is
+  NOT a confirmed thesis. Only after the user reviews do you add "Day Zero: thesis
+  正式认领". Don't backfill belief changes before Day Zero.
+
+## Validate before you finish
+- Run `node validate-data.js` after editing data. It checks: manifest files exist,
+  ticker/enum consistency, duplicate thesis ids, missing invalidation, unsourced
+  numeric FACTs (warn), placeholder position on a held name (warn), bad dates,
+  dangling source refs. Errors must be zero; read warnings.
+
 ## Golden rules
 - **Never put company facts in `app.js`.** It is a generic template. All content
   lives in `data/companies/<ticker>.js`.

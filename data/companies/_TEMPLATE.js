@@ -29,16 +29,34 @@ window.IB_DATA = window.IB_DATA || {};
 window.IB_DATA.TICKER = {
   ticker: "TICKER",
   name: "公司全名 Inc.",
-  tier: "active", // core 核心 | active 在场 | watch 观察 —— 控制在首页的深度与分组。
+  tier: "active", // 研究深度：core 核心 | active 在场 | watch 观察（决定首页深度与分组）。
                   //   core   = 完全信念：填满全部 12 节。
                   //   active = 决策关键的最小集：概览 + 核心逻辑 + 时间线 + 风险 + 持仓。
                   //   watch  = 一屏：只填下面概览用的字段。
                   // 不必填满每一节——空的会从导航和页面里隐藏。
+  holdingStatus: "watchlist", // 是否真正持有（与 tier 分开！）：held 持有 | watchlist 观察 | exited 已退出 | not-held 未持有。
+                              // 只有 held 才计入首页总仓位/收益、才显示持仓；watchlist/exited 不虚构持仓，
+                              // 「我为什么持有」也会自动改成「我为什么关注 / 当初为什么持有」。
   tagline: "首页那一行显示的极短一句话。",
   oneLiner: "一句话：这家公司本质上是什么 / 它在回答的问题是什么。",
   updated: "YYYY-MM-DD", // 保持更新——首页会把超过 45 天没碰过的标为「待复盘」。
   thesisStatus: "Healthy",
   statusNote: "一段话：用大白话说清这个投资案当前的状态。",
+
+  // 决策信号：Thesis → Decision（不生成任何自动交易动作、不打分）
+  currentDecision: "观察", // 例如：持有 / 观察 / 等待 / 减仓观察 / 需复盘
+  decisionReason: "一句话：为什么是这个决策。",
+  nextDecisionTriggers: [
+    "下一次真正需要重新决策的触发条件 1",
+    "触发条件 2（最多 2–3 条）",
+  ],
+
+  // 来源登记表（轻量）：证据用 source 引用这里的 key。重大事实（数字/收入/份额/
+  // 产品发布/监管/IPO 等）尽量有 source，且优先级：公司 IR / SEC / 财报 > 优质财经媒体 >
+  // 聚合站。资金流 / 机构买入 属情绪，放 Timeline，不作为基本面 thesis 的支持证据。
+  sources: {
+    "q2-2026": { label: "公司 2026 Q2 财报", url: "https://…（优先官方 IR/SEC）", date: "2026-07", type: "IR" },
+  },
 
   whyIOwnIt: [
     "第一个理由 —— 电梯陈述第 1 行。",
@@ -71,7 +89,8 @@ window.IB_DATA.TICKER = {
       statement: "完整逻辑，1–2 句：为什么它成立。",
       marketMisunderstanding: "市场可能搞错了什么。",
       supporting: [
-        { text: "支持的证据。", tag: "FACT" },
+        // 重大 FACT 尽量带 source（引用上面 sources 的 key）和 asOf（这个事实截至何时成立）。
+        { text: "一个带数字的支持事实。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
         { text: "一个推断。", tag: "INFERENCE" },
       ],
       contrary: [{ text: "反面的证据。", tag: "FACT" }],
@@ -133,7 +152,8 @@ window.IB_DATA.TICKER = {
 
   timeline: [
     {
-      date: "YYYY-MM-DD",
+      date: "YYYY-MM", // 只知月份就用 "2026-08" + datePrecision:"month"；别写 2026-08-xx 这类伪日期
+      datePrecision: "month", // 知道具体某天就删掉这行、date 用完整 YYYY-MM-DD
       event: "发生了什么。",
       whyItMatters: "为什么它对逻辑重要。",
       node: "影响哪块业务 / 指标。",
@@ -146,11 +166,15 @@ window.IB_DATA.TICKER = {
 
   thesisEvolution: [
     { date: "年份", label: "思考里的一个里程碑", note: "变了什么、为什么。" },
+    // Day Zero：新建档案时放一条「AI 辅助初稿（待认领）」；等 Belinda review 后再加
+    // 「Day Zero：thesis 正式认领」——从那一刻起才开始真正追踪信念随证据的演变。
+    { date: "2026-08-26", label: "AI 辅助初稿（待认领）", note: "由 Claude 辅助生成，尚未经 Belinda 逐条确认。" },
   ],
 
-  risks: [
-    { thesis: "哪条逻辑", condition: "若 …… 则 …… 转弱 / 被证伪。", status: "Watching" },
-  ],
+  // 风险 / 证伪：逐条逻辑的证伪条件写在各 thesis 的 invalidation 里（唯一真相来源，
+  // 「风险 / 证伪」页自动派生，不要在这里重复）。risks 数组只放【无法归属于单一 thesis】
+  // 的跨逻辑 / 存续性风险：战争、财务造假、关键人灾难、结构性监管等。大多数公司留空。
+  risks: [],
 
   stockWhy: {
     label: "TICKER · Stock Why 维基",

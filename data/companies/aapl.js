@@ -7,6 +7,7 @@ window.IB_DATA.AAPL = {
   ticker: "AAPL",
   name: "Apple Inc.",
   tier: "active",
+  holdingStatus: "held",
   tagline: "全球最强装机护城河，但在 AI 上是追赶者。",
   oneLiner:
     "全世界最赚钱、黏性最高的消费硬件+服务生态。悬念不在现金流，而在两处逆风：AI 上明显落后，以及对 iPhone 和中国的高度依赖。",
@@ -14,6 +15,19 @@ window.IB_DATA.AAPL = {
   thesisStatus: "Healthy",
   statusNote:
     "装机量 + 服务是台复利机器，现金流和回购极其稳健。但 AI 是明显短板（Apple Intelligence 平淡、Siri 延期），且高度依赖 iPhone 与中国。2026 年它相对大型科技股跑赢（YTD 约 +23%），部分因为「没重仓 AI capex」反而讨喜——这本身就值得警惕。",
+
+  currentDecision: "持有",
+  decisionReason:
+    "装机+服务的复利护城河稳健、现金流强；但 AI 落后是真实逆风，且高度依赖 iPhone/中国。当前不动仓位，把相对强势当情绪而非逻辑改善。",
+  nextDecisionTriggers: [
+    "服务增速大幅放缓，或 App Store 抽成/Google 默认付费被监管实质削减",
+    "AI 功能持续令人失望并开始拖累换机/黏性",
+    "大中华区收入结构性下滑，或 iPhone 需求持续走弱",
+  ],
+
+  sources: {
+    "px-2026-08-12": { label: "大型科技股行情（Motley Fool 汇总）", url: "https://www.fool.com/investing/2026/08/12/alphabet-amazon-meta-platforms-and-microsoft-this/", date: "2026-08-12", type: "media" },
+  },
 
   whyIOwnIt: [
     "全球约 20+ 亿活跃设备的装机护城河，切换成本极高，是服务收入的复利底座。",
@@ -102,11 +116,12 @@ window.IB_DATA.AAPL = {
     { date: "2026-08-12", event: "2026 年相对大型科技股跑赢（YTD 约 +23%）", whyItMatters: "部分因「低 AI capex 暴露」被当避风港追捧——是情绪驱动，不改变 AI 落后的基本面。", node: "全部 / AI 落后", thesisImpact: "flat", action: "不动仓位；把相对强势当情绪，不当逻辑改善。", source: { label: "Motley Fool 2026-08-12", url: "https://www.fool.com/investing/2026/08/12/alphabet-amazon-meta-platforms-and-microsoft-this/" }, related: { label: "Stock Why 维基", url: "https://belindasun.github.io/stock-why-wiki/" } },
   ],
 
-  risks: [
-    { thesis: "装机 / 服务", condition: "若 服务增速大幅放缓、且 App Store 抽成或 Google 默认付费被监管实质削减，则 服务年金逻辑转弱。", status: "Strong" },
-    { thesis: "AI 落后", condition: "若 AI 功能持续令人失望、且开始拖累换机与生态黏性，则 落后从短板升级为护城河侵蚀。", status: "Watching" },
-    { thesis: "iPhone / 中国", condition: "若 大中华区收入结构性下滑、或 iPhone 需求持续走弱且无新增长极，则 集中风险兑现。", status: "Watching" },
+  thesisEvolution: [
+    { date: "2026-08-26", label: "AI 辅助初稿（待认领）", note: "本档案由 Claude 辅助生成初稿，尚未经 Belinda 逐条确认。Review 后再新增「Day Zero：thesis 正式认领」——从那一刻起才开始真正追踪信念随证据的演变。" },
   ],
+
+  // 逐条证伪条件在各 thesis 的 invalidation（唯一真相来源，页面自动派生）。此处只留跨逻辑 / 存续性风险。AAPL 暂无。
+  risks: [],
 
   stockWhy: { label: "AAPL · Stock Why 维基", url: "https://belindasun.github.io/stock-why-wiki/", note: "市场波动的因果溯源在 Stock Why 维基；这本账本只问它是否改变了逻辑。" },
 };

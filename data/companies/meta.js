@@ -7,6 +7,7 @@ window.IB_DATA.META = {
   ticker: "META",
   name: "Meta Platforms Inc.",
   tier: "core",
+  holdingStatus: "held",
   tagline: "广告机器供养一场昂贵的 AI / 元宇宙豪赌。",
   oneLiner:
     "地球上最大的注意力平台，把广告现金流拿去下两个巨注：用 AI 增强广告与参与度，用开放权重 Llama 争 AI 生态。真正的悬念是 Reality Labs 的黑洞会不会被 AI 的回报盖过。",
@@ -15,8 +16,22 @@ window.IB_DATA.META = {
   statusNote:
     "核心广告在 AI 加持下持续增强、护城河深。开放风险集中在 Reality Labs 的持续巨额亏损，以及对第三方平台（Apple ATT）和监管的暴露。市场情绪常在「AI 提效」和「烧钱豪赌」之间摇摆。",
 
+  currentDecision: "持有",
+  decisionReason:
+    "核心广告靠 AI 持续增强、护城河深，估值基本只按广告定价、RL 被当负期权。关注 RL 烧钱纪律与平台/监管。当前不动仓位。",
+  nextDecisionTriggers: [
+    "广告增速转负、或参与时长结构性下滑",
+    "AI 带来的广告效率提升停滞",
+    "Reality Labs 亏损持续扩大且无商业里程碑",
+    "一次平台政策/监管变化结构性削弱广告定向",
+  ],
+
+  sources: {
+    "px-2026-08-12": { label: "大型科技股行情（Motley Fool 汇总）", url: "https://www.fool.com/investing/2026/08/12/alphabet-amazon-meta-platforms-and-microsoft-this/", date: "2026-08-12", type: "media" },
+  },
+
   whyIOwnIt: [
-    "全球数十亿日活的注意力垄断，广告定价权强，AI 正在实实在在提升广告效率（Advantage+）。",
+    "全球数十亿日活构成的注意力护城河（这是判断，不是「垄断」这类事实断言），广告定价权强，AI 正在实实在在提升广告效率（Advantage+）。",
     "开放权重 Llama 是聪明的生态策略——把模型商品化，削弱对手的付费护城河，同时握住分发。",
     "现金流足够厚，能一边回购、一边给 Reality Labs 这类长久期期权买单。",
   ],
@@ -31,7 +46,7 @@ window.IB_DATA.META = {
     targetWeight: 7.0,
     addRange: "回撤到成本附近、或市场再次为 Reality Labs 恐慌杀估值时加仓",
     reduceRange: "仓位超过组合约 10%、或广告增速与参与度同时转弱时减仓",
-    qualityNote: "质量：高。注意力垄断、AI 提效、强现金流；瑕疵在资本配置纪律（RL 烧钱）。",
+    qualityNote: "质量：高。注意力护城河、AI 提效、强现金流；瑕疵在资本配置纪律（RL 烧钱）。",
     valuationNote: "估值：合理。市场按广告给估值，Reality Labs 基本被当成负期权而非资产。",
   },
 
@@ -211,7 +226,7 @@ window.IB_DATA.META = {
 
   timeline: [
     { date: "2026-08-26", event: "为 META 开立投资账本（起点）", whyItMatters: "基线快照。", node: "全部", thesisImpact: "flat", action: "不动仓位——建立记录。", source: null, related: null },
-    { date: "2026-08-xx", event: "占位——财报（广告增速 / RL 亏损 / capex 指引）", whyItMatters: "对广告护城河与 RL 纪律两条逻辑的主要检验。", node: "广告 / Reality Labs", thesisImpact: "flat", action: "确认前不动仓位。", source: null, related: { label: "Stock Why 维基", url: "https://belindasun.github.io/stock-why-wiki/" } },
+    { date: "2026-08", datePrecision: "month", event: "占位——财报（广告增速 / RL 亏损 / capex 指引）", whyItMatters: "对广告护城河与 RL 纪律两条逻辑的主要检验。", node: "广告 / Reality Labs", thesisImpact: "flat", action: "确认前不动仓位。", source: null, related: { label: "Stock Why 维基", url: "https://belindasun.github.io/stock-why-wiki/" } },
   ],
 
   thesisEvolution: [
@@ -219,15 +234,12 @@ window.IB_DATA.META = {
     { date: "2023", label: "「效率之年」+ AI 推荐反转", note: "大幅降本、AI 推荐提升参与与广告，利润与股价强劲修复。" },
     { date: "2024–2025", label: "AI 提效 + 开源 Llama 成型", note: "AI 成为广告隐形加速器，Llama 成开源事实标准之一。" },
     { date: "2026（当前）", label: "健康，聚焦 RL 与 capex 纪律", note: "广告强劲；关注 Reality Labs 亏损与 AI capex 的纪律。仓位接近目标。" },
+    { date: "2026-08-26", label: "AI 辅助初稿（待认领）", note: "本档案由 Claude 辅助生成初稿，尚未经 Belinda 逐条确认。Review 后再新增「Day Zero：thesis 正式认领」。" },
     { date: "未来", label: "什么会让我改变主意", note: "留白。广告增速或 RL 烧钱的实质变化时更新。" },
   ],
 
-  risks: [
-    { thesis: "广告护城河", condition: "若 广告增速转负、且参与时长结构性下滑，则 广告护城河逻辑转弱。", status: "Strong" },
-    { thesis: "AI 广告", condition: "若 AI 带来的广告效率提升停滞，则 AI 广告逻辑减弱。", status: "Strengthening" },
-    { thesis: "Reality Labs", condition: "若 RL 亏损持续扩大、且无可验证商业里程碑，则 期权转为价值毁灭。", status: "Watching" },
-    { thesis: "平台 / 监管", condition: "若 一次平台政策或监管变化结构性削弱广告定向、且无法用 AI 补回，则 广告逻辑受损。", status: "Watching" },
-  ],
+  // 逐条证伪条件在各 thesis 的 invalidation（唯一真相来源，页面自动派生）。此处只留跨逻辑 / 存续性风险。META 暂无。
+  risks: [],
 
   stockWhy: { label: "META · Stock Why 维基", url: "https://belindasun.github.io/stock-why-wiki/", note: "市场波动的因果溯源在 Stock Why 维基；这本账本只问它是否改变了逻辑。" },
 };

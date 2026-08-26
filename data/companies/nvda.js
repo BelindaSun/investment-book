@@ -8,18 +8,33 @@ window.IB_DATA.NVDA = {
   ticker: "NVDA",
   name: "NVIDIA Corp.",
   tier: "core",
+  holdingStatus: "held",
   tagline: "AI 建设浪潮里的卖铲人——向全行业收过路费。",
   oneLiner:
     "这轮 AI 的算力底座。真正要验证的不是「需求还在不在」，而是「这道护城河是在变宽，还是正被超大厂自研芯片和推理商品化悄悄侵蚀」。",
   updated: "2026-08-26",
   thesisStatus: "Strong",
   statusNote:
-    "需求侧强劲、可见度高，数据中心是绝对主体。真正的悬念在两处：一是超大厂一边是最大买家、一边在自研 ASIC 替代；二是这套约 75% 的毛利率能维持多久。质量极高，但估值把「持续高增长 + 高毛利」都定价进去了——脆弱点在此。",
+    "需求侧强劲、可见度高，数据中心是绝对主体。真正的悬念在两处：一是超大厂一边是最大买家、一边在自研 ASIC 替代；二是这套高毛利率（FY25 约 75% 口径，待核实）能维持多久。质量极高，但估值把「持续高增长 + 高毛利」都定价进去了——脆弱点在此。",
+
+  currentDecision: "持有",
+  decisionReason:
+    "卖铲人地位 + CUDA/系统护城河仍强，需求可见度高；但估值容错小，毛利与自研替代是要盯的变量。当前证据不支持仓位变动。",
+  nextDecisionTriggers: [
+    "超大厂 capex 连续两季下修，且推理需求未能接棒",
+    "超大厂自研 ASIC 在主力负载上出现规模化替代",
+    "毛利率出现结构性下滑（阈值待认领）",
+    "出口管制进一步收紧，且中国需求无法向其他地区转移",
+  ],
+
+  sources: {
+    "px-2026-08-12": { label: "大型科技股行情（Motley Fool 汇总）", url: "https://www.fool.com/investing/2026/08/12/alphabet-amazon-meta-platforms-and-microsoft-this/", date: "2026-08-12", type: "media" },
+  },
 
   whyIOwnIt: [
     "AI 训练/推理的事实标准，且是「卖铲人」——不赌哪个模型赢，只要 AI 在建设就收钱。",
     "护城河不是单颗芯片领先，而是 CUDA 十几年生态 + 芯片/网络/系统的整机整合 + 每年加速的产品节奏。",
-    "定价权体现在约 75% 的毛利率上；只要供不应求延续，现金流极其丰厚。",
+    "定价权体现在高毛利率上（FY25 约 75% 口径，待核实）；只要供不应求延续，现金流极其丰厚。",
   ],
 
   position: {
@@ -108,7 +123,7 @@ window.IB_DATA.NVDA = {
       ],
       keyMetrics: ["毛利率", "定价/供需紧张度", "竞品份额"],
       invalidation:
-        "若 毛利率结构性下滑到约 60% 以下、且并非短期产品切换所致，则 定价权逻辑被削弱→减仓信号。",
+        "若 毛利率结构性下滑、且并非短期产品切换所致，则 定价权逻辑被削弱。（注：具体阈值——例如跌破约 60%——与对应的减仓动作，属 AI 提议，待 Belinda 认领后才算决策规则。）",
       updated: "2026-08-26",
     },
     {
@@ -312,7 +327,8 @@ window.IB_DATA.NVDA = {
       related: null,
     },
     {
-      date: "2026-08-xx",
+      date: "2026-08",
+      datePrecision: "month",
       event: "占位——财报（数据中心增速 / 毛利率 / 下季指引）",
       whyItMatters:
         "财报是对需求持久性和毛利可持续性两条逻辑的主要现实检验。公布后填入真实数字，尤其盯毛利率。",
@@ -323,7 +339,8 @@ window.IB_DATA.NVDA = {
       related: { label: "Stock Why 维基：NVDA", url: "https://belindasun.github.io/stock-why-wiki/" },
     },
     {
-      date: "2026-08-xx",
+      date: "2026-08",
+      datePrecision: "month",
       event: "占位——超大厂自研 ASIC 部署进展",
       whyItMatters:
         "自研芯片的实际部署量，是 CUDA 护城河侵蚀速度的直接读数。任何一家在主力负载上大规模切换，都会牵动护城河逻辑。",
@@ -354,7 +371,12 @@ window.IB_DATA.NVDA = {
     {
       date: "2026（当前）",
       label: "强劲，但侵蚀点浮现",
-      note: "需求仍强；关注焦点转向三件事：推理迁移能否接棒、超大厂自研 ASIC 的替代速度、约 75% 毛利的可持续性。仓位维持在目标水平。",
+      note: "需求仍强；关注焦点转向三件事：推理迁移能否接棒、超大厂自研 ASIC 的替代速度、高毛利（FY25 约 75% 口径，待核实）的可持续性。仓位维持在目标水平。",
+    },
+    {
+      date: "2026-08-26",
+      label: "AI 辅助初稿（待认领）",
+      note: "本档案由 Claude 辅助生成初稿，尚未经 Belinda 逐条确认。Review 后再新增「Day Zero：thesis 正式认领」。",
     },
     {
       date: "未来",
@@ -363,33 +385,9 @@ window.IB_DATA.NVDA = {
     },
   ],
 
-  risks: [
-    {
-      thesis: "算力需求",
-      condition: "若 超大厂 capex 连续 2 个季度下修、且推理需求未能接棒，则 需求逻辑被削弱。",
-      status: "Watching",
-    },
-    {
-      thesis: "CUDA / 系统护城河",
-      condition: "若 超大厂自研 ASIC 在其主力负载上大规模替代 GPU、且 CUDA 未能守住推理侧，则 护城河逻辑被削弱。",
-      status: "Watching",
-    },
-    {
-      thesis: "毛利率可持续性",
-      condition: "若 毛利率结构性下滑到约 60% 以下、且非短期产品切换所致，则 定价权逻辑被削弱→减仓。",
-      status: "Watching",
-    },
-    {
-      thesis: "客户集中 / 周期性",
-      condition: "若 前几大客户之一大幅削减订单、且无法被其他需求填补，则 收入与估值同步承压。",
-      status: "Watching",
-    },
-    {
-      thesis: "地缘 / 出口",
-      condition: "若 出口管制进一步收紧、且中国需求无法向其他地区转移，则 收入面临持续逆风。",
-      status: "Watching",
-    },
-  ],
+  // 逐条逻辑的证伪条件在各 thesis 的 invalidation 里（唯一真相来源，「风险 / 证伪」页自动派生）。
+  // 这里只放跨逻辑 / 存续性风险。NVDA 暂无（地缘/出口已作为一条独立 thesis 处理）。
+  risks: [],
 
   stockWhy: {
     label: "NVDA · Stock Why 维基",
