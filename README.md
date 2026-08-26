@@ -1,114 +1,107 @@
-# My Investment Book
+# 我的投资账本 · My Investment Book
 
-A personal, long-term **investment decision journal**. Not a stock-news site,
-not a portfolio tracker, not a Bloomberg terminal. It answers one question, per
-company, over years:
+一本私人的、长期的**投资决策账本**。它不是股票资讯站，不是持仓追踪器，也不是
+Bloomberg 终端。它对每一家公司、跨越很多年，只回答一个问题：
 
-> **Why do I own this? Do the new facts still support that judgment? Is it still
-> worth my capital today?**
+> **我为什么持有它？新的事实是否仍然支持这个判断？它今天是否仍然值得占用我的资本？**
 
-It is the *vertical* companion to [Stock Why Wiki](https://belindasun.github.io/stock-why-wiki/)
-(which explains *why the market moved*). This book explains *why I own the
-company* — and whether each new event should change that.
+它是 [Stock Why 维基](https://belindasun.github.io/stock-why-wiki/) 的**纵向**伙伴
+（后者解释「市场为什么动」）。这本账本解释「我为什么拥有这家公司」——以及每一个
+新事件是否应该改变这个判断。
 
 ```
-Market event → Stock Why Wiki (why did it happen?) → Investment Book (does it change my thesis?) → Position decision
+市场事件 → Stock Why 维基（为什么会发生？） → 投资账本（它改变我的逻辑吗？） → 仓位决策
 ```
 
 ---
 
-## How to use it
+## 怎么用
 
-Open **`index.html`** in a browser. That's the whole app. No build, no server,
-no database, no login.
+在浏览器里打开 **`index.html`**。整个应用就这一个入口。无需构建、无需服务器、
+无需数据库、无需登录。
 
-- Double-click `index.html`, **or**
-- serve the folder: `python3 -m http.server 8000` then open `http://localhost:8000`.
-  (A local server is only needed if double-click ever fails to load the data
-  files in your browser; most browsers load them fine from `file://`.)
+- 双击 `index.html`，**或者**
+- 起个本地服务：`python3 -m http.server 8000`，再打开 `http://localhost:8000`。
+  （只有在浏览器双击时加载不了数据文件的情况下才需要本地服务；大多数浏览器直接
+  从 `file://` 就能加载。）
 
-You land on the **Portfolio home** — every holding as one row, grouped by tier,
-showing thesis status, weight, snapshot return, and how long since you last
-touched it (anything older than 45 days is flagged *needs review*). Scan the
-forest here; click a row to drill into a company.
+你会先落在**投资组合首页**——每个标的一行，按分层归组，显示逻辑状态、仓位、快照
+收益，以及距离上次更新多久（超过 45 天会被标为「待复盘」）。在这里俯瞰全局；点一行
+钻进某家公司。
 
-Inside a company, the reading flow follows the decision loop: **Overview**
-(one-screen cockpit) → **Core Thesis** → the evidence sections → **Timeline**
-(Event→Thesis→Action) → **Thesis Evolution** → **Risks/Invalidation** →
-**My Position**.
+进入一家公司后，阅读顺序跟着决策环走：**概览**（一屏驾驶舱）→ **核心逻辑** →
+证据各节 → **时间线**（事件→逻辑→动作）→ **逻辑演变** → **风险 / 证伪** →
+**我的持仓**。
 
-**Depth scales with tier**, so 10 companies don't become 10× the work:
+**深度随分层递减**，所以 10 家公司不会变成 10 倍的工作量：
 
-| tier | shows | for |
+| 分层 tier | 显示 | 适用于 |
 | --- | --- | --- |
-| `core` | all 12 sections | real conviction, sized positions |
-| `active` | Overview + Thesis + Timeline + Risks + Position | held, decision-critical |
-| `watch` | just the Overview | starters / watchlist |
+| `core` 核心 | 全部 12 节 | 真有信念、已建仓的重仓 |
+| `active` 在场 | 概览 + 核心逻辑 + 时间线 + 风险 + 持仓 | 已持有、决策关键 |
+| `watch` 观察 | 只有概览 | 试仓 / 观察名单 |
 
-Sections you don't fill are simply hidden — a watch-tier company shows a short
-nav, not a fake 12. If you can't even fill the `active` minimum, that's a signal
-you don't understand the position well enough to size it up.
+你没填的节会自动隐藏——观察仓显示一个短短的导航，而不是假装有 12 节。如果你连
+`active` 那几节都填不出来，那本身就是个信号：你还没懂到可以给它加仓的程度。
 
-Theme toggle (bottom-left of the sidebar) cycles Default → Sepia → Dark.
+主题切换（侧边栏左下角）在 默认 → 护眼(Sepia) → 深色 之间循环。
 
 ---
 
-## How it's built (on purpose, simply)
+## 它是怎么搭的（刻意做得简单）
 
-**Data and presentation are separate.**
+**数据和呈现是分开的。**
 
 ```
 investment-book/
-├── index.html            ← the shell
-├── styles.css            ← all styling (quiet serif, sibling to Stock Why Wiki)
-├── app.js                ← renders any company object into the 12 sections
+├── index.html            ← 外壳
+├── styles.css            ← 全部样式（安静的衬线风，Stock Why 维基的姊妹）
+├── app.js                ← 把任意一家公司的对象渲染成 12 个 section
 ├── data/
-│   ├── manifest.js       ← the list of tickers to load  ← edit to add a company
+│   ├── manifest.js       ← 要加载的股票代码清单  ← 加公司就改这里
 │   └── companies/
-│       ├── googl.js      ← ONE company = ONE data file (reads like JSON)
-│       └── _TEMPLATE.js  ← copy this to add a company
+│       ├── googl.js      ← 一家公司 = 一个数据文件（读起来像 JSON）
+│       └── _TEMPLATE.js  ← 复制它来加一家公司
 └── README.md
 ```
 
-- **The data files are the book.** They read like JSON and are edited by hand or
-  by Claude. Nothing about them requires tooling — they're plain, versionable,
-  portable text. If this app ever disappears, your thinking is still there in
-  readable files.
-- **`app.js` is a dumb, stable template.** It never contains company facts. Add
-  companies without touching it.
+- **数据文件就是这本账本。** 它们读起来像 JSON，手改或让 Claude 改都行。它们不
+  依赖任何工具链——就是朴素、可版本管理、可迁移的文本。哪天这个应用没了，你的
+  思考仍然以可读的文件形式留着。
+- **`app.js` 是一个笨而稳定的模板。** 它从不包含公司事实。加公司不用碰它。
 
-### Add another company (e.g. NVDA)
+### 加一家公司（例如 NVDA）
 
 1. `cp data/companies/_TEMPLATE.js data/companies/nvda.js`
-2. In `nvda.js`, set the ticker to `NVDA` and fill in the content.
-   *Rewrite the content — don't copy GOOGL's drivers/metrics. Reuse the shape,
-   not the substance: a chip company's drivers aren't an ad company's.*
-3. Add `"NVDA"` to the array in `data/manifest.js`.
-4. Refresh. It appears in the sidebar switcher.
+2. 在 `nvda.js` 里把代码设成 `NVDA`，填内容。
+   *内容要重写——别照抄 GOOGL 的驱动 / 指标。复用的是结构，不是内容：一家芯片公司
+   的驱动不是一家广告公司的驱动。*
+3. 把 `"NVDA"` 加进 `data/manifest.js` 的数组。
+4. 刷新。它会出现在侧边栏和首页里。
 
 ---
 
-## Design principles baked in
+## 内建的设计原则
 
-- **Evidence discipline.** Every evidence item is tagged `FACT` / `INFERENCE` /
-  `THESIS` / `UNKNOWN` so facts, inferences, and opinions never blur together.
-- **Living theses.** Each thesis carries supporting *and* contrary evidence, key
-  metrics, an `IF…THEN…` invalidation condition, and a last-updated date.
-- **Event ≠ Action.** The timeline runs every event through the same loop and
-  most entries end in *"No position change."* The system does not reward churn.
-- **Quality ≠ Valuation.** In *My Position*, business quality and stock price are
-  kept visibly separate. A great company is not a buy at any price.
-- **No false precision.** No `GOOGL score = 87.3`, no fragile target price — just
-  what the current price *implies* about the future.
+- **证据纪律。** 每条证据都打上 `事实(FACT)` / `推断(INFERENCE)` / `判断(THESIS)` /
+  `未知(UNKNOWN)` 标签，让事实、推断和观点永远不混在一起。
+- **活的逻辑。** 每条逻辑都带着支持证据 *和* 反面证据、关键指标、一个 `若…则…` 的
+  证伪条件，以及最后更新日期。
+- **事件 ≠ 动作。** 时间线让每个事件走同一条环，而大多数条目最后都落在
+  *「不动仓位」*。系统不鼓励频繁交易。
+- **质量 ≠ 估值。** 在「我的持仓」里，公司质量和股价被明确分开。好公司不等于任何
+  价格都值得买。
+- **拒绝假精确。** 没有「GOOGL 评分 = 87.3」，没有脆弱的目标价——只有当前价格对未来
+  *隐含*了什么。
 
 ---
 
-## Maintaining it with Claude
+## 用 Claude 维护它
 
-Ask Claude to update a company's data file directly, e.g.:
+直接让 Claude 改某家公司的数据文件，例如：
 
-> "In the Investment Book, add a timeline entry to GOOGL for today's earnings,
-> mark the capex→FCF thesis, and update Thesis Health if warranted."
+> 「在投资账本里，给 GOOGL 的时间线加一条今天财报的记录，标注 capex→FCF 那条逻辑，
+> 该动就更新逻辑健康度。」
 
-Claude edits `data/companies/googl.js`. Keep the position numbers current
-yourself (they're marked `PLACEHOLDER` until you replace them). See `AGENTS.md`.
+Claude 会去改 `data/companies/googl.js`。持仓数字请自己保持更新（在你替换之前它们
+标着 `占位`）。给 AI 的维护规则见 `AGENTS.md`。

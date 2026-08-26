@@ -23,10 +23,16 @@
   const statusClass = (s) => "status-" + String(s || "").toLowerCase().replace(/[^a-z]/g, "");
   const trendClass = (t) => "trend " + (["up", "down", "warn", "flat"].includes(t) ? t : "flat");
 
+  // Display labels (Chinese). The underlying enum keys stay English for CSS + logic.
+  const STATUS_LABEL = { Strong: "强劲", Healthy: "健康", Strengthening: "增强中", Watching: "观察中", Weakening: "转弱", Invalidated: "已证伪" };
+  const TAG_LABEL = { FACT: "事实", INFERENCE: "推断", THESIS: "判断", UNKNOWN: "未知" };
+  const THREAT_LABEL = { High: "高", Medium: "中", Low: "低" };
+  const statusText = (s) => STATUS_LABEL[s] || s || "—";
+
   // Evidence tag with FACT/INFERENCE/THESIS/UNKNOWN label
   const eviLine = (item) => {
     if (typeof item === "string") return esc(item);
-    const tag = item.tag ? `<span class="etag etag-${esc(item.tag)}">${esc(item.tag)}</span>` : "";
+    const tag = item.tag ? `<span class="etag etag-${esc(item.tag)}">${esc(TAG_LABEL[item.tag] || item.tag)}</span>` : "";
     return tag + esc(item.text);
   };
 
@@ -38,26 +44,26 @@
   // Section numbers are fixed identities, so a sparse company shows e.g. 01/09/12.
   const nonEmpty = (a) => !!(a && a.length);
   const SECTIONS = [
-    { id: "overview", n: "01", label: "Overview", render: renderOverview, has: () => true },
-    { id: "thesis", n: "02", label: "Core Thesis", render: renderThesis, has: (c) => nonEmpty(c.theses) },
-    { id: "business", n: "03", label: "Business", render: renderBusiness, has: (c) => nonEmpty(c.business) },
-    { id: "ai-moat", n: "04", label: "AI & Moat", render: renderAiMoat, has: (c) => !!c.aiMoat },
-    { id: "drivers", n: "05", label: "Drivers & Ecosystem", render: renderDrivers, has: (c) => nonEmpty(c.drivers) || !!c.ecosystem },
-    { id: "competition", n: "06", label: "Competition", render: renderCompetition, has: (c) => nonEmpty(c.competition) },
-    { id: "metrics", n: "07", label: "Key Metrics", render: renderMetrics, has: (c) => nonEmpty(c.metrics) },
-    { id: "financials", n: "08", label: "Financials & Valuation", render: renderFinancials, has: (c) => !!(c.financials && nonEmpty(c.financials.rows)) },
-    { id: "timeline", n: "09", label: "Timeline", render: renderTimeline, has: (c) => nonEmpty(c.timeline) },
-    { id: "evolution", n: "10", label: "Thesis Evolution", render: renderEvolution, has: (c) => nonEmpty(c.thesisEvolution) },
-    { id: "risks", n: "11", label: "Risks / Invalidation", render: renderRisks, has: (c) => nonEmpty(c.risks) },
-    { id: "position", n: "12", label: "My Position", render: renderPosition, has: (c) => !!c.position },
+    { id: "overview", n: "01", label: "概览", render: renderOverview, has: () => true },
+    { id: "thesis", n: "02", label: "核心逻辑", render: renderThesis, has: (c) => nonEmpty(c.theses) },
+    { id: "business", n: "03", label: "业务", render: renderBusiness, has: (c) => nonEmpty(c.business) },
+    { id: "ai-moat", n: "04", label: "AI 与护城河", render: renderAiMoat, has: (c) => !!c.aiMoat },
+    { id: "drivers", n: "05", label: "驱动与生态位", render: renderDrivers, has: (c) => nonEmpty(c.drivers) || !!c.ecosystem },
+    { id: "competition", n: "06", label: "竞争格局", render: renderCompetition, has: (c) => nonEmpty(c.competition) },
+    { id: "metrics", n: "07", label: "关键指标", render: renderMetrics, has: (c) => nonEmpty(c.metrics) },
+    { id: "financials", n: "08", label: "财务与估值", render: renderFinancials, has: (c) => !!(c.financials && nonEmpty(c.financials.rows)) },
+    { id: "timeline", n: "09", label: "时间线", render: renderTimeline, has: (c) => nonEmpty(c.timeline) },
+    { id: "evolution", n: "10", label: "逻辑演变", render: renderEvolution, has: (c) => nonEmpty(c.thesisEvolution) },
+    { id: "risks", n: "11", label: "风险 / 证伪", render: renderRisks, has: (c) => nonEmpty(c.risks) },
+    { id: "position", n: "12", label: "我的持仓", render: renderPosition, has: (c) => !!c.position },
   ];
 
   // ---- tiers + staleness ------------------------------------------------
   const STALE_DAYS = 45; // a thesis untouched longer than this gets a review flag
   const TIERS = [
-    { key: "core", label: "Core conviction", short: "Core" },
-    { key: "active", label: "Active", short: "Active" },
-    { key: "watch", label: "Watch / starter", short: "Watch" },
+    { key: "core", label: "核心持仓", short: "核心" },
+    { key: "active", label: "在场持仓", short: "在场" },
+    { key: "watch", label: "观察 / 试仓", short: "观察" },
   ];
   const tierOf = (c) => {
     const t = c && c.tier ? String(c.tier).toLowerCase() : "active";
@@ -97,8 +103,8 @@
     currentTickers = loaded.filter(Boolean).filter((t) => window.IB_DATA && window.IB_DATA[t]);
     if (!currentTickers.length) {
       $("#main").innerHTML =
-        '<div class="section"><h1 class="section-title">No company data loaded</h1>' +
-        '<p class="section-lede">Add a ticker to <code>data/manifest.js</code> and a matching file in <code>data/companies/</code>.</p></div>';
+        '<div class="section"><h1 class="section-title">还没有加载任何公司数据</h1>' +
+        '<p class="section-lede">在 <code>data/manifest.js</code> 里加一个代码，并在 <code>data/companies/</code> 里放一个对应的文件。</p></div>';
       return;
     }
     buildSwitcher();
@@ -157,8 +163,8 @@
     document.querySelectorAll(".company-btn").forEach((b) => b.classList.remove("active"));
     $("#homeLink").classList.add("active");
     $("#sectionNav").innerHTML = "";
-    $("#topbarTitle").textContent = "Investment Book";
-    document.title = "My Investment Book";
+    $("#topbarTitle").textContent = "投资账本";
+    document.title = "我的投资账本";
     const main = $("#main");
     main.innerHTML = renderHome();
     main.querySelectorAll(".pf-row").forEach((r) => r.addEventListener("click", () => selectCompany(r.dataset.ticker)));
@@ -187,11 +193,11 @@
 
     return `
       <div class="home-head">
-        <div class="eyebrow">Portfolio</div>
-        <h1 class="section-title">My Investment Book</h1>
-        <p class="section-lede">${holdings} holding${holdings === 1 ? "" : "s"} · ${totalWeight ? totalWeight.toFixed(0) + "% of portfolio tracked" : "weights not set"}${staleCount ? ` · <span class="stale-inline">${staleCount} need${staleCount === 1 ? "s" : ""} review</span>` : ""}</p>
+        <div class="eyebrow">投资组合</div>
+        <h1 class="section-title">我的投资账本</h1>
+        <p class="section-lede">${holdings} 个标的 · ${totalWeight ? "已记录仓位 " + totalWeight.toFixed(0) + "%" : "仓位未设置"}${staleCount ? ` · <span class="stale-inline">${staleCount} 个待复盘</span>` : ""}</p>
       </div>
-      <div class="pf-head"><span></span><span>Holding</span><span>Thesis</span><span>Weight</span><span>Return</span><span>Updated</span><span>Why</span></div>
+      <div class="pf-head"><span></span><span>标的</span><span>逻辑</span><span>仓位</span><span>收益</span><span>更新</span><span>一句话</span></div>
       ${groups}
     `;
   }
@@ -204,14 +210,14 @@
         : null;
     const d = daysSince(c.updated);
     const stale = d != null && d > STALE_DAYS;
-    const age = d == null ? "—" : d <= 0 ? "today" : d + "d";
+    const age = d == null ? "—" : d <= 0 ? "今天" : d + " 天";
     return `<button class="pf-row" data-ticker="${esc(c.ticker)}">
       <span class="pf-dot ${statusClass(c.thesisStatus)}"><span class="dot"></span></span>
       <span class="pf-id"><span class="pf-ticker">${esc(c.ticker)}</span><span class="pf-name">${esc(c.name || "")}</span></span>
-      <span class="pf-thesis ${statusClass(c.thesisStatus)}">${esc(c.thesisStatus || "—")}</span>
+      <span class="pf-thesis ${statusClass(c.thesisStatus)}">${esc(statusText(c.thesisStatus))}</span>
       <span class="pf-weight">${p.portfolioWeight != null ? p.portfolioWeight + "%" : "—"}</span>
       <span class="pf-return ${ret == null ? "" : ret >= 0 ? "pos" : "neg"}">${ret == null ? "—" : (ret >= 0 ? "+" : "") + ret.toFixed(0) + "%"}</span>
-      <span class="pf-age ${stale ? "stale" : ""}" title="${d == null ? "" : "updated " + d + " days ago"}">${stale ? "⚠ " : ""}${age}</span>
+      <span class="pf-age ${stale ? "stale" : ""}" title="${d == null ? "" : d + " 天前更新"}">${stale ? "⚠ " : ""}${age}</span>
       <span class="pf-why">${esc(c.tagline || c.oneLiner || "")}</span>
     </button>`;
   }
@@ -222,8 +228,8 @@
     const c = window.IB_DATA[t];
     $("#homeLink").classList.remove("active");
     document.querySelectorAll(".company-btn").forEach((b) => b.classList.toggle("active", b.dataset.ticker === t));
-    $("#topbarTitle").textContent = t + " · Investment Book";
-    document.title = t + " · Investment Book";
+    $("#topbarTitle").textContent = t + " · 投资账本";
+    document.title = t + " · 投资账本";
     const sections = SECTIONS.filter((s) => s.has(c));
     buildNav(sections);
     renderCompany(c, sections);
@@ -258,10 +264,10 @@
     const retCls = retPct == null ? "" : retPct >= 0 ? "pos" : "neg";
 
     const posItems = [
-      ["Avg cost", p.avgCost != null ? "$" + fmt(p.avgCost) : "—"],
-      ["Current", p.currentPrice != null ? "$" + fmt(p.currentPrice) : "—"],
-      ["Weight", p.portfolioWeight != null ? p.portfolioWeight + "%" : "—"],
-      ["Return", retPct == null ? "—" : `<span class="${retCls}">${retPct >= 0 ? "+" : ""}${retPct.toFixed(1)}%</span>`],
+      ["成本", p.avgCost != null ? "$" + fmt(p.avgCost) : "—"],
+      ["现价", p.currentPrice != null ? "$" + fmt(p.currentPrice) : "—"],
+      ["仓位", p.portfolioWeight != null ? p.portfolioWeight + "%" : "—"],
+      ["收益", retPct == null ? "—" : `<span class="${retCls}">${retPct >= 0 ? "+" : ""}${retPct.toFixed(1)}%</span>`],
     ]
       .map(([k, v]) => `<div class="pos-item"><div class="k">${k}</div><div class="v">${v}</div></div>`)
       .join("");
@@ -278,7 +284,7 @@
       .map(
         (h) => `<div class="health-row">
           <span class="health-label">${esc(h.label)}</span>
-          <span class="health-state ${statusClass(h.status)}"><span class="${trendClass(h.trend)}">${TREND[h.trend] || ""}</span>${esc(h.status)}</span>
+          <span class="health-state ${statusClass(h.status)}"><span class="${trendClass(h.trend)}">${TREND[h.trend] || ""}</span>${esc(statusText(h.status))}</span>
         </div>`
       )
       .join("");
@@ -300,32 +306,32 @@
         <div class="cockpit-name">${esc(c.name || "")}</div>
         <p class="cockpit-oneliner">${esc(c.oneLiner || "")}</p>
         <div class="statusline">
-          <span class="status-pill ${statusClass(c.thesisStatus)}"><span class="dot"></span>Thesis ${esc(c.thesisStatus || "—")}</span>
-          <span style="font-family:var(--font-sans);font-size:.82rem;color:var(--text-faint)">Updated ${esc(c.updated || "")}</span>
+          <span class="status-pill ${statusClass(c.thesisStatus)}"><span class="dot"></span>逻辑 ${esc(statusText(c.thesisStatus))}</span>
+          <span style="font-family:var(--font-sans);font-size:.82rem;color:var(--text-faint)">更新于 ${esc(c.updated || "")}</span>
         </div>
         ${c.statusNote ? `<div class="status-note">${esc(c.statusNote)}</div>` : ""}
       </div>
 
       <div class="cards grid-2">
         <div class="panel">
-          <div class="panel-label">My Position ${p.note ? '· <span style="text-transform:none;letter-spacing:0">placeholder</span>' : ""}</div>
+          <div class="panel-label">我的持仓 ${p.note ? '· <span style="text-transform:none;letter-spacing:0">占位</span>' : ""}</div>
           <div class="pos-grid">${posItems}</div>
-          ${p.priceAsOf ? `<div class="pos-asof">Price is a manual snapshot · as of ${esc(p.priceAsOf)}</div>` : ""}
+          ${p.priceAsOf ? `<div class="pos-asof">价格为手动快照 · 截至 ${esc(p.priceAsOf)}</div>` : ""}
         </div>
         <div class="panel">
-          <div class="panel-label">Thesis Health</div>
-          <div class="health-rows">${health || '<div class="empty-note">No theses yet — add them when this graduates from a watch position.</div>'}</div>
+          <div class="panel-label">逻辑健康度</div>
+          <div class="health-rows">${health || '<div class="empty-note">还没有投资逻辑 —— 等它从观察仓升级时再补。</div>'}</div>
         </div>
       </div>
 
       <div class="panel" style="margin-top:14px">
-        <div class="panel-label">Why I Own It</div>
+        <div class="panel-label">我为什么持有</div>
         <ul class="why-list">${why}</ul>
       </div>
 
       <div class="panel" style="margin-top:14px">
-        <div class="panel-label">Latest Evidence</div>
-        <div class="evi-feed">${evi || '<div class="evi-text" style="color:var(--text-faint)">No events yet.</div>'}</div>
+        <div class="panel-label">最新证据</div>
+        <div class="evi-feed">${evi || '<div class="evi-text" style="color:var(--text-faint)">还没有事件。</div>'}</div>
       </div>
 
       ${crosslink(c)}
@@ -333,7 +339,7 @@
   }
 
   function renderThesis(c) {
-    const head = sectionHead("02 · Core Thesis", "Core Thesis", "Why I hold this — compressed to a few claims that can be checked against reality. Each thesis is alive: it has evidence for, evidence against, and a condition that would prove me wrong.");
+    const head = sectionHead("02 · 核心逻辑", "核心逻辑", "我为什么持有它 —— 压缩成几条能拿去和现实对照的判断。每条逻辑都是「活的」：有支持的证据、有反面的证据，还有一个会证明我错了的条件。");
     const cards = (c.theses || [])
       .map((t) => {
         const support = (t.supporting || []).map((x) => `<li>${eviLine(x)}</li>`).join("");
@@ -342,18 +348,18 @@
         return `<div class="thesis">
           <div class="thesis-head">
             <h3 class="thesis-title">${esc(t.title)}</h3>
-            <span class="status-pill ${statusClass(t.status)}"><span class="${trendClass(t.trend)}">${TREND[t.trend] || ""}</span>${esc(t.status)}</span>
+            <span class="status-pill ${statusClass(t.status)}"><span class="${trendClass(t.trend)}">${TREND[t.trend] || ""}</span>${esc(statusText(t.status))}</span>
           </div>
           <p class="thesis-statement">${esc(t.statement)}</p>
-          ${t.marketMisunderstanding ? `<div class="misunderstanding"><b>What the market may be missing:</b> ${esc(t.marketMisunderstanding)}</div>` : ""}
+          ${t.marketMisunderstanding ? `<div class="misunderstanding"><b>市场可能忽略了什么：</b> ${esc(t.marketMisunderstanding)}</div>` : ""}
           <div class="evi-cols">
-            <div class="evi-col support"><h4>Supporting evidence</h4><ul>${support || "<li>—</li>"}</ul></div>
-            <div class="evi-col contra"><h4>Contrary evidence</h4><ul>${contra || "<li>—</li>"}</ul></div>
+            <div class="evi-col support"><h4>支持证据</h4><ul>${support || "<li>—</li>"}</ul></div>
+            <div class="evi-col contra"><h4>反面证据</h4><ul>${contra || "<li>—</li>"}</ul></div>
           </div>
           <div class="thesis-meta">
-            <div><div class="mk">Key metrics</div>${metrics || "—"}</div>
-            <div><div class="mk">Last updated</div>${esc(t.updated || c.updated || "")}</div>
-            ${t.invalidation ? `<div class="invalidation"><div class="mk">Invalidation condition</div>${esc(t.invalidation)}</div>` : ""}
+            <div><div class="mk">关键指标</div>${metrics || "—"}</div>
+            <div><div class="mk">最后更新</div>${esc(t.updated || c.updated || "")}</div>
+            ${t.invalidation ? `<div class="invalidation"><div class="mk">证伪条件</div>${esc(t.invalidation)}</div>` : ""}
           </div>
         </div>`;
       })
@@ -362,7 +368,7 @@
   }
 
   function renderBusiness(c) {
-    const head = sectionHead("03 · Business", "Business", "Not an encyclopedia entry. For each segment: how it creates revenue, profit, and long-term value.");
+    const head = sectionHead("03 · 业务", "业务", "不是百科词条。每块业务只回答：它如何创造收入、利润和长期价值。");
     const blocks = (c.business || [])
       .map(
         (b) => `<div class="block">
@@ -377,8 +383,8 @@
 
   function renderAiMoat(c) {
     const a = c.aiMoat;
-    if (!a) return sectionHead("04 · AI & Moat", "AI & Moat", "");
-    const head = sectionHead("04 · AI & Moat", "AI & Moat", a.summary || "");
+    if (!a) return sectionHead("04 · AI 与护城河", "AI 与护城河", "");
+    const head = sectionHead("04 · AI 与护城河", "AI 与护城河", a.summary || "");
     const factors = (a.factors || [])
       .map(
         (f) => `<div class="block">
@@ -389,14 +395,14 @@
       .join("");
     return (
       head +
-      `<div class="panel" style="margin-bottom:20px"><div class="panel-label">Verdict</div><p style="margin:0;font-size:1.05rem">${esc(a.verdict || "")}</p></div>` +
+      `<div class="panel" style="margin-bottom:20px"><div class="panel-label">结论</div><p style="margin:0;font-size:1.05rem">${esc(a.verdict || "")}</p></div>` +
       factors +
-      (a.cannibalization ? `<div class="misunderstanding" style="margin-top:20px"><b>Cannibalization watch:</b> ${esc(a.cannibalization)}</div>` : "")
+      (a.cannibalization ? `<div class="misunderstanding" style="margin-top:20px"><b>蚕食风险观察：</b> ${esc(a.cannibalization)}</div>` : "")
     );
   }
 
   function renderDrivers(c) {
-    const head = sectionHead("05 · Drivers & Ecosystem", "Drivers & Ecosystem", "The variables that actually move long-term value, and where the company sits in its value chain. These are company-specific by design.");
+    const head = sectionHead("05 · 驱动与生态位", "驱动与生态位", "真正驱动长期价值的变量，以及这家公司在价值链上的位置。这些天生是「因公司而异」的。");
     const drivers = (c.drivers || [])
       .map(
         (d) => `<div class="block">
@@ -414,26 +420,26 @@
           .map((n) => `<span class="eco-node${self ? " self" : ""}">${esc(n.name)}${n.note ? `<small>${esc(n.note)}</small>` : ""}</span>`)
           .join("")}</div></div>`;
       ecoHtml =
-        `<h3 style="margin:34px 0 14px;font-size:1.2rem">Value chain</h3><div class="eco">` +
-        tier("Upstream — what feeds it", eco.upstream) +
+        `<h3 style="margin:34px 0 14px;font-size:1.2rem">价值链</h3><div class="eco">` +
+        tier("上游 · 谁供养它", eco.upstream) +
         `<div class="eco-arrow">↓</div>` +
         tier(c.ticker, eco.self, true) +
         `<div class="eco-arrow">↓</div>` +
-        tier("Downstream — who it feeds", eco.downstream) +
+        tier("下游 · 它供养谁", eco.downstream) +
         `</div>`;
     }
-    return head + `<h3 style="margin:0 0 8px;font-size:1.2rem">Drivers</h3>` + drivers + ecoHtml;
+    return head + `<h3 style="margin:0 0 8px;font-size:1.2rem">驱动因素</h3>` + drivers + ecoHtml;
   }
 
   function renderCompetition(c) {
-    const head = sectionHead("06 · Competition", "Competition", "Only companies that could actually change the thesis. For each: what they attack, which moat, the evidence, threat level, and thesis impact.");
+    const head = sectionHead("06 · 竞争格局", "竞争格局", "只跟踪真正可能改变投资逻辑的公司。每家只回答：进攻什么、针对哪条护城河、证据、威胁等级、对逻辑的影响。");
     const blocks = (c.competition || [])
       .map(
         (x) => `<div class="block">
-          <div class="block-head"><span class="block-title">${esc(x.name)}</span><span class="threat threat-${esc(x.threat)}">${esc(x.threat)} threat</span></div>
-          <div class="block-body"><b>Attacking:</b> ${esc(x.attacking)}</div>
-          <div class="block-note"><b>Moat targeted:</b> ${esc(x.moatTargeted)} &nbsp;·&nbsp; <b>Evidence:</b> ${esc(x.evidence)}</div>
-          <div class="block-note"><b>Thesis impact:</b> ${esc(x.thesisImpact)}</div>
+          <div class="block-head"><span class="block-title">${esc(x.name)}</span><span class="threat threat-${esc(x.threat)}">${esc(THREAT_LABEL[x.threat] || x.threat)}威胁</span></div>
+          <div class="block-body"><b>进攻：</b> ${esc(x.attacking)}</div>
+          <div class="block-note"><b>针对护城河：</b> ${esc(x.moatTargeted)} &nbsp;·&nbsp; <b>证据：</b> ${esc(x.evidence)}</div>
+          <div class="block-note"><b>逻辑影响：</b> ${esc(x.thesisImpact)}</div>
         </div>`
       )
       .join("");
@@ -441,7 +447,7 @@
   }
 
   function renderMetrics(c) {
-    const head = sectionHead("07 · Key Metrics", "Key Metrics", "If a metric can't change the investment judgment, it isn't here. Trend matters more than the current number.");
+    const head = sectionHead("07 · 关键指标", "关键指标", "如果一个指标不可能改变投资判断，它就不该在这里。趋势比当前数字更重要。");
     const rows = (c.metrics || [])
       .map((m, i) => {
         const spark = m.spark && m.spark.length ? `<div class="spark" data-spark='${esc(JSON.stringify(m.spark))}'${m.good ? ` data-good="${esc(m.good)}"` : ""}></div>` : "";
@@ -458,11 +464,11 @@
 
   function renderFinancials(c) {
     const f = c.financials;
-    if (!f) return sectionHead("08 · Financials & Valuation", "Financials & Valuation", "");
-    const head = sectionHead("08 · Financials & Valuation", "Financials & Valuation", "What the price implies about the future — not a precise, fragile target price.");
+    if (!f) return sectionHead("08 · 财务与估值", "财务与估值", "");
+    const head = sectionHead("08 · 财务与估值", "财务与估值", "当前价格对未来隐含了怎样的预期 —— 而不是一个看似精确、实则脆弱的目标价。");
     const periods = (f.rows && f.rows[0] && f.rows[0].periods) || [];
     const cols = periods.length || (f.rows && f.rows[0] && f.rows[0].values.length) || 0;
-    const thead = `<tr><th>Line</th>${Array.from({ length: cols }).map((_, i) => `<th>${esc((periods[i] != null ? periods[i] : ""))}</th>`).join("")}</tr>`;
+    const thead = `<tr><th>科目</th>${Array.from({ length: cols }).map((_, i) => `<th>${esc((periods[i] != null ? periods[i] : ""))}</th>`).join("")}</tr>`;
     const body = (f.rows || [])
       .map((r) => `<tr><td>${esc(r.label)}</td>${(r.values || []).map((v) => `<td>${esc(v)}</td>`).join("")}</tr>`)
       .join("");
@@ -470,33 +476,33 @@
       head +
       `<div style="overflow-x:auto"><table class="fin-table"><thead>${thead}</thead><tbody>${body}</tbody></table></div>` +
       (f.note ? `<p class="block-note" style="margin-top:12px">${esc(f.note)}</p>` : "") +
-      (f.impliedExpectations ? `<div class="implied"><div class="panel-label">What the price implies</div>${esc(f.impliedExpectations)}</div>` : "")
+      (f.impliedExpectations ? `<div class="implied"><div class="panel-label">价格隐含的预期</div>${esc(f.impliedExpectations)}</div>` : "")
     );
   }
 
   function renderTimeline(c) {
-    const head = sectionHead("09 · Timeline", "Timeline", "Only events that could matter. Every event runs through the same loop — and most should end in “no position change.”");
+    const head = sectionHead("09 · 时间线", "时间线", "只记真正可能重要的事件。每个事件都走同一条环 —— 而且大多数最后都该落在「不动仓位」。");
     const flow = `<div class="flow">
-      <span>Event</span><span class="arr">→</span><span>What changed?</span><span class="arr">→</span>
-      <span>Which thesis?</span><span class="arr">→</span><span>Thesis impact</span><span class="arr">→</span>
-      <span>Valuation impact?</span><span class="arr">→</span><span>Position action</span>
+      <span>事件</span><span class="arr">→</span><span>变了什么？</span><span class="arr">→</span>
+      <span>影响哪条逻辑？</span><span class="arr">→</span><span>逻辑影响</span><span class="arr">→</span>
+      <span>估值影响？</span><span class="arr">→</span><span>仓位动作</span>
     </div>`;
     const items = (c.timeline || [])
       .map((e) => {
         const cls = e.thesisImpact === "warn" ? "warn" : e.thesisImpact === "down" ? "down" : "";
         const links = [];
-        if (e.source) links.push(`<a href="${esc(e.source.url)}" target="_blank" rel="noopener">${esc(e.source.label || "Source")}</a>`);
-        if (e.related) links.push(`<a href="${esc(e.related.url)}" target="_blank" rel="noopener">↗ ${esc(e.related.label || "Stock Why")}</a>`);
+        if (e.source) links.push(`<a href="${esc(e.source.url)}" target="_blank" rel="noopener">${esc(e.source.label || "来源")}</a>`);
+        if (e.related) links.push(`<a href="${esc(e.related.url)}" target="_blank" rel="noopener">↗ ${esc(e.related.label || "Stock Why 维基")}</a>`);
         return `<div class="tl-item ${cls}">
           <div class="tl-date">${esc(e.date)}</div>
           <div class="tl-event">${esc(e.event)}</div>
           <div class="tl-why">${esc(e.whyItMatters || "")}</div>
           <div class="tl-meta">
-            ${e.node ? `<span class="tl-node">Affects: ${esc(e.node)}</span>` : ""}
+            ${e.node ? `<span class="tl-node">影响：${esc(e.node)}</span>` : ""}
             <span class="tl-impact ${e.thesisImpact || "flat"}"><span class="trend ${e.thesisImpact || "flat"}">${TREND[e.thesisImpact] || ""}</span>${impactWord(e.thesisImpact)}</span>
             ${links.length ? `<span class="tl-links">${links.join(" · ")}</span>` : ""}
           </div>
-          ${e.action ? `<div class="tl-action"><b>Action:</b> ${esc(e.action)}</div>` : ""}
+          ${e.action ? `<div class="tl-action"><b>动作：</b> ${esc(e.action)}</div>` : ""}
         </div>`;
       })
       .join("");
@@ -504,7 +510,7 @@
   }
 
   function renderEvolution(c) {
-    const head = sectionHead("10 · Thesis Evolution", "Thesis Evolution", "How the investment judgment has changed as evidence arrived. Over years, this becomes the most valuable record in the book.");
+    const head = sectionHead("10 · 逻辑演变", "逻辑演变", "投资判断如何随着证据的到来而改变。几年之后，这会成为整本账本里最有价值的记录。");
     const items = (c.thesisEvolution || [])
       .map(
         (e) => `<div class="evo-item">
@@ -518,12 +524,12 @@
   }
 
   function renderRisks(c) {
-    const head = sectionHead("11 · Risks / Invalidation", "Risks / Invalidation", "Not a generic risk list — falsifiable conditions. IF X happens, THEN thesis Y is weakened or invalidated.");
+    const head = sectionHead("11 · 风险 / 证伪", "风险 / 证伪", "不是泛泛的风险清单 —— 而是可以验证的证伪条件。若 X 发生，则逻辑 Y 被削弱或证伪。");
     const blocks = (c.risks || [])
       .map((r) => {
-        const cond = esc(r.condition).replace(/\bIF\b/g, '<span class="kw">IF</span>').replace(/\bTHEN\b/g, '<span class="kw">THEN</span>');
+        const cond = esc(r.condition).replace(/若/g, '<span class="kw">若</span>').replace(/则/g, '<span class="kw">则</span>');
         return `<div class="risk">
-          <div class="risk-head"><span class="risk-thesis">${esc(r.thesis)}</span><span class="status-pill ${statusClass(r.status)}"><span class="dot"></span>${esc(r.status)}</span></div>
+          <div class="risk-head"><span class="risk-thesis">${esc(r.thesis)}</span><span class="status-pill ${statusClass(r.status)}"><span class="dot"></span>${esc(statusText(r.status))}</span></div>
           <div class="risk-cond">${cond}</div>
         </div>`;
       })
@@ -533,7 +539,7 @@
 
   function renderPosition(c) {
     const p = c.position || {};
-    const head = sectionHead("12 · My Position", "My Position", "The private ledger. Company quality and stock valuation are kept separate on purpose — a great company is not a buy at any price.");
+    const head = sectionHead("12 · 我的持仓", "我的持仓", "私人账本。公司质量和股票估值特意分开 —— 好公司不等于任何价格都值得买。");
     const hasShares = num(p.shares) > 0;
     const retPct = num(p.avgCost) && p.currentPrice != null ? ((num(p.currentPrice) - num(p.avgCost)) / num(p.avgCost)) * 100 : null;
     const curVal = num(p.shares) * num(p.currentPrice);
@@ -546,13 +552,13 @@
         : "—";
 
     const rows = [
-      ["Shares", p.shares != null ? fmt(p.shares) : "—"],
-      ["Average cost", p.avgCost != null ? "$" + fmt(p.avgCost) : "—"],
-      ["Current price", p.currentPrice != null ? "$" + fmt(p.currentPrice) : "—"],
-      ["Current value", hasShares && p.currentPrice != null ? "$" + fmt(curVal) : "—"],
-      ["Unrealized P/L", plCell],
-      ["Portfolio weight", p.portfolioWeight != null ? p.portfolioWeight + "%" : "—"],
-      ["Target weight", p.targetWeight != null ? p.targetWeight + "%" : "—"],
+      ["股数", p.shares != null ? fmt(p.shares) : "—"],
+      ["平均成本", p.avgCost != null ? "$" + fmt(p.avgCost) : "—"],
+      ["现价", p.currentPrice != null ? "$" + fmt(p.currentPrice) : "—"],
+      ["当前市值", hasShares && p.currentPrice != null ? "$" + fmt(curVal) : "—"],
+      ["浮动盈亏", plCell],
+      ["组合仓位", p.portfolioWeight != null ? p.portfolioWeight + "%" : "—"],
+      ["目标仓位", p.targetWeight != null ? p.targetWeight + "%" : "—"],
     ]
       .map(([k, v]) => `<div class="pos-item"><div class="k">${k}</div><div class="v">${v}</div></div>`)
       .join("");
@@ -560,18 +566,18 @@
     return (
       head +
       (p.note ? `<div class="status-note" style="border-color:var(--watch);margin-bottom:20px">${esc(p.note)}</div>` : "") +
-      `<div class="panel"><div class="pos-grid" style="grid-template-columns:repeat(3,1fr)">${rows}</div>${p.priceAsOf ? `<div class="pos-asof">Current price, value and unrealized P/L use a manual price snapshot <b>as of ${esc(p.priceAsOf)}</b> — not live. Update it in the data file when you review.</div>` : ""}</div>` +
+      `<div class="panel"><div class="pos-grid" style="grid-template-columns:repeat(3,1fr)">${rows}</div>${p.priceAsOf ? `<div class="pos-asof">现价、市值和浮动盈亏用的是手动价格快照 <b>截至 ${esc(p.priceAsOf)}</b> —— 不是实时的。复盘时在数据文件里手动更新。</div>` : ""}</div>` +
       `<div class="cards grid-2" style="margin-top:14px">
-        <div class="panel"><div class="panel-label">Add / reduce plan</div>
-          <p style="margin:0 0 8px"><b>Add:</b> ${esc(p.addRange || "—")}</p>
-          <p style="margin:0"><b>Reduce:</b> ${esc(p.reduceRange || "—")}</p>
+        <div class="panel"><div class="panel-label">加仓 / 减仓计划</div>
+          <p style="margin:0 0 8px"><b>加仓：</b> ${esc(p.addRange || "—")}</p>
+          <p style="margin:0"><b>减仓：</b> ${esc(p.reduceRange || "—")}</p>
         </div>
-        <div class="panel"><div class="panel-label">Quality ≠ Valuation</div>
+        <div class="panel"><div class="panel-label">质量 ≠ 估值</div>
           <p style="margin:0 0 8px;font-family:var(--font-sans);font-size:.9rem">${esc(p.qualityNote || "—")}</p>
           <p style="margin:0;font-family:var(--font-sans);font-size:.9rem">${esc(p.valuationNote || "—")}</p>
         </div>
       </div>` +
-      (p.notes ? `<div class="panel" style="margin-top:14px"><div class="panel-label">Notes</div>${esc(p.notes)}</div>` : "")
+      (p.notes ? `<div class="panel" style="margin-top:14px"><div class="panel-label">备注</div>${esc(p.notes)}</div>` : "")
     );
   }
 
@@ -582,9 +588,9 @@
   function crosslink(c) {
     const s = c.stockWhy;
     if (!s) return "";
-    return `<div class="crosslink"><span class="cl-icon">🧭</span><div class="cl-body"><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label || "Stock Why Wiki")} ↗</a><div>${esc(s.note || "")}</div></div></div>`;
+    return `<div class="crosslink"><span class="cl-icon">🧭</span><div class="cl-body"><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label || "Stock Why 维基")} ↗</a><div>${esc(s.note || "")}</div></div></div>`;
   }
-  const impactWord = (t) => ({ up: "Strengthened", down: "Weakened", warn: "Possible invalidation", flat: "Unchanged" }[t] || "");
+  const impactWord = (t) => ({ up: "强化", down: "削弱", warn: "可能证伪", flat: "不变" }[t] || "");
   const num = (x) => (typeof x === "number" && isFinite(x) ? x : 0);
   const fmt = (x) => {
     const n = num(x);
