@@ -113,7 +113,7 @@ window.IB_DATA.AAPL = {
 
   timeline: [
     { date: "2026-08-26", event: "为 AAPL 开立投资账本（起点）", whyItMatters: "基线快照。", node: "全部", thesisImpact: "flat", action: "不动仓位——建立记录。", source: null, related: null },
-    { date: "2026-08-12", event: "2026 年相对大型科技股跑赢（YTD 约 +23%）", whyItMatters: "部分因「低 AI capex 暴露」被当避风港追捧——是情绪驱动，不改变 AI 落后的基本面。", node: "全部 / AI 落后", thesisImpact: "flat", action: "不动仓位；把相对强势当情绪，不当逻辑改善。", source: { label: "Motley Fool 2026-08-12", url: "https://www.fool.com/investing/2026/08/12/alphabet-amazon-meta-platforms-and-microsoft-this/" }, related: { label: "Stock Why 维基", url: "https://belindasun.github.io/stock-why-wiki/" } },
+    { date: "2026-08-12", event: "2026 年相对大型科技股跑赢（YTD 约 +23%）", whyItMatters: "部分因「低 AI capex 暴露」被当避风港追捧——是情绪驱动，不改变 AI 落后的基本面。", node: "全部 / AI 落后", thesisImpact: "flat", action: "不动仓位；把相对强势当情绪，不当逻辑改善。", source: { label: "Motley Fool 2026-08-12", url: "https://www.fool.com/investing/2026/08/12/alphabet-amazon-meta-platforms-and-microsoft-this/" }, related: { label: "Stock Why 维基", url: "https://stock-why-wiki-site.vercel.app/stocks/AAPL" } },
   ],
 
   thesisEvolution: [
@@ -123,5 +123,5 @@ window.IB_DATA.AAPL = {
   // 逐条证伪条件在各 thesis 的 invalidation（唯一真相来源，页面自动派生）。此处只留跨逻辑 / 存续性风险。AAPL 暂无。
   risks: [],
 
-  stockWhy: { label: "AAPL · Stock Why 维基", url: "https://belindasun.github.io/stock-why-wiki/", note: "市场波动的因果溯源在 Stock Why 维基；这本账本只问它是否改变了逻辑。" },
+  stockWhy: { label: "AAPL · Stock Why 维基", url: "https://stock-why-wiki-site.vercel.app/stocks/AAPL", note: "市场波动的因果溯源在 Stock Why 维基；这本账本只问它是否改变了逻辑。" },
 };

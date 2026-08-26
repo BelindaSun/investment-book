@@ -110,7 +110,7 @@ window.IB_DATA.AVGO = {
 
   timeline: [
     { date: "2026-08-26", event: "为 AVGO 开立投资账本（起点）", whyItMatters: "基线快照。", node: "全部", thesisImpact: "flat", action: "不动仓位——建立记录。", source: null, related: null },
-    { date: "2026-08", datePrecision: "month", event: "资金面：ARK 等机构加仓 AI 芯片股（含 AVGO）", whyItMatters: "这是 fund flow / 情绪面，不是基本面证据——刻意放在时间线而非 thesis 的支持证据里。真正要等的是财报里的定制 ASIC 订单与毛利。", node: "情绪 / 资金面", thesisImpact: "flat", action: "不动仓位；把机构加仓当情绪，等财报确认基本面。", source: { label: "资金流报道（aggregator，仅供参考）", url: "https://tickeron.com/ticker/AVGO/" }, related: { label: "Stock Why 维基", url: "https://belindasun.github.io/stock-why-wiki/" } },
+    { date: "2026-08", datePrecision: "month", event: "资金面：ARK 等机构加仓 AI 芯片股（含 AVGO）", whyItMatters: "这是 fund flow / 情绪面，不是基本面证据——刻意放在时间线而非 thesis 的支持证据里。真正要等的是财报里的定制 ASIC 订单与毛利。", node: "情绪 / 资金面", thesisImpact: "flat", action: "不动仓位；把机构加仓当情绪，等财报确认基本面。", source: { label: "资金流报道（aggregator，仅供参考）", url: "https://tickeron.com/ticker/AVGO/" }, related: { label: "Stock Why 维基", url: "https://stock-why-wiki-site.vercel.app/stocks/" } },
   ],
 
   thesisEvolution: [
@@ -120,5 +120,5 @@ window.IB_DATA.AVGO = {
   // 逐条证伪条件在各 thesis 的 invalidation（唯一真相来源，页面自动派生）。此处只留跨逻辑 / 存续性风险。AVGO 暂无。
   risks: [],
 
-  stockWhy: { label: "AVGO · Stock Why 维基", url: "https://belindasun.github.io/stock-why-wiki/", note: "市场波动的因果溯源在 Stock Why 维基；这本账本只问它是否改变了逻辑。" },
+  stockWhy: { label: "AVGO · Stock Why 维基", url: "https://stock-why-wiki-site.vercel.app/stocks/", note: "Stock Why 暂无 AVGO 专页（链接到个股列表）；等那边收录后可改成 /stocks/AVGO。市场波动的因果溯源在 Stock Why，这本账本只问它是否改变了逻辑。" },
 };

@@ -390,7 +390,7 @@ window.IB_DATA.GOOGL = {
       thesisImpact: "flat",
       action: "在确认前不动仓位。",
       source: null,
-      related: { label: "Stock Why 维基：GOOGL", url: "https://belindasun.github.io/stock-why-wiki/" },
+      related: { label: "Stock Why 维基：GOOGL", url: "https://stock-why-wiki-site.vercel.app/stocks/GOOGL" },
     },
     {
       date: "2026-08",
@@ -402,7 +402,7 @@ window.IB_DATA.GOOGL = {
       thesisImpact: "warn",
       action: "不动仓位；最终补救落地时，重新核对监管那条证伪条件。",
       source: null,
-      related: { label: "Stock Why 维基", url: "https://belindasun.github.io/stock-why-wiki/" },
+      related: { label: "Stock Why 维基", url: "https://stock-why-wiki-site.vercel.app/stocks/GOOGL" },
     },
   ],
 
@@ -442,7 +442,7 @@ window.IB_DATA.GOOGL = {
   // 回链 Stock Why 维基（市场事件 / 因果分析放在那边）。
   stockWhy: {
     label: "GOOGL · Stock Why 维基",
-    url: "https://belindasun.github.io/stock-why-wiki/",
+    url: "https://stock-why-wiki-site.vercel.app/stocks/GOOGL",
     note: "当一次市场波动需要「为什么会发生」的因果溯源，那属于 Stock Why 维基。这本账本只问：它是否改变了我的逻辑。",
   },
 };

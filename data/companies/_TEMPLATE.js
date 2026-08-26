@@ -160,7 +160,7 @@ window.IB_DATA.TICKER = {
       thesisImpact: "flat", // up | flat | down | warn
       action: "不动仓位。", // 事件 ≠ 动作 —— 大多数事件都落在这里。
       source: { label: "来源", url: "https://…" }, // 或 null
-      related: { label: "Stock Why 维基", url: "https://belindasun.github.io/stock-why-wiki/" }, // 或 null
+      related: { label: "Stock Why 维基", url: "https://stock-why-wiki-site.vercel.app/stocks/TICKER" }, // 或 null
     },
   ],
 
@@ -178,7 +178,7 @@ window.IB_DATA.TICKER = {
 
   stockWhy: {
     label: "TICKER · Stock Why 维基",
-    url: "https://belindasun.github.io/stock-why-wiki/",
+    url: "https://stock-why-wiki-site.vercel.app/stocks/TICKER",
     note: "市场波动的「为什么会发生」分析放在 Stock Why 维基；这本账本只问它是否改变了逻辑。",
   },
 };

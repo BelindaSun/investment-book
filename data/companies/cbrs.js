@@ -44,5 +44,5 @@ window.IB_DATA.CBRS = {
     valuationNote: "估值：高且脆弱。高倍数下容不下任何一次 miss，股价对消息极度敏感。",
   },
 
-  stockWhy: { label: "CBRS · Stock Why 维基", url: "https://belindasun.github.io/stock-why-wiki/", note: "CBRS 的市场波动因果溯源在 Stock Why 维基（那边已有 CBRS 档案，含此前暴跌分析）；这本账本只问它是否改变了逻辑。" },
+  stockWhy: { label: "CBRS · Stock Why 维基", url: "https://stock-why-wiki-site.vercel.app/stocks/CBRS", note: "CBRS 的市场波动因果溯源在 Stock Why 维基（那边已有 CBRS 档案，含此前暴跌分析）；这本账本只问它是否改变了逻辑。" },
 };

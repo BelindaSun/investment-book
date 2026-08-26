@@ -223,7 +223,7 @@ window.IB_DATA.AMZN = {
 
   timeline: [
     { date: "2026-08-26", event: "为 AMZN 开立投资账本（起点）", whyItMatters: "基线快照。", node: "全部", thesisImpact: "flat", action: "不动仓位——建立记录。", source: null, related: null },
-    { date: "2026-08", datePrecision: "month", event: "占位——财报（AWS 增速/利润率、广告、零售利润率）", whyItMatters: "对三条核心逻辑的主要检验。", node: "AWS / 广告 / 零售", thesisImpact: "flat", action: "确认前不动仓位。", source: null, related: { label: "Stock Why 维基", url: "https://belindasun.github.io/stock-why-wiki/" } },
+    { date: "2026-08", datePrecision: "month", event: "占位——财报（AWS 增速/利润率、广告、零售利润率）", whyItMatters: "对三条核心逻辑的主要检验。", node: "AWS / 广告 / 零售", thesisImpact: "flat", action: "确认前不动仓位。", source: null, related: { label: "Stock Why 维基", url: "https://stock-why-wiki-site.vercel.app/stocks/AMZN" } },
   ],
 
   thesisEvolution: [
@@ -238,5 +238,5 @@ window.IB_DATA.AMZN = {
   // 逐条证伪条件在各 thesis 的 invalidation（唯一真相来源，页面自动派生）。此处只留跨逻辑 / 存续性风险。AMZN 暂无。
   risks: [],
 
-  stockWhy: { label: "AMZN · Stock Why 维基", url: "https://belindasun.github.io/stock-why-wiki/", note: "市场波动的因果溯源在 Stock Why 维基；这本账本只问它是否改变了逻辑。" },
+  stockWhy: { label: "AMZN · Stock Why 维基", url: "https://stock-why-wiki-site.vercel.app/stocks/AMZN", note: "市场波动的因果溯源在 Stock Why 维基；这本账本只问它是否改变了逻辑。" },
 };

@@ -146,5 +146,5 @@ window.IB_DATA.SPCX = {
   // 逐条证伪条件在各 thesis 的 invalidation（唯一真相来源，页面自动派生）。关键人/治理已作为一条 thesis 处理。此处暂无额外存续性风险。
   risks: [],
 
-  stockWhy: { label: "SPCX · Stock Why 维基", url: "https://belindasun.github.io/stock-why-wiki/", note: "市场波动的因果溯源在 Stock Why 维基；这本账本只问它是否改变了逻辑。" },
+  stockWhy: { label: "SPCX · Stock Why 维基", url: "https://stock-why-wiki-site.vercel.app/stocks/SPCX", note: "市场波动的因果溯源在 Stock Why 维基；这本账本只问它是否改变了逻辑。" },
 };
