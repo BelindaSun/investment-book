@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" data-theme="default">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Investment Book</title>
+    <meta name="description" content="A personal, long-term investment decision journal. Why I own it — and whether the facts still support that." />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%98%3C/text%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <div id="app" class="app">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <div class="brand-badge">IB</div>
+          <div>
+            <div class="brand-name">Investment Book</div>
+            <div class="brand-sub">Why I own it</div>
+          </div>
+        </div>
+
+        <div class="company-switcher" id="companySwitcher"></div>
+
+        <nav class="section-nav" id="sectionNav"></nav>
+
+        <div class="sidebar-foot">
+          <button class="theme-toggle" id="themeToggle" title="Cycle theme">◐ Theme</button>
+        </div>
+      </aside>
+
+      <!-- Mobile top bar -->
+      <header class="topbar">
+        <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+        <div class="topbar-title" id="topbarTitle">Investment Book</div>
+        <button class="theme-toggle sm" id="themeToggleMobile">◐</button>
+      </header>
+
+      <main class="main" id="main"><!-- rendered --></main>
+    </div>
+
+    <div class="scrim" id="scrim"></div>
+
+    <script src="data/manifest.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
