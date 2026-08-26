@@ -1,0 +1,399 @@
+/*
+ * Investment Book —— NVDA 数据文件。
+ * 枚举 key 保持英文（CSS/逻辑用），界面显示中文。时效数字标 (待核实)；
+ * 持仓为「占位」示例，请替换成真实数字。代码/FCF/CapEx/P/E 等按中文财经习惯保留英文。
+ */
+window.IB_DATA = window.IB_DATA || {};
+window.IB_DATA.NVDA = {
+  ticker: "NVDA",
+  name: "NVIDIA Corp.",
+  tier: "core",
+  tagline: "AI 建设浪潮里的卖铲人——向全行业收过路费。",
+  oneLiner:
+    "这轮 AI 的算力底座。真正要验证的不是「需求还在不在」，而是「这道护城河是在变宽，还是正被超大厂自研芯片和推理商品化悄悄侵蚀」。",
+  updated: "2026-08-26",
+  thesisStatus: "Strong",
+  statusNote:
+    "需求侧强劲、可见度高，数据中心是绝对主体。真正的悬念在两处：一是超大厂一边是最大买家、一边在自研 ASIC 替代；二是这套约 75% 的毛利率能维持多久。质量极高，但估值把「持续高增长 + 高毛利」都定价进去了——脆弱点在此。",
+
+  whyIOwnIt: [
+    "AI 训练/推理的事实标准，且是「卖铲人」——不赌哪个模型赢，只要 AI 在建设就收钱。",
+    "护城河不是单颗芯片领先，而是 CUDA 十几年生态 + 芯片/网络/系统的整机整合 + 每年加速的产品节奏。",
+    "定价权体现在约 75% 的毛利率上；只要供不应求延续，现金流极其丰厚。",
+  ],
+
+  position: {
+    note: "占位——请替换成你的真实数字。质量和估值下面分开：好公司不等于任何价格都能买。",
+    shares: 50,
+    avgCost: 80.0,
+    currentPrice: 121.0, // 示意，手动快照，非实时
+    priceAsOf: "2026-08-26",
+    portfolioWeight: 12.0,
+    targetWeight: 12.0,
+    addRange: "回撤到成本附近、或非结构性的 20%+ 板块回调时考虑加仓",
+    reduceRange: "仓位超过组合约 15%、或毛利率/需求出现结构性转弱信号时减仓",
+    qualityNote:
+      "质量：极高。事实标准、软硬件+网络全栈、强定价权、海量现金流、执行力顶尖。",
+    valuationNote:
+      "估值：高。倍数里已经定价了「持续超高增长 + 毛利维持」。这不是便宜票，容错空间小——任何一条被证伪都可能触发大幅重估。",
+  },
+
+  theses: [
+    {
+      id: "demand-durable",
+      title: "AI 算力需求是结构性的，不是一轮 capex 泡沫",
+      pillar: "算力需求",
+      status: "Strong",
+      trend: "up",
+      statement:
+        "从「一次性训练」向「持续推理」的迁移，会把需求从少数大模型训练扩展到无处不在的推理负载。只要 AI 在被真实使用，算力就是持续消耗品，而非一次性资本开支。",
+      marketMisunderstanding:
+        "空头把它当成又一轮会崩的资本开支周期。我的看法：训练需求可能有周期，但推理需求随 AI 落地而结构性增长，是更持久的第二引擎。",
+      supporting: [
+        { text: "超大厂的 capex 指引持续上调，且明确点名 AI 算力。", tag: "FACT" },
+        { text: "订单可见度/积压给出了跨年度的前瞻需求。", tag: "FACT" },
+        { text: "推理会随 AI 应用普及而结构性放大，接棒训练需求。", tag: "INFERENCE" },
+      ],
+      contrary: [
+        { text: "需求高度集中在少数超大厂的 capex 决策上。", tag: "FACT" },
+        { text: "若 AI 的终端变现不及预期，capex 会回撤。", tag: "INFERENCE" },
+        { text: "全行业 AI capex 有过度建设、之后消化库存的风险。", tag: "INFERENCE" },
+      ],
+      keyMetrics: ["数据中心收入增速", "超大厂合计 capex", "推理占比信号"],
+      invalidation:
+        "若 超大厂 capex 连续 2 个季度下修，且推理需求未能接棒，则 需求逻辑转弱→被证伪。",
+      updated: "2026-08-26",
+    },
+    {
+      id: "cuda-moat",
+      title: "护城河是 CUDA + 系统整合，不是单颗芯片领先",
+      pillar: "CUDA / 系统护城河",
+      status: "Strong",
+      trend: "flat",
+      statement:
+        "真正难复制的不是最快的 GPU，而是十几年的 CUDA 软件生态、开发者锁定，加上从单卡到 NVLink / InfiniBand / 机架级的整机整合，以及每年一代、越来越快的产品节奏（Blackwell → Rubin）。",
+      marketMisunderstanding:
+        "市场常把它看成「芯片性能领先」，因而容易被一次竞品发布吓到。我的看法：护城河在软件和系统层，比单颗芯片的 benchmark 更持久。",
+      supporting: [
+        { text: "CUDA 生态 + 开发者习惯构成高切换成本。", tag: "FACT" },
+        { text: "从单卡走向 NVLink/InfiniBand/整机架的系统级整合。", tag: "FACT" },
+        { text: "产品节奏加快（一年一代），拉开与追赶者的身位。", tag: "FACT" },
+      ],
+      contrary: [
+        { text: "超大厂自研 ASIC（Google TPU、Amazon Trainium、Microsoft Maia、Meta MTIA）专为自家负载优化，绕开 CUDA。", tag: "FACT" },
+        { text: "推理端对软件生态依赖更弱，比训练端更容易被替代。", tag: "INFERENCE" },
+      ],
+      keyMetrics: ["自研 ASIC 替代进度", "推理 vs 训练需求结构", "开发者/框架生态"],
+      invalidation:
+        "若 超大厂自研 ASIC 在其主力负载上大规模替代 GPU，且 CUDA 未能守住推理侧，则 护城河逻辑被削弱。",
+      updated: "2026-08-26",
+    },
+    {
+      id: "margin-durability",
+      title: "约 75% 的毛利率是把双刃剑——可持续性存疑",
+      pillar: "毛利率可持续性",
+      status: "Watching",
+      trend: "warn",
+      statement:
+        "当前毛利率反映的是供不应求下的强定价权。但客户既是买家、又在自研替代，有强烈动机压价；竞争加剧和产品结构变化也可能压缩毛利。这是最容易让多头失望的一条。",
+      marketMisunderstanding:
+        "多头默认高毛利会一直维持。我把它当成需要持续验证的变量——毛利率的走向，比收入增速更能改变投资判断。",
+      supporting: [
+        { text: "目前定价权强、供给紧张，毛利率处于历史高位。", tag: "FACT" },
+      ],
+      contrary: [
+        { text: "最大的几个客户同时在自研芯片，有动机把议价压下来。", tag: "FACT" },
+        { text: "AMD 与定制 ASIC 竞争加剧，长期对价格是压力。", tag: "FACT" },
+        { text: "产品代际切换期（如新架构爬坡）毛利可能短期承压。", tag: "INFERENCE" },
+      ],
+      keyMetrics: ["毛利率", "定价/供需紧张度", "竞品份额"],
+      invalidation:
+        "若 毛利率结构性下滑到约 60% 以下、且并非短期产品切换所致，则 定价权逻辑被削弱→减仓信号。",
+      updated: "2026-08-26",
+    },
+    {
+      id: "concentration-cyclicality",
+      title: "客户集中与周期性是最大的结构性风险",
+      pillar: "客户集中 / 周期性",
+      status: "Watching",
+      trend: "warn",
+      statement:
+        "少数超大厂贡献了很大一部分数据中心收入。这既是需求的强度来源，也是脆弱性来源：任何一家大幅调整 capex，都会在收入和估值上放大。",
+      marketMisunderstanding:
+        "牛市里集中度被当作「大客户背书」；但同一批客户的同步减速，也会同步放大下行。",
+      supporting: [
+        { text: "前几大客户合计占数据中心收入很高比例。", tag: "FACT" },
+        { text: "半导体历史上是强周期行业，AI 也未必例外。", tag: "INFERENCE" },
+      ],
+      contrary: [
+        { text: "主权 AI、企业和新兴 AI 实验室在拓宽客户基础。", tag: "FACT" },
+      ],
+      keyMetrics: ["客户集中度", "超大厂 capex 同步性", "订单积压/取消"],
+      invalidation:
+        "若 前几大客户之一大幅削减订单、且无法被其他需求填补，则 收入与估值同步承压。",
+      updated: "2026-08-26",
+    },
+    {
+      id: "geopolitics",
+      title: "地缘 / 出口管制是持续的收入逆风",
+      pillar: "地缘 / 出口",
+      status: "Watching",
+      trend: "down",
+      statement:
+        "对华出口管制限制了一块本可观的市场，并带来政策不确定性。这不是致命伤，但会周期性地削掉收入、并压制估值倍数。",
+      marketMisunderstanding:
+        "市场对每一次管制消息都反应剧烈；现实更可能是「持续的逆风 + 需求向其他地区转移」，而非归零。",
+      supporting: [
+        { text: "非受限市场的需求足够强，能吸收部分中国损失。", tag: "INFERENCE" },
+      ],
+      contrary: [
+        { text: "管制可扶持中国国产替代（如华为昇腾），长期蚕食一块市场。", tag: "FACT" },
+        { text: "政策方向不可预测，构成估值折价。", tag: "FACT" },
+      ],
+      keyMetrics: ["中国区收入", "出口管制口径", "国产替代进度"],
+      invalidation:
+        "若 出口管制进一步收紧、且中国需求无法向其他地区转移，则 收入面临持续逆风、估值承压。",
+      updated: "2026-08-26",
+    },
+  ],
+
+  business: [
+    {
+      name: "数据中心（Data Center）",
+      role: "绝对主体",
+      howItMakesMoney:
+        "向超大厂、AI 实验室、主权 AI 和企业销售 AI 训练/推理 GPU、网络和系统。是收入与利润的压倒性来源。",
+      note: "整条投资逻辑几乎都压在这里。这块的健康 = 整条逻辑的健康。",
+    },
+    {
+      name: "网络（Networking，含 Mellanox / NVLink / InfiniBand）",
+      role: "系统护城河的一部分",
+      howItMakesMoney:
+        "把成千上万块 GPU 高速互联的网络。让 NVIDIA 卖的是「整机架/整集群」，而不只是单卡。",
+      note: "被低估的差异化——从卖芯片升级到卖系统。",
+    },
+    {
+      name: "游戏（Gaming）",
+      role: "起家业务、现为配角",
+      howItMakesMoney: "GeForce 消费级显卡。稳定但增速与占比都已被数据中心远远盖过。",
+      note: "曾经的主业，如今是现金牛配角。",
+    },
+    {
+      name: "专业可视化 / 汽车（ProViz / Automotive）",
+      role: "长久期期权",
+      howItMakesMoney: "Omniverse、工作站，以及车载/自动驾驶平台。目前占比小。",
+      note: "可选价值，不应算进基准情形。",
+    },
+  ],
+
+  aiMoat: {
+    summary:
+      "NVIDIA 本身就是 AI 基础设施。核心问题：这波浪潮是在扩大它的护城河，还是正被超大厂自研芯片和推理商品化侵蚀？",
+    verdict:
+      "我的判断：在训练端净扩大（软件+网络+系统+一年一代的节奏，别人很难同时追上）；但在推理端和超大厂自研 ASIC 上，是真实的侵蚀点。这也是我盯得最紧的地方——护城河的方向，比短期需求更决定长期回报。",
+    factors: [
+      { name: "CUDA 软件栈", note: "十几年生态 + 开发者锁定，最难复制的一层。", direction: "up" },
+      { name: "系统整合（NVLink / InfiniBand / 整机架）", note: "从卖芯片到卖集群，抬高整体切换成本。", direction: "up" },
+      { name: "产品节奏（Blackwell → Rubin）", note: "一年一代，持续拉开身位。", direction: "up" },
+      { name: "推理商品化", note: "推理对软件生态依赖更弱，更易被专用芯片替代。", direction: "warn" },
+      { name: "超大厂自研 ASIC", note: "TPU / Trainium / Maia / MTIA 针对自家负载绕开 CUDA。", direction: "warn" },
+      { name: "供应链掌控（TSMC / HBM / CoWoS）", note: "锁定先进封装与 HBM 产能，本身是一种护城河，也是瓶颈。", direction: "flat" },
+    ],
+    cannibalization:
+      "诚实的张力：NVIDIA 最大的客户，正是最有钱、最有动机自研替代芯片的那几家。短期他们买得最多，长期他们也最想摆脱依赖。护城河能不能守住，取决于 NVIDIA 的系统级整合和产品节奏，快过客户自研 ASIC 的成熟速度。要盯的是推理侧份额和自研芯片的实际部署量。",
+  },
+
+  drivers: [
+    { name: "超大厂 capex", why: "少数几家的资本开支，几乎等同于 NVIDIA 的订单簿。", direction: "up" },
+    { name: "HBM 供给（SK Hynix / Micron / Samsung）", why: "高带宽内存是 AI 芯片的瓶颈，供给紧张即限制出货。", direction: "flat" },
+    { name: "CoWoS / 先进封装产能（TSMC）", why: "先进封装产能决定供给上限。", direction: "flat" },
+    { name: "数据中心电力", why: "GPU 集群拉动用电，电力/散热成为新约束。", direction: "warn" },
+    { name: "训练 vs 推理需求结构", why: "推理占比上升决定需求的持久性与可替代性。", direction: "up" },
+    { name: "自研 ASIC 替代速度", why: "超大厂自研芯片的成熟速度，直接决定护城河的侵蚀节奏。", direction: "warn" },
+  ],
+
+  ecosystem: {
+    upstream: [
+      { name: "TSMC（代工 + CoWoS 封装）", note: "独家先进制程与封装，产能=供给上限" },
+      { name: "SK Hynix / Micron / Samsung（HBM）", note: "高带宽内存，AI 芯片瓶颈" },
+      { name: "ASML（间接）", note: "光刻设备决定整个先进制程产能" },
+      { name: "基板 / 载板供应", note: "先进封装的配套瓶颈" },
+    ],
+    self: [
+      { name: "GPU（Blackwell / Rubin）", note: "算力核心" },
+      { name: "CUDA 软件栈", note: "生态护城河" },
+      { name: "网络（NVLink / InfiniBand）", note: "系统整合" },
+      { name: "DGX / 系统", note: "整机/整集群" },
+    ],
+    downstream: [
+      { name: "超大厂（MSFT / GOOGL / AMZN / META）", note: "最大买家，也是自研替代者" },
+      { name: "AI 实验室（OpenAI / Anthropic / xAI）", note: "前沿训练需求" },
+      { name: "主权 AI", note: "各国自建算力，拓宽客户基础" },
+      { name: "服务器 OEM（SMCI / Dell）", note: "组装出货" },
+      { name: "企业", note: "落地推理/私有部署" },
+    ],
+  },
+
+  competition: [
+    {
+      name: "超大厂自研 ASIC（TPU / Trainium / Maia / MTIA）",
+      attacking: "用为自家负载定制的芯片，绕开 GPU 与 CUDA。",
+      moatTargeted: "CUDA 锁定 + 数据中心毛利。",
+      evidence: "Google TPU、Amazon Trainium、Microsoft Maia、Meta MTIA 都在扩大自用部署。",
+      threat: "High",
+      thesisImpact: "直接施压 CUDA 护城河与毛利可持续性两条逻辑。",
+    },
+    {
+      name: "AMD（MI 系列 / ROCm）",
+      attacking: "性价比 + 开放软件栈争夺训练/推理份额。",
+      moatTargeted: "数据中心 GPU 份额与定价。",
+      evidence: "MI 系列在部分客户获得采用；ROCm 生态在补课。",
+      threat: "Medium",
+      thesisImpact: "长期对价格与份额是压力，暂未撼动生态领先。",
+    },
+    {
+      name: "Broadcom",
+      attacking: "帮超大厂设计定制 AI ASIC。",
+      moatTargeted: "定制芯片替代通用 GPU。",
+      evidence: "是多家超大厂定制硅的关键合作方。",
+      threat: "High",
+      thesisImpact: "是自研 ASIC 浪潮的军火商，间接放大对 NVDA 的替代。",
+    },
+    {
+      name: "推理专用芯片（Cerebras / Groq 等）",
+      attacking: "在推理场景用专用架构拼延迟/成本。",
+      moatTargeted: "推理侧份额。",
+      evidence: "在特定推理负载上展示性价比优势。",
+      threat: "Medium",
+      thesisImpact: "施压推理商品化这一侵蚀点。",
+    },
+    {
+      name: "中国国产（华为昇腾等）",
+      attacking: "在出口管制下替代受限市场。",
+      moatTargeted: "中国区收入。",
+      evidence: "管制反而给国产替代腾出空间。",
+      threat: "Medium",
+      thesisImpact: "强化地缘/出口这条逻辑的下行。",
+    },
+  ],
+
+  metrics: [
+    { label: "数据中心收入增速", latest: "高位增长 (待核实)", spark: [40, 60, 80, 90, 85, 80], unit: "% 同比", good: "up", note: "整条逻辑最重要的单一信号。", judgment: true },
+    { label: "毛利率", latest: "约 75% (待核实)", spark: [64, 70, 74, 75, 75, 74], unit: "%", good: "up", note: "定价权的体温计；下滑是最先要警惕的信号。", judgment: true },
+    { label: "超大厂合计 capex", latest: "持续上调 (待核实)", spark: [40, 48, 55, 62, 70, 78], unit: "指数", good: "up", note: "近似等于 NVDA 的订单簿。", judgment: true },
+    { label: "推理占比信号", latest: "上升中 (待核实)", spark: [10, 15, 22, 30, 40, 48], unit: "%", good: "up", note: "推理接棒训练——需求持久性的关键。", judgment: true },
+    { label: "中国区收入占比", latest: "受管制压制 (待核实)", spark: [22, 18, 14, 12, 10, 9], unit: "%", note: "受出口管制波动——方向有歧义（中性线）。", judgment: true },
+  ],
+
+  financials: {
+    note: "约数 / 示意——NVIDIA 财年约在 1 月结束。依赖任何数字前请对照最新财报核实。第一版不给脆弱的目标价。",
+    rows: [
+      { label: "收入", values: ["约 $60B", "约 $130B", "约 $200B+"], periods: ["FY24", "FY25", "FY26e"] },
+      { label: "毛利率", values: ["约 73%", "约 75%", "约 74%"], periods: ["FY24", "FY25", "FY26e"] },
+      { label: "EPS（摊薄，示意）", values: ["约 $12", "约 $28", "约 $40"], periods: ["FY24", "FY25", "FY26e"] },
+      { label: "自由现金流 FCF", values: ["约 $27B", "约 $60B", "—"], periods: ["FY24", "FY25", ""] },
+      { label: "现金及等价物", values: ["约 $26B", "约 $40B", "—"], periods: ["FY24", "FY25", ""] },
+      { label: "P/E（前瞻）", values: ["—", "约 35x", "—"], periods: ["", "当前", ""] },
+      { label: "EV / FCF", values: ["—", "约 40x", "—"], periods: ["", "当前", ""] },
+    ],
+    impliedExpectations:
+      "高倍数隐含的是「多年维持超高增长 + 高毛利」。这意味着容错空间很小：只要需求增速换挡、或毛利率被自研 ASIC 和客户议价压下来，就可能触发估值与盈利的双杀。你付的价格，是在为「护城河守住 + 需求持久」买单。",
+  },
+
+  timeline: [
+    {
+      date: "2026-08-26",
+      event: "为 NVDA 开立投资账本（这条记录的起点）",
+      whyItMatters: "把截至今天的逻辑、健康度和持仓做一个基线快照。",
+      node: "全部",
+      thesisImpact: "flat",
+      action: "不动仓位——建立记录。",
+      source: null,
+      related: null,
+    },
+    {
+      date: "2026-08-xx",
+      event: "占位——财报（数据中心增速 / 毛利率 / 下季指引）",
+      whyItMatters:
+        "财报是对需求持久性和毛利可持续性两条逻辑的主要现实检验。公布后填入真实数字，尤其盯毛利率。",
+      node: "数据中心 / 毛利率",
+      thesisImpact: "flat",
+      action: "在确认前不动仓位。",
+      source: null,
+      related: { label: "Stock Why 维基：NVDA", url: "https://belindasun.github.io/stock-why-wiki/" },
+    },
+    {
+      date: "2026-08-xx",
+      event: "占位——超大厂自研 ASIC 部署进展",
+      whyItMatters:
+        "自研芯片的实际部署量，是 CUDA 护城河侵蚀速度的直接读数。任何一家在主力负载上大规模切换，都会牵动护城河逻辑。",
+      node: "护城河 / 竞争",
+      thesisImpact: "warn",
+      action: "不动仓位；若出现主力负载的规模化替代，重新核对护城河的证伪条件。",
+      source: null,
+      related: { label: "Stock Why 维基", url: "https://belindasun.github.io/stock-why-wiki/" },
+    },
+  ],
+
+  thesisEvolution: [
+    {
+      date: "2016–2020",
+      label: "游戏 / 加密显卡公司",
+      note: "主业是 GeForce 显卡，周期性强，被视为一家好的但受周期摆布的芯片公司。",
+    },
+    {
+      date: "2023",
+      label: "ChatGPT 引爆 AI 训练需求",
+      note: "生成式 AI 让 GPU 成为训练的刚需，数据中心收入爆发，叙事从「显卡公司」转为「AI 算力底座」。",
+    },
+    {
+      date: "2024–2025",
+      label: "数据中心成为绝对主体、可见度拉长",
+      note: "订单积压跨年度、毛利率抬到约 75%，系统级整合（网络+软件）拉开身位。多头逻辑成型。",
+    },
+    {
+      date: "2026（当前）",
+      label: "强劲，但侵蚀点浮现",
+      note: "需求仍强；关注焦点转向三件事：推理迁移能否接棒、超大厂自研 ASIC 的替代速度、约 75% 毛利的可持续性。仓位维持在目标水平。",
+    },
+    {
+      date: "未来",
+      label: "什么会让我改变主意",
+      note: "留白。每当有真实证据强化、修改或证伪某条逻辑（尤其毛利率和自研替代），就更新这一页。",
+    },
+  ],
+
+  risks: [
+    {
+      thesis: "算力需求",
+      condition: "若 超大厂 capex 连续 2 个季度下修、且推理需求未能接棒，则 需求逻辑被削弱。",
+      status: "Watching",
+    },
+    {
+      thesis: "CUDA / 系统护城河",
+      condition: "若 超大厂自研 ASIC 在其主力负载上大规模替代 GPU、且 CUDA 未能守住推理侧，则 护城河逻辑被削弱。",
+      status: "Watching",
+    },
+    {
+      thesis: "毛利率可持续性",
+      condition: "若 毛利率结构性下滑到约 60% 以下、且非短期产品切换所致，则 定价权逻辑被削弱→减仓。",
+      status: "Watching",
+    },
+    {
+      thesis: "客户集中 / 周期性",
+      condition: "若 前几大客户之一大幅削减订单、且无法被其他需求填补，则 收入与估值同步承压。",
+      status: "Watching",
+    },
+    {
+      thesis: "地缘 / 出口",
+      condition: "若 出口管制进一步收紧、且中国需求无法向其他地区转移，则 收入面临持续逆风。",
+      status: "Watching",
+    },
+  ],
+
+  stockWhy: {
+    label: "NVDA · Stock Why 维基",
+    url: "https://belindasun.github.io/stock-why-wiki/",
+    note: "NVDA 的市场波动「为什么会发生」的因果溯源在 Stock Why 维基（那边已有 NVDA 档案）。这本账本只问：它是否改变了我的逻辑。",
+  },
+};
