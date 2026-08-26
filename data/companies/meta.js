@@ -226,7 +226,7 @@ window.IB_DATA.META = {
 
   timeline: [
     { date: "2026-08-26", event: "为 META 开立投资账本（起点）", whyItMatters: "基线快照。", node: "全部", thesisImpact: "flat", action: "不动仓位——建立记录。", source: null, related: null },
-    { date: "2026-08", datePrecision: "month", event: "占位——财报（广告增速 / RL 亏损 / capex 指引）", whyItMatters: "对广告护城河与 RL 纪律两条逻辑的主要检验。", node: "广告 / Reality Labs", thesisImpact: "flat", action: "确认前不动仓位。", source: null, related: { label: "Stock Why 维基", url: "https://stock-why-wiki-site.vercel.app/stocks/META" } },
+    { date: "2026-08", datePrecision: "month", event: "占位——财报（广告增速 / RL 亏损 / capex 指引）", whyItMatters: "对广告护城河与 RL 纪律两条逻辑的主要检验。", node: "广告 / Reality Labs", thesisImpact: "flat", action: "确认前不动仓位。", source: null, related: { label: "Stock Why · META 2026-08-24", url: "https://stock-why-wiki-site.vercel.app/stocks/META#2026-08-24" } },
   ],
 
   thesisEvolution: [

@@ -223,7 +223,7 @@ window.IB_DATA.AMZN = {
 
   timeline: [
     { date: "2026-08-26", event: "为 AMZN 开立投资账本（起点）", whyItMatters: "基线快照。", node: "全部", thesisImpact: "flat", action: "不动仓位——建立记录。", source: null, related: null },
-    { date: "2026-08", datePrecision: "month", event: "占位——财报（AWS 增速/利润率、广告、零售利润率）", whyItMatters: "对三条核心逻辑的主要检验。", node: "AWS / 广告 / 零售", thesisImpact: "flat", action: "确认前不动仓位。", source: null, related: { label: "Stock Why 维基", url: "https://stock-why-wiki-site.vercel.app/stocks/AMZN" } },
+    { date: "2026-08", datePrecision: "month", event: "占位——财报（AWS 增速/利润率、广告、零售利润率）", whyItMatters: "对三条核心逻辑的主要检验。", node: "AWS / 广告 / 零售", thesisImpact: "flat", action: "确认前不动仓位。", source: null, related: { label: "Stock Why · AMZN 2026-08-24", url: "https://stock-why-wiki-site.vercel.app/stocks/AMZN#2026-08-24" } },
   ],
 
   thesisEvolution: [

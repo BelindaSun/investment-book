@@ -390,7 +390,7 @@ window.IB_DATA.GOOGL = {
       thesisImpact: "flat",
       action: "在确认前不动仓位。",
       source: null,
-      related: { label: "Stock Why 维基：GOOGL", url: "https://stock-why-wiki-site.vercel.app/stocks/GOOGL" },
+      related: { label: "Stock Why · GOOGL 2026-08-24", url: "https://stock-why-wiki-site.vercel.app/stocks/GOOGL#2026-08-24" },
     },
     {
       date: "2026-08",
@@ -402,7 +402,7 @@ window.IB_DATA.GOOGL = {
       thesisImpact: "warn",
       action: "不动仓位；最终补救落地时，重新核对监管那条证伪条件。",
       source: null,
-      related: { label: "Stock Why 维基", url: "https://stock-why-wiki-site.vercel.app/stocks/GOOGL" },
+      related: { label: "Stock Why · GOOGL 2026-08-24", url: "https://stock-why-wiki-site.vercel.app/stocks/GOOGL#2026-08-24" },
     },
   ],
 

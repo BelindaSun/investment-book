@@ -115,7 +115,7 @@ window.IB_DATA.TSM = {
 
   timeline: [
     { date: "2026-08-26", event: "为 TSM 开立投资账本（起点）", whyItMatters: "基线快照。", node: "全部", thesisImpact: "flat", action: "不动仓位——建立记录。", source: null, related: null },
-    { date: "2026-07", datePrecision: "month", event: "Q2 财报超预期：收入 $40.2B、毛利率 67.7%，上调全年指引至 >40%、capex 升至 $18.75–20B", whyItMatters: "确认 AI 需求强劲、定价权稳固；capex 上调需盯毛利与 FCF 平衡。", node: "制程垄断 / AI 需求 vs capex", thesisImpact: "up", action: "不动仓位；逻辑得到强化。", source: { label: "TSMC IR（官方为准）", url: "https://investor.tsmc.com/" }, related: { label: "Stock Why 维基：TSM", url: "https://stock-why-wiki-site.vercel.app/stocks/TSM" } },
+    { date: "2026-07", datePrecision: "month", event: "Q2 财报超预期：收入 $40.2B、毛利率 67.7%，上调全年指引至 >40%、capex 升至 $18.75–20B", whyItMatters: "确认 AI 需求强劲、定价权稳固；capex 上调需盯毛利与 FCF 平衡。", node: "制程垄断 / AI 需求 vs capex", thesisImpact: "up", action: "不动仓位；逻辑得到强化。", source: { label: "TSMC IR（官方为准）", url: "https://investor.tsmc.com/" }, related: { label: "Stock Why · TSM 2026-08-23", url: "https://stock-why-wiki-site.vercel.app/stocks/TSM#2026-08-23" } },
   ],
 
   thesisEvolution: [

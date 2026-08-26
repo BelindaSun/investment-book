@@ -226,7 +226,7 @@ window.IB_DATA.MSFT = {
 
   timeline: [
     { date: "2026-08-26", event: "为 MSFT 开立投资账本（起点）", whyItMatters: "基线快照。", node: "全部", thesisImpact: "flat", action: "不动仓位——建立记录。", source: null, related: null },
-    { date: "2026-08", datePrecision: "month", event: "占位——财报（Azure 增速 / Copilot 采纳 / capex 指引）", whyItMatters: "对 Azure 与 Copilot 变现两条逻辑的主要检验。", node: "Azure / Copilot", thesisImpact: "flat", action: "确认前不动仓位。", source: null, related: { label: "Stock Why 维基", url: "https://stock-why-wiki-site.vercel.app/stocks/MSFT" } },
+    { date: "2026-08", datePrecision: "month", event: "占位——财报（Azure 增速 / Copilot 采纳 / capex 指引）", whyItMatters: "对 Azure 与 Copilot 变现两条逻辑的主要检验。", node: "Azure / Copilot", thesisImpact: "flat", action: "确认前不动仓位。", source: null, related: { label: "Stock Why · MSFT 2026-08-24", url: "https://stock-why-wiki-site.vercel.app/stocks/MSFT#2026-08-24" } },
   ],
 
   thesisEvolution: [

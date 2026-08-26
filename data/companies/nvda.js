@@ -336,7 +336,7 @@ window.IB_DATA.NVDA = {
       thesisImpact: "flat",
       action: "在确认前不动仓位。",
       source: null,
-      related: { label: "Stock Why 维基：NVDA", url: "https://stock-why-wiki-site.vercel.app/stocks/NVDA" },
+      related: { label: "Stock Why · NVDA 2026-08-23", url: "https://stock-why-wiki-site.vercel.app/stocks/NVDA#2026-08-23" },
     },
     {
       date: "2026-08",
@@ -348,7 +348,7 @@ window.IB_DATA.NVDA = {
       thesisImpact: "warn",
       action: "不动仓位；若出现主力负载的规模化替代，重新核对护城河的证伪条件。",
       source: null,
-      related: { label: "Stock Why 维基", url: "https://stock-why-wiki-site.vercel.app/stocks/NVDA" },
+      related: { label: "Stock Why · NVDA 2026-08-23", url: "https://stock-why-wiki-site.vercel.app/stocks/NVDA#2026-08-23" },
     },
   ],
 
