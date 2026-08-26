@@ -192,6 +192,8 @@ h2.section-title { font-size: 1.5rem; margin: 0 0 6px; font-weight: 600; }
 .pos-item .v { font-family: var(--font-mono); font-size: 1.15rem; margin-top: 2px; }
 .pos-item .v.pos { color: var(--up); }
 .pos-item .v.neg { color: var(--down); }
+.pos-asof { font-family: var(--font-sans); font-size: 0.76rem; color: var(--text-faint); margin-top: 14px; padding-top: 10px; border-top: 1px dashed var(--border); }
+.pos-asof b { color: var(--text-muted); font-weight: 600; }
 
 /* Why I own it list */
 .why-list { list-style: none; padding: 0; margin: 0; counter-reset: why; }

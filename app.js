@@ -156,7 +156,13 @@
 
     const why = (c.whyIOwnIt || []).map((w) => `<li>${esc(w)}</li>`).join("");
 
-    const health = (c.thesisHealth || [])
+    // Thesis Health is DERIVED from the theses — one source of truth, can't drift.
+    // (Falls back to an explicit thesisHealth array only if a company has no theses.)
+    const healthRows =
+      c.theses && c.theses.length
+        ? c.theses.map((t) => ({ label: t.pillar || t.title, status: t.status, trend: t.trend }))
+        : c.thesisHealth || [];
+    const health = healthRows
       .map(
         (h) => `<div class="health-row">
           <span class="health-label">${esc(h.label)}</span>
@@ -192,6 +198,7 @@
         <div class="panel">
           <div class="panel-label">My Position ${p.note ? '· <span style="text-transform:none;letter-spacing:0">placeholder</span>' : ""}</div>
           <div class="pos-grid">${posItems}</div>
+          ${p.priceAsOf ? `<div class="pos-asof">Price is a manual snapshot · as of ${esc(p.priceAsOf)}</div>` : ""}
         </div>
         <div class="panel">
           <div class="panel-label">Thesis Health</div>
@@ -325,7 +332,7 @@
     const head = sectionHead("07 · Key Metrics", "Key Metrics", "If a metric can't change the investment judgment, it isn't here. Trend matters more than the current number.");
     const rows = (c.metrics || [])
       .map((m, i) => {
-        const spark = m.spark && m.spark.length ? `<div class="spark" data-spark='${esc(JSON.stringify(m.spark))}'></div>` : "";
+        const spark = m.spark && m.spark.length ? `<div class="spark" data-spark='${esc(JSON.stringify(m.spark))}'${m.good ? ` data-good="${esc(m.good)}"` : ""}></div>` : "";
         return `<div class="metric">
           <span class="metric-label">${esc(m.label)}</span>
           <span class="metric-latest">${esc(m.latest || "")}</span>
@@ -435,7 +442,7 @@
     return (
       head +
       (p.note ? `<div class="status-note" style="border-color:var(--watch);margin-bottom:20px">${esc(p.note)}</div>` : "") +
-      `<div class="panel"><div class="pos-grid" style="grid-template-columns:repeat(3,1fr)">${rows}</div></div>` +
+      `<div class="panel"><div class="pos-grid" style="grid-template-columns:repeat(3,1fr)">${rows}</div>${p.priceAsOf ? `<div class="pos-asof">Current price, value and unrealized P/L use a manual price snapshot <b>as of ${esc(p.priceAsOf)}</b> — not live. Update it in the data file when you review.</div>` : ""}</div>` +
       `<div class="cards grid-2" style="margin-top:14px">
         <div class="panel"><div class="panel-label">Add / reduce plan</div>
           <p style="margin:0 0 8px"><b>Add:</b> ${esc(p.addRange || "—")}</p>
@@ -480,8 +487,12 @@
     });
     const d = pts.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" ");
     const last = pts[pts.length - 1];
+    // Direction ≠ good/bad. Stay neutral unless the metric declares which way is "good".
+    const good = node.getAttribute("data-good"); // "up" | "down" | null
     const rising = data[data.length - 1] >= data[0];
-    const stroke = rising ? "var(--up)" : "var(--down)";
+    let stroke = "var(--text-faint)"; // neutral: just shows the shape, implies no judgment
+    if (good === "up") stroke = rising ? "var(--up)" : "var(--down)";
+    else if (good === "down") stroke = rising ? "var(--down)" : "var(--up)";
     node.innerHTML =
       `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" role="img" aria-label="trend">
         <path d="${d}" fill="none" stroke="${stroke}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>

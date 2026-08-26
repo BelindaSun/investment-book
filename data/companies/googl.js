@@ -38,7 +38,8 @@ window.IB_DATA.GOOGL = {
       "PLACEHOLDER — replace with your real numbers. Company Quality and Stock Valuation are tracked separately below on purpose: a great company is not a buy at any price.",
     shares: 100,
     avgCost: 165.0,
-    currentPrice: 205.0, // (verify — update to live/last-known price)
+    currentPrice: 205.0, // manual snapshot — NOT live. Update by hand when you review.
+    priceAsOf: "2026-08-26", // the date currentPrice was last set, so P/L reads honestly as a snapshot
     portfolioWeight: 8.0, // %
     targetWeight: 10.0, // %
     addRange: "Add below ~$180, or on any non-structural drawdown of 15%+",
@@ -54,6 +55,7 @@ window.IB_DATA.GOOGL = {
     {
       id: "search-durability",
       title: "Search survives the AI transition — and monetizes it",
+      pillar: "Search durability", // short label used in the derived Thesis Health dashboard
       status: "Healthy",
       trend: "flat",
       statement:
@@ -79,6 +81,7 @@ window.IB_DATA.GOOGL = {
     {
       id: "ai-full-stack",
       title: "Full-stack AI ownership widens the moat",
+      pillar: "AI / full-stack moat",
       status: "Strengthening",
       trend: "up",
       statement:
@@ -103,6 +106,7 @@ window.IB_DATA.GOOGL = {
     {
       id: "cloud-inflection",
       title: "Cloud crosses from cash drain to durable profit engine",
+      pillar: "Cloud profit engine",
       status: "Strong",
       trend: "up",
       statement:
@@ -126,6 +130,7 @@ window.IB_DATA.GOOGL = {
     {
       id: "capex-fcf",
       title: "AI capex converts to free cash flow, not just depreciation",
+      pillar: "CapEx → FCF conversion",
       status: "Watching",
       trend: "warn",
       statement:
@@ -149,6 +154,7 @@ window.IB_DATA.GOOGL = {
     {
       id: "regulation",
       title: "Regulation is a tax and an irritant, not an existential break",
+      pillar: "Regulation / antitrust",
       status: "Watching",
       trend: "down",
       statement:
@@ -170,14 +176,9 @@ window.IB_DATA.GOOGL = {
     },
   ],
 
-  // Compact dashboard rows — the one-glance health read.
-  thesisHealth: [
-    { label: "Search durability", status: "Healthy", trend: "flat" },
-    { label: "Gemini / AI competitiveness", status: "Strengthening", trend: "up" },
-    { label: "Cloud profit engine", status: "Strong", trend: "up" },
-    { label: "CapEx → FCF conversion", status: "Watching", trend: "warn" },
-    { label: "Regulation / antitrust", status: "Watching", trend: "down" },
-  ],
+  // NOTE: Thesis Health (the one-glance dashboard) is DERIVED from the theses
+  // above — each thesis's `pillar` + `status` + `trend`. No separate list to
+  // keep in sync. Add a thesis and it shows up in Health automatically.
 
   business: [
     {
@@ -321,14 +322,17 @@ window.IB_DATA.GOOGL = {
   ],
 
   // Only metrics that could change the investment judgment.
+  // `good` declares which direction is favorable, so the sparkline can color
+  // toward-good = green / away = red. OMIT `good` when direction is genuinely
+  // ambiguous (e.g. CapEx) — the line then stays neutral, implying no judgment.
   metrics: [
-    { label: "Search revenue growth", latest: "~10% YoY (verify)", spark: [12, 11, 9, 10, 11, 10], unit: "% YoY", note: "The single most important durability signal.", judgment: true },
-    { label: "YouTube revenue growth", latest: "~13% YoY (verify)", spark: [8, 12, 13, 14, 13, 13], unit: "% YoY", note: "Ads + subs; connected-TV tailwind.", judgment: true },
-    { label: "Cloud revenue growth", latest: "~28% YoY (verify)", spark: [26, 28, 27, 29, 30, 28], unit: "% YoY", note: "Growth engine; watch alongside margin.", judgment: true },
-    { label: "Cloud operating margin", latest: "~17% (verify)", spark: [5, 9, 11, 14, 15, 17], unit: "%", note: "The inflection story in one line.", judgment: true },
-    { label: "CapEx", latest: "elevated / rising (verify)", spark: [11, 13, 14, 18, 20, 22], unit: "$B/qtr", note: "The AI bet's cost. Must convert to FCF.", judgment: true },
-    { label: "Free cash flow", latest: "large but pressured (verify)", spark: [18, 17, 16, 15, 16, 17], unit: "$B/qtr", note: "The number that proves capex is working.", judgment: true },
-    { label: "AI Overview / Gemini usage", latest: "growing (verify)", spark: [2, 4, 6, 9, 12, 15], unit: "index", note: "AI adoption + monetization signals.", judgment: true },
+    { label: "Search revenue growth", latest: "~10% YoY (verify)", spark: [12, 11, 9, 10, 11, 10], unit: "% YoY", good: "up", note: "The single most important durability signal.", judgment: true },
+    { label: "YouTube revenue growth", latest: "~13% YoY (verify)", spark: [8, 12, 13, 14, 13, 13], unit: "% YoY", good: "up", note: "Ads + subs; connected-TV tailwind.", judgment: true },
+    { label: "Cloud revenue growth", latest: "~28% YoY (verify)", spark: [26, 28, 27, 29, 30, 28], unit: "% YoY", good: "up", note: "Growth engine; watch alongside margin.", judgment: true },
+    { label: "Cloud operating margin", latest: "~17% (verify)", spark: [5, 9, 11, 14, 15, 17], unit: "%", good: "up", note: "The inflection story in one line.", judgment: true },
+    { label: "CapEx", latest: "elevated / rising (verify)", spark: [11, 13, 14, 18, 20, 22], unit: "$B/qtr", note: "The AI bet's cost — ambiguous on its own (neutral line). Judge it only against FCF and Cloud growth.", judgment: true },
+    { label: "Free cash flow", latest: "large but pressured (verify)", spark: [18, 17, 16, 15, 16, 17], unit: "$B/qtr", good: "up", note: "The number that proves capex is working.", judgment: true },
+    { label: "AI Overview / Gemini usage", latest: "growing (verify)", spark: [2, 4, 6, 9, 12, 15], unit: "index", good: "up", note: "AI adoption + monetization signals.", judgment: true },
   ],
 
   financials: {

@@ -20,6 +20,11 @@
  *                           (also "Strengthening" for a status that is improving)
  *   trend / direction     : "up" | "flat" | "down" | "warn"   → renders ↑ → ↓ ⚠
  *   evidence tag          : "FACT" | "INFERENCE" | "THESIS" | "UNKNOWN"
+ *   metric good           : "up" | "down" | (omit)  — which way is favorable
+ *
+ * Thesis Health is DERIVED from the theses (pillar + status + trend) — there is
+ * no separate health list to maintain. Position price is a manual snapshot
+ * (priceAsOf), never live.
  * ===========================================================================
  */
 window.IB_DATA = window.IB_DATA || {};
@@ -41,7 +46,8 @@ window.IB_DATA.TICKER = {
     note: "PLACEHOLDER — replace with real numbers, or delete this note once real.",
     shares: 0,
     avgCost: 0,
-    currentPrice: 0,
+    currentPrice: 0, // manual snapshot, NOT live — update by hand when you review
+    priceAsOf: "YYYY-MM-DD", // date currentPrice was set; makes P/L read honestly as a snapshot
     portfolioWeight: 0,
     targetWeight: 0,
     addRange: "When would you add?",
@@ -55,6 +61,7 @@ window.IB_DATA.TICKER = {
     {
       id: "thesis-1",
       title: "Short claim you can check against reality",
+      pillar: "Short label", // shown in the derived Thesis Health dashboard
       status: "Healthy",
       trend: "flat",
       statement: "The full thesis in 1–2 sentences: why this is true.",
@@ -70,10 +77,8 @@ window.IB_DATA.TICKER = {
     },
   ],
 
-  thesisHealth: [
-    { label: "Pillar 1", status: "Healthy", trend: "flat" },
-    { label: "Pillar 2", status: "Watching", trend: "warn" },
-  ],
+  // NO separate thesisHealth list — the Health dashboard is DERIVED from the
+  // theses above (each thesis's pillar + status + trend). One source of truth.
 
   business: [
     { name: "Segment", role: "One-word role", howItMakesMoney: "How it earns.", note: "Why it matters." },
@@ -109,7 +114,9 @@ window.IB_DATA.TICKER = {
   ],
 
   metrics: [
-    { label: "Metric", latest: "value (verify)", spark: [1, 2, 3, 4], unit: "", note: "Why it can change the judgment.", judgment: true },
+    // `good`: "up" or "down" = which direction is favorable (colors the sparkline
+    // toward-good green / away red). OMIT when direction is ambiguous → neutral line.
+    { label: "Metric", latest: "value (verify)", spark: [1, 2, 3, 4], unit: "", good: "up", note: "Why it can change the judgment.", judgment: true },
   ],
 
   financials: {

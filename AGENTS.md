@@ -27,10 +27,18 @@ book focused on "does it change my thesis."
   than inventing them.
 
 ## Field/enum reference
-- `thesisStatus`, thesis `status`, health `status`, risk `status`:
+- `thesisStatus`, thesis `status`, risk `status`:
   `Strong | Healthy | Watching | Weakening | Invalidated` (plus `Strengthening`).
 - `trend` / `direction` / `thesisImpact`: `up | flat | down | warn` → ↑ → ↓ ⚠.
-- Sparklines: `metrics[].spark` is an array of numbers; rising = green, falling = red.
+- **Thesis Health is derived, not stored.** The Overview dashboard is built from
+  the theses (`pillar` + `status` + `trend`). Give every thesis a short `pillar`.
+  Do not add a separate `thesisHealth` list — it would drift out of sync.
+- **Position price is a manual snapshot, never live.** `position.currentPrice`
+  is paired with `position.priceAsOf`; the UI labels P/L as "as of <date>". Update
+  both by hand at review time; don't imply the number is live.
+- Sparklines: `metrics[].spark` is an array of numbers. Colored toward-good green
+  / away red ONLY if the metric sets `good: "up"|"down"`; omit `good` when the
+  direction is genuinely ambiguous (e.g. CapEx) and the line stays neutral.
 
 ## Testing
 Open `index.html` (or `python3 -m http.server`). Check: Overview cockpit reads in
