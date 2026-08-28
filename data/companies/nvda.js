@@ -12,14 +12,14 @@ window.IB_DATA.NVDA = {
   tagline: "AI 建设浪潮里的卖铲人——向全行业收过路费。",
   oneLiner:
     "这轮 AI 的算力底座。真正要验证的不是「需求还在不在」，而是「这道护城河是在变宽，还是正被超大厂自研芯片和推理商品化悄悄侵蚀」。",
-  updated: "2026-08-26",
+  updated: "2026-08-27",
   thesisStatus: "Strong",
   statusNote:
     "需求侧强劲、可见度高，数据中心是绝对主体。真正的悬念在两处：一是超大厂一边是最大买家、一边在自研 ASIC 替代；二是这套高毛利率（FY25 约 75% 口径，待核实）能维持多久。质量极高，但估值把「持续高增长 + 高毛利」都定价进去了——脆弱点在此。",
 
   currentDecision: "持有",
   decisionReason:
-    "卖铲人地位 + CUDA/系统护城河仍强，需求可见度高；但估值容错小，毛利与自研替代是要盯的变量。当前证据不支持仓位变动。",
+    "卖铲人地位 + CUDA/系统护城河仍强；8/26 财报大超预期、供给承诺翻倍，需求进一步确认。但估值容错小，且毛利率已被指引下修——毛利与自研替代仍是要盯的变量。强财报≠追高理由，当前不动仓位。",
   nextDecisionTriggers: [
     "超大厂 capex 连续两季下修，且推理需求未能接棒",
     "超大厂自研 ASIC 在主力负载上出现规模化替代",
@@ -29,6 +29,8 @@ window.IB_DATA.NVDA = {
 
   sources: {
     "px-2026-08-12": { label: "大型科技股行情（Motley Fool 汇总）", url: "https://www.fool.com/investing/2026/08/12/alphabet-amazon-meta-platforms-and-microsoft-this/", date: "2026-08-12", type: "media" },
+    "q2fy27": { label: "NVIDIA FY2027 Q2 业绩（2026-08-26；以官方 IR 为准）", url: "https://investor.nvidia.com/", date: "2026-08-26", type: "IR" },
+    "q2fy27-cnbc": { label: "CNBC：NVDA Q2 FY27 财报直播", url: "https://www.cnbc.com/2026/08/26/nvidia-nvda-earnings-report-q2-2027-live-updates.html", date: "2026-08-26", type: "media" },
   },
 
   whyIOwnIt: [
@@ -66,6 +68,8 @@ window.IB_DATA.NVDA = {
         "空头把它当成又一轮会崩的资本开支周期。我的看法：训练需求可能有周期，但推理需求随 AI 落地而结构性增长，是更持久的第二引擎。",
       supporting: [
         { text: "超大厂的 capex 指引持续上调，且明确点名 AI 算力。", tag: "FACT" },
+        { text: "FY27 Q2 数据中心营收 $890 亿、总营收 $962 亿（+106% 同比），远超 $910 亿指引中值。", tag: "FACT", source: "q2fy27", asOf: "2026-08-26" },
+        { text: "供给采购承诺从上季 $1190 亿翻倍到 $2790 亿，指向跨年度的前瞻需求。", tag: "FACT", source: "q2fy27", asOf: "2026-08-26" },
         { text: "订单可见度/积压给出了跨年度的前瞻需求。", tag: "FACT" },
         { text: "推理会随 AI 应用普及而结构性放大，接棒训练需求。", tag: "INFERENCE" },
       ],
@@ -114,9 +118,10 @@ window.IB_DATA.NVDA = {
       marketMisunderstanding:
         "多头默认高毛利会一直维持。我把它当成需要持续验证的变量——毛利率的走向，比收入增速更能改变投资判断。",
       supporting: [
-        { text: "目前定价权强、供给紧张，毛利率处于历史高位。", tag: "FACT" },
+        { text: "FY27 Q2 毛利率 75.0%，仍处历史高位。", tag: "FACT", source: "q2fy27", asOf: "2026-08-26" },
       ],
       contrary: [
+        { text: "管理层指引毛利率将在 FY27 Q4 探底至约 71–72%（产品代际爬坡）。", tag: "FACT", source: "q2fy27", asOf: "2026-08-26" },
         { text: "最大的几个客户同时在自研芯片，有动机把议价压下来。", tag: "FACT" },
         { text: "AMD 与定制 ASIC 竞争加剧，长期对价格是压力。", tag: "FACT" },
         { text: "产品代际切换期（如新架构爬坡）毛利可能短期承压。", tag: "INFERENCE" },
@@ -293,8 +298,8 @@ window.IB_DATA.NVDA = {
   ],
 
   metrics: [
-    { label: "数据中心收入增速", latest: "高位增长 (待核实)", spark: [40, 60, 80, 90, 85, 80], unit: "% 同比", good: "up", note: "整条逻辑最重要的单一信号。", judgment: true },
-    { label: "毛利率", latest: "约 75% (待核实)", spark: [64, 70, 74, 75, 75, 74], unit: "%", good: "up", note: "定价权的体温计；下滑是最先要警惕的信号。", judgment: true },
+    { label: "数据中心收入增速", latest: "FY27 Q2 数据中心 $890亿（总营收 +106%）", spark: [40, 60, 80, 90, 85, 106], unit: "% 同比", good: "up", note: "整条逻辑最重要的单一信号。2026-08-26 财报确认强劲。", judgment: true },
+    { label: "毛利率", latest: "75.0%（指引 Q4 探底 71–72%）", spark: [70, 73, 74, 75, 75, 75], unit: "%", good: "up", note: "定价权的体温计；管理层已指引下修——正是要盯的信号。", judgment: true },
     { label: "超大厂合计 capex", latest: "持续上调 (待核实)", spark: [40, 48, 55, 62, 70, 78], unit: "指数", good: "up", note: "近似等于 NVDA 的订单簿。", judgment: true },
     { label: "推理占比信号", latest: "上升中 (待核实)", spark: [10, 15, 22, 30, 40, 48], unit: "%", good: "up", note: "推理接棒训练——需求持久性的关键。", judgment: true },
     { label: "中国区收入占比", latest: "受管制压制 (待核实)", spark: [22, 18, 14, 12, 10, 9], unit: "%", note: "受出口管制波动——方向有歧义（中性线）。", judgment: true },
@@ -327,16 +332,15 @@ window.IB_DATA.NVDA = {
       related: null,
     },
     {
-      date: "2026-08",
-      datePrecision: "month",
-      event: "占位——财报（数据中心增速 / 毛利率 / 下季指引）",
+      date: "2026-08-26",
+      event: "FY27 Q2 财报大超预期：营收 $962亿(+106%)、数据中心 $890亿、下季指引 $1080亿；毛利率 75.0%",
       whyItMatters:
-        "财报是对需求持久性和毛利可持续性两条逻辑的主要现实检验。公布后填入真实数字，尤其盯毛利率。",
-      node: "数据中心 / 毛利率",
-      thesisImpact: "flat",
-      action: "在确认前不动仓位。",
-      source: null,
-      related: { label: "Stock Why · NVDA 2026-08-23", url: "https://stock-why-wiki-site.vercel.app/stocks/NVDA#2026-08-23" },
+        "对「算力需求」是强确认——供给采购承诺翻倍到 $2790亿，指向跨年度前瞻需求。但管理层指引毛利率将在 FY27 Q4 探底到约 71–72%，正好落在「毛利率可持续性」这条要盯的变量上。股价财报后走高（约 +6%）。",
+      node: "算力需求 / 毛利率",
+      thesisImpact: "up",
+      action: "不动仓位——强财报确认逻辑，不是追高的理由；把「毛利率指引下修到 71–72%」记进毛利率可持续性这条继续盯。",
+      source: { label: "NVIDIA IR / CNBC 2026-08-26", url: "https://www.cnbc.com/2026/08/26/nvidia-nvda-earnings-report-q2-2027-live-updates.html" },
+      related: { label: "Stock Why · NVDA 财报", url: "https://stock-why-wiki-site.vercel.app/stocks/NVDA" },
     },
     {
       date: "2026-08",
