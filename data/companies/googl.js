@@ -23,25 +23,27 @@ window.IB_DATA.GOOGL = {
   tagline: "现金机器，正拿它去下注赢下 AI 转型。",
   oneLiner:
     "这家把全世界信息组织起来的公司，如今要验证：它能不能拥有自己参与发明的这场 AI 转型，而不是被它颠覆。",
-  updated: "2026-08-26",
+  updated: "2026-08-27",
   thesisStatus: "Healthy",
   statusNote:
-    "核心现金引擎（Search、YouTube、Cloud）强劲且在复利。唯一悬而未决的问题——AI 到底会扩大还是侵蚀 Search 的护城河——目前正朝对 Alphabet 有利的方向被解决，但这是要盯着看的事，不是可以直接假设的事。",
+    "核心现金引擎强劲：Search 广告 Q2 +17%、Cloud 罕见地 +82%（backlog $5140亿）。反垄断最坏情况（拆 Chrome、禁默认付费）未落地，是税不是致命伤。真正尖锐的新张力：capex 上调到 ~$2000亿、季度自由现金流史上首次转负——这盘「投入换 AI 领导地位」的赌，现在到了要看回报兑现的阶段。",
 
   // 决策信号：Thesis → Decision（不生成任何自动交易动作）
   currentDecision: "持有",
   decisionReason:
-    "核心现金引擎强劲、AI 全栈优势在增强；估值相对同侪仍有折价，不需要为「AI 领导地位」付溢价。当前证据不支持任何仓位变动。",
+    "Cloud 大幅加速、Search 仍稳、反垄断尾部有利解决；但 capex 暴涨、FCF 首次转负是要盯的核心张力。当前证据（backlog $5140亿部分解释了投入）不支持仓位变动。",
   nextDecisionTriggers: [
     "Search 收入增速连续两季明显恶化，或查询份额可见地流向无法变现的 AI 助手",
-    "AI Overview 变现出现实质证据（正向或负向）",
-    "CapEx → FCF 转化显著改善或恶化",
-    "反垄断出现触及默认分发的最终补救",
+    "Cloud 增速大幅回落、或利润率扩张停滞",
+    "capex 继续攀升而 FCF 长期为负、Cloud 增长未能兑现回报",
+    "反垄断上诉出现更激进的最终补救（如触及默认分发）",
   ],
 
   // 来源登记表（轻量）：证据可用 source 引用这里的 key；不是每条 FACT 都必须有。
   sources: {
     "px-2026-08-12": { label: "大型科技股行情（Motley Fool 汇总）", url: "https://www.fool.com/investing/2026/08/12/alphabet-amazon-meta-platforms-and-microsoft-this/", date: "2026-08-12", type: "media" },
+    "q2-2026": { label: "Alphabet 2026 Q2 业绩公告（官方 IR）", url: "https://s206.q4cdn.com/479360582/files/doc_financials/2026/q2/2026q2-alphabet-earnings-release.pdf", date: "2026-07-22", type: "IR" },
+    "antitrust-2025-09": { label: "美国 v. Google 搜索案补救裁决（DOJ）", url: "https://www.justice.gov/opa/pr/department-justice-wins-significant-remedies-against-google", date: "2025-09-02", type: "gov" },
   },
 
   // 电梯陈述。如果你没法用几句话说清为什么持有，那你不是拥有它，是在租它。
@@ -81,15 +83,15 @@ window.IB_DATA.GOOGL = {
       marketMisunderstanding:
         "市场时不时把 GOOGL 定价成「ChatGPT 会结构性取代 Search」。我的看法：AI 答案真正的约束是分发和变现，而这两样 Google 都握在手里，不是靠模型本身有多强。",
       supporting: [
-        { text: "在 ChatGPT 时代的头两年里，Search 收入一直在增长。", tag: "FACT" },
+        { text: "2026 Q2 搜索广告收入 $633 亿、+17% 同比——AI 时代进入第三年仍在稳健增长。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
         { text: "AI Overviews 正在被变现（在 AI 答案里/周围投广告），而不是白送。", tag: "FACT" },
-        { text: "Chrome + Android 的默认分发，把答案框零获客成本地推到数十亿人面前。", tag: "FACT" },
+        { text: "反垄断裁决保住了 Chrome，且未禁止（非独家的）默认付费，Search 分发基本完整；Gemini 已进 Chrome。", tag: "FACT", source: "antitrust-2025-09", asOf: "2025-09-02" },
         { text: "查询意图 + 广告主市场是一道双边护城河，聊天创业公司短期内复制不了。", tag: "INFERENCE" },
       ],
       contrary: [
         { text: "年轻用户越来越多地在 AI 助手、而非 Google 里发起「查产品 / 怎么做」类查询。", tag: "FACT" },
         { text: "如果答案「够好」到无需点击，基于点击的广告模式将面临单次查询层面的压力。", tag: "INFERENCE" },
-        { text: "DOJ 反垄断的补救措施可能削弱默认位置这项分发优势。", tag: "FACT" },
+        { text: "反垄断补救要求向对手共享搜索索引 / 用户数据，长期可能扶持竞争者。", tag: "FACT", source: "antitrust-2025-09", asOf: "2025-09-02" },
       ],
       keyMetrics: ["Search 收入增速", "Search 查询份额", "AI Overview 变现信号"],
       invalidation:
@@ -128,19 +130,19 @@ window.IB_DATA.GOOGL = {
       status: "Strong",
       trend: "up",
       statement:
-        "Google Cloud 已经转正，并在仍保持 >25% 增长的同时扩张营业利润率。AI 工作负载（Vertex、Gemini API、TPU）给了它切入云市场第三名的差异化楔子，把 AI capex 转化为高毛利的经常性收入。",
+        "Google Cloud 已从亏损户变成利润引擎，而且 2026 Q2 罕见地 +82%、营业利润近乎翻三倍。AI 工作负载（Vertex、Gemini API、TPU）把它从「遥远第三名」推成 AI 云的差异化赢家，正把巨额 AI capex 转化为高毛利的经常性收入——这可能是当前最强的一条逻辑。",
       marketMisunderstanding:
-        "Cloud 长期被当成一个遥远的第三名亏损户。这轮利润率拐点是真的，而且我认为估值里还没充分反映。",
+        "Cloud 长期被当成一个遥远的第三名亏损户。这轮不只是拐点，是加速——而且 $5140亿 的 backlog 说明这不是一季度的昙花。",
       supporting: [
-        { text: "Cloud 现在稳定地营业利润为正，且利润率在上升。", tag: "FACT" },
-        { text: "订单积压 / 剩余履约义务（RPO）指向可持续的前瞻收入。", tag: "FACT" },
+        { text: "2026 Q2 Cloud 收入 $248 亿、+82% 同比；营业利润近乎翻三倍到 $88 亿。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
+        { text: "Cloud backlog（剩余履约义务）膨胀到 $5140 亿，指向可持续的前瞻收入。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
         { text: "AI 是企业选择 GCP 的真实理由，而不只是打个勾。", tag: "INFERENCE" },
       ],
       contrary: [
         { text: "AWS 和 Azure 更大、更根深蒂固，而且同样装备了 AI。", tag: "FACT" },
-        { text: "要保住牌桌上的位置就得重投 capex；FCF 的转化率是关键摆动项。", tag: "FACT" },
+        { text: "要保住牌桌上的位置就得重投 capex；FCF 的转化率是关键摆动项（见 CapEx→FCF 一条）。", tag: "FACT" },
       ],
-      keyMetrics: ["Cloud 收入增速", "Cloud 营业利润率", "Cloud 订单积压"],
+      keyMetrics: ["Cloud 收入增速", "Cloud 营业利润率", "Cloud backlog"],
       invalidation:
         "若 Cloud 利润率扩张停滞或反转，同时增速掉到约 20% 以下，则利润引擎逻辑进入观察。",
       updated: "2026-08-26",
@@ -152,21 +154,21 @@ window.IB_DATA.GOOGL = {
       status: "Watching",
       trend: "warn",
       statement:
-        "这盘赌只有在巨额 AI / 数据中心 capex 真正赚回回报时才成立——体现为 Cloud 收入、更好的广告定向，以及最终上升的 FCF。这是最容易让人失望的一条逻辑，也是我盯得最紧的一条。",
+        "这盘赌只有在巨额 AI / 数据中心 capex 真正赚回回报时才成立——体现为 Cloud 收入、更好的广告定向，以及最终上升的 FCF。2026 Q2 这条张力首次真正显形：capex 上调到 ~$2000亿、季度 FCF 史上首次转负。这是我盯得最紧的一条。",
       marketMisunderstanding:
-        "多头默认 capex 天然是好事（「他们在投 AI 嘛」）。我把它当成未经证实的，直到 FCF 和 Cloud 经济学确认了回报。",
+        "多头默认 capex 天然是好事（「他们在投 AI 嘛」）。我把它当成未经证实的——直到 FCF 和 Cloud 经济学确认了回报。关键在于：$5140亿 Cloud backlog 能不能把这笔投入变回现金流。",
       supporting: [
-        { text: "即便在重投入之下，Alphabet 仍然产出非常可观的自由现金流。", tag: "FACT" },
+        { text: "Cloud backlog $5140亿、+82% 增速，为「capex 是需求驱动、而非盲目」提供了直接佐证。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
         { text: "管理层把 capex 描述为需求驱动（有客户在等产能）。", tag: "FACT" },
       ],
       contrary: [
-        { text: "capex 已大幅抬升；折旧正成为对报表利润率越来越大的拖累。", tag: "FACT" },
-        { text: "如果 AI 需求回归常态，全行业的 AI capex 有过度建设的风险。", tag: "INFERENCE" },
-        { text: "capex 与增量 FCF 之间的差额，是要盯的第一号数字。", tag: "THESIS" },
+        { text: "2026 全年 capex 指引上调到 $1950–2050亿（上季为 $1800–1900亿）。", tag: "FACT", source: "q2-2026", asOf: "2026-07-22" },
+        { text: "2026 Q2 季度自由现金流史上首次转负，至 -$59亿。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
+        { text: "若 AI 需求回归常态，全行业的 AI capex 有过度建设的风险。", tag: "INFERENCE" },
       ],
       keyMetrics: ["CapEx", "自由现金流 FCF", "FCF 利润率", "CapEx / 收入"],
       invalidation:
-        "若 capex 连续 4 个季度以上继续攀升、而 FCF 停滞或下滑，且 Cloud 增速没有加速，则资本在被摧毁→减仓。",
+        "若 capex 继续攀升、而 FCF 长期为负或不回正，且 Cloud 增长未能把投入转化为回报，则资本在被摧毁→减仓。",
       updated: "2026-08-26",
     },
     {
@@ -174,23 +176,24 @@ window.IB_DATA.GOOGL = {
       title: "监管是一种税、一种烦扰，而非致命一击",
       pillar: "监管 / 反垄断",
       status: "Watching",
-      trend: "down",
+      trend: "flat",
       statement:
-        "反垄断（美国 Search 案、广告技术案、欧盟）会削掉一些经济利益、逼出对默认设置或广告技术的改动，但不大可能直接击穿核心的信息 / 广告引擎。真正的风险是一个侵蚀 Search 默认分发护城河的补救措施。",
+        "2025-09 的搜索案裁决兑现了这条逻辑：Google 保住 Chrome、也没被禁止（非独家的）默认付费——最坏的尾部没落地。剩下的是行为性补救（禁独家合同、向对手共享数据）：是税和烦扰，不是致命一击。双方仍在上诉。",
       marketMisunderstanding:
-        "标题党把每一次裁决都当成致命；现实的结果更可能是摩擦加罚款，外加一个作用在「分发默认位置」上的尾部风险。",
+        "标题党把每一次裁决都当成致命；现实的结果正如所料——保住核心分发 + 一些行为性约束，而非结构性拆分。",
       supporting: [
+        { text: "2025-09-02 裁决：不强制拆分 Chrome，仅行为性补救，未禁止非独家默认付费。", tag: "FACT", source: "antitrust-2025-09", asOf: "2025-09-02" },
         { text: "Alphabet 历史上吸收过大额罚款而未损及核心模式。", tag: "FACT" },
-        { text: "即便没有付费默认，Chrome + Android 也提供了自然分发。", tag: "INFERENCE" },
       ],
       contrary: [
-        { text: "一个禁止默认搜索付费 / 位置安排的补救措施，会打到一道真实的护城河。", tag: "FACT" },
-        { text: "广告技术被拆分的风险引入了结构性的不确定性。", tag: "FACT" },
+        { text: "补救要求向对手共享搜索索引 / 用户数据，长期可能扶持竞争者。", tag: "FACT", source: "antitrust-2025-09", asOf: "2025-09-02" },
+        { text: "双方仍在上诉（DOJ 争取更强补救、含拆分），最终结果未定。", tag: "FACT", source: "antitrust-2025-09", asOf: "2026-01-16" },
+        { text: "广告技术案（另案）的拆分风险仍引入结构性不确定性。", tag: "FACT" },
       ],
-      keyMetrics: ["反垄断裁决结果", "监管罚款", "默认分发状态"],
+      keyMetrics: ["反垄断上诉结果", "数据共享对份额的影响", "默认分发状态"],
       invalidation:
-        "若一份最终补救措施结构性地剥夺了 Google 的搜索分发默认位置，且流量 / 份额因此下滑，则 Search 护城河逻辑被实质性削弱。",
-      updated: "2026-08-26",
+        "若上诉推翻现判、出现结构性地剥夺 Google 搜索分发默认位置的最终补救，且流量 / 份额因此下滑，则 Search 护城河逻辑被实质性削弱。",
+      updated: "2026-08-27",
     },
   ],
 
@@ -343,13 +346,13 @@ window.IB_DATA.GOOGL = {
   // `good` 声明哪个方向是有利的，让 sparkline 朝好=绿 / 背离=红上色。
   // 方向本身有歧义时（如 CapEx）就不写 good，线保持中性色，不作暗示。
   metrics: [
-    { label: "Search 收入增速", latest: "约 +10% 同比 (待核实)", spark: [12, 11, 9, 10, 11, 10], unit: "% 同比", good: "up", note: "最重要的单一韧性信号。", judgment: true },
+    { label: "Search 收入增速", latest: "Q2 2026 +17% 同比", spark: [12, 11, 9, 12, 15, 17], unit: "% 同比", good: "up", note: "最重要的单一韧性信号；仍在稳健增长。", judgment: true },
     { label: "YouTube 收入增速", latest: "约 +13% 同比 (待核实)", spark: [8, 12, 13, 14, 13, 13], unit: "% 同比", good: "up", note: "广告 + 订阅；联网电视是顺风。", judgment: true },
-    { label: "Cloud 收入增速", latest: "约 +28% 同比 (待核实)", spark: [26, 28, 27, 29, 30, 28], unit: "% 同比", good: "up", note: "增长引擎；要和利润率一起看。", judgment: true },
-    { label: "Cloud 营业利润率", latest: "约 17% (待核实)", spark: [5, 9, 11, 14, 15, 17], unit: "%", good: "up", note: "一行话讲清的拐点故事。", judgment: true },
-    { label: "CapEx", latest: "高位 / 上升中 (待核实)", spark: [11, 13, 14, 18, 20, 22], unit: "$B/季", note: "AI 下注的成本——单看有歧义（中性线）。只有对着 FCF 和 Cloud 增速才好判断。", judgment: true },
-    { label: "自由现金流 FCF", latest: "可观但承压 (待核实)", spark: [18, 17, 16, 15, 16, 17], unit: "$B/季", good: "up", note: "证明 capex 正在起作用的那个数字。", judgment: true },
-    { label: "AI Overview / Gemini 使用量", latest: "增长中 (待核实)", spark: [2, 4, 6, 9, 12, 15], unit: "指数", good: "up", note: "AI 采纳 + 变现信号。", judgment: true },
+    { label: "Cloud 收入增速", latest: "Q2 2026 +82% 同比（$248亿）", spark: [28, 30, 40, 55, 70, 82], unit: "% 同比", good: "up", note: "增长引擎，罕见加速；backlog $5140亿。", judgment: true },
+    { label: "Cloud 营业利润", latest: "Q2 近乎翻三倍到 $88亿", spark: [3, 4, 5, 6, 7, 8.8], unit: "$B/季", good: "up", note: "拐点已变成加速。", judgment: true },
+    { label: "CapEx（全年指引）", latest: "上调到 $1950–2050亿", spark: [140, 160, 175, 185, 190, 200], unit: "$B/年", note: "AI 下注的成本——单看有歧义（中性线）。只有对着 FCF 和 Cloud 增速才好判断。", judgment: true },
+    { label: "季度自由现金流 FCF", latest: "Q2 2026 首次转负 -$59亿", spark: [18, 17, 12, 5, -2, -5.9], unit: "$B/季", good: "up", note: "证明 capex 正在起作用的那个数字——现在是最尖锐的信号。", judgment: true },
+    { label: "AI Overview / Gemini 使用量", latest: "增长中；Gemini 已进 Chrome", spark: [2, 4, 6, 9, 12, 15], unit: "指数", good: "up", note: "AI 采纳 + 变现信号。", judgment: true },
   ],
 
   financials: {
@@ -381,27 +384,25 @@ window.IB_DATA.GOOGL = {
       related: null,
     },
     {
-      date: "2026-08",
-      datePrecision: "month",
-      event: "占位——例如 FY26 Q2 财报（Cloud 增速 / 利润率、capex 指引）",
+      date: "2026-07-22",
+      event: "Q2 2026 财报：营收 $1198亿(+24%)、Cloud +82%（backlog $5140亿）；但 capex 上调、FCF 首次转负",
       whyItMatters:
-        "财报是对 Cloud 拐点和 capex→FCF 两条逻辑的主要现实检验。公布后填入真实数字。",
+        "Cloud 大幅加速强化了「Cloud 利润引擎」；但 capex 上调到 ~$2000亿、季度 FCF 首次转负 -$59亿，让「CapEx→FCF」这条张力首次真正显形。股价财报后因 capex 上修回落。",
       node: "Cloud / CapEx",
-      thesisImpact: "flat",
-      action: "在确认前不动仓位。",
-      source: null,
+      thesisImpact: "up",
+      action: "不动仓位——Cloud 强化是好事，capex/FCF 是要盯的核心张力（backlog $5140亿部分解释了投入）。",
+      source: { label: "Alphabet 2026 Q2 IR / CNBC", url: "https://www.cnbc.com/2026/07/22/google-earnings-q2-goog-live-updates.html" },
       related: { label: "Stock Why · GOOGL 2026-08-24", url: "https://stock-why-wiki-site.vercel.app/stocks/GOOGL#2026-08-24" },
     },
     {
-      date: "2026-08",
-      datePrecision: "month",
-      event: "占位——反垄断补救措施进展（Search / 广告技术）",
+      date: "2025-09-02",
+      event: "反垄断搜索案补救裁决：Google 保住 Chrome，仅行为性补救",
       whyItMatters:
-        "唯一能直接打到分发护城河的输入。任何针对默认搜索位置的最终补救，都会牵动监管这条逻辑。",
+        "最坏的尾部（拆 Chrome、禁默认付费）未落地——印证了「监管是税不是致命伤」。代价是须向对手共享搜索索引/用户数据；双方仍在上诉。",
       node: "分发 / 监管",
-      thesisImpact: "warn",
-      action: "不动仓位；最终补救落地时，重新核对监管那条证伪条件。",
-      source: null,
+      thesisImpact: "up",
+      action: "不动仓位；监管这条逻辑从「观察↓」收敛到「观察→」。盯上诉的最终结果。",
+      source: { label: "DOJ / Fortune 2025-09-02", url: "https://fortune.com/2025/09/02/google-antitrust-remedy-ruling-exclusive-search-distribution-deals-chrome/" },
       related: { label: "Stock Why · GOOGL 2026-08-24", url: "https://stock-why-wiki-site.vercel.app/stocks/GOOGL#2026-08-24" },
     },
   ],
@@ -419,8 +420,8 @@ window.IB_DATA.GOOGL = {
     },
     {
       date: "2026（当前）",
-      label: "健康，但有一个被盯着的风险",
-      note: "核心逻辑完好且在增强（AI 全栈、Cloud）。开放风险集中在两处：capex→FCF 转化，以及反垄断分发补救。仓位维持在接近目标的水平。",
+      label: "健康，Cloud 加速、监管尾部解除，capex/FCF 成新焦点",
+      note: "Q2 2026：Cloud +82%、backlog $5140亿，Search 仍 +17%；反垄断保住 Chrome（税不是致命伤）。新张力：capex 上调到 ~$2000亿、季度 FCF 首次转负——盯的焦点从「监管」转到「capex→FCF 回报」。仓位维持在接近目标的水平。",
     },
     {
       date: "2026-08-26",
