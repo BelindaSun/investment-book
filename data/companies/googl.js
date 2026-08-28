@@ -26,7 +26,7 @@ window.IB_DATA.GOOGL = {
   updated: "2026-08-27",
   thesisStatus: "Healthy",
   statusNote:
-    "核心现金引擎强劲：Search 广告 Q2 +17%、Cloud 罕见地 +82%（backlog $5140亿）。反垄断最坏情况（拆 Chrome、禁默认付费）未落地，是税不是致命伤。真正尖锐的新张力：capex 上调到 ~$2000亿、季度自由现金流史上首次转负——这盘「投入换 AI 领导地位」的赌，现在到了要看回报兑现的阶段。",
+    "整体 Healthy、方向改善（Improving），但资本回报尚待验证。Q2 两组相反证据并存——强化：Search +17%、Cloud +82% 至 $248亿、Cloud 营业利润 $88亿（约上年 3.1 倍）、backlog $5139亿、Gemini 使用与企业采用大增；制约：Q2 capex $449亿、全年指引 $1950–2050亿、季度 FCF 转负 -$59亿、回购暂停、开始靠股权与债务市场为 AI 扩张筹资。本季明显强化了 Alphabet 的 AI 商业化与 Cloud 第二增长引擎逻辑，但也把投资案的主要争议，从「Google 会不会错过 AI」转向「如此巨额的 AI 投资最终能否产生足够的增量现金回报」。",
 
   // 决策信号：Thesis → Decision（不生成任何自动交易动作）
   currentDecision: "持有",
@@ -125,24 +125,25 @@ window.IB_DATA.GOOGL = {
     },
     {
       id: "cloud-inflection",
-      title: "Cloud 从烧钱黑洞跨入可持续利润引擎",
+      title: "Cloud 成为 Alphabet 第二个规模化利润引擎",
       pillar: "Cloud 利润引擎",
       status: "Strong",
       trend: "up",
       statement:
-        "Google Cloud 已从亏损户变成利润引擎，而且 2026 Q2 罕见地 +82%、营业利润近乎翻三倍。AI 工作负载（Vertex、Gemini API、TPU）把它从「遥远第三名」推成 AI 云的差异化赢家，正把巨额 AI capex 转化为高毛利的经常性收入——这可能是当前最强的一条逻辑。",
+        "Cloud 已从亏损户变成 Alphabet 第二个规模化利润引擎，并开始证明其 AI 全栈可以对外商业化。本季真正强化的是三层逻辑：① Google 的 AI 能力不再只服务 Search，而能卖给外部客户；② TPU + GPU + Gemini + Vertex 的全栈组合形成差异化；③ Cloud 同时出现收入加速、利润放大和合同储备增长。",
       marketMisunderstanding:
-        "Cloud 长期被当成一个遥远的第三名亏损户。这轮不只是拐点，是加速——而且 $5140亿 的 backlog 说明这不是一季度的昙花。",
+        "Cloud 长期被当成一个遥远的第三名亏损户。这轮是收入加速 + 利润放大 + backlog 增长同时发生。但 backlog 只增强收入可见度，不等于全部确定或高利润收入。",
       supporting: [
-        { text: "2026 Q2 Cloud 收入 $248 亿、+82% 同比；营业利润近乎翻三倍到 $88 亿。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
-        { text: "Cloud backlog（剩余履约义务）膨胀到 $5140 亿，指向可持续的前瞻收入。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
+        { text: "2026 Q2 Cloud 收入 $248 亿、+82% 同比；营业利润约 $88 亿（约为上年同期 3.1 倍）。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
+        { text: "Cloud backlog（RPO）约 $5139 亿——增强收入可见度（但不等于全部确定 / 高利润收入；注：10-Q 已把原始期限一年以内的合同纳入 backlog 口径，历史比较需注意口径变化）。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
+        { text: "Cloud 现在不仅卖服务，也披露了 TPU systems 的产品收入——AI 全栈对外商业化的直接证据。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
         { text: "AI 是企业选择 GCP 的真实理由，而不只是打个勾。", tag: "INFERENCE" },
       ],
       contrary: [
-        { text: "AWS 和 Azure 更大、更根深蒂固，而且同样装备了 AI。", tag: "FACT" },
+        { text: "AWS 和 Azure 规模仍更大、更根深蒂固，而且同样装备了 AI。", tag: "FACT" },
         { text: "要保住牌桌上的位置就得重投 capex；FCF 的转化率是关键摆动项（见 CapEx→FCF 一条）。", tag: "FACT" },
       ],
-      keyMetrics: ["Cloud 收入增速", "Cloud 营业利润率", "Cloud backlog"],
+      keyMetrics: ["Cloud 收入增速", "Cloud 营业利润", "Cloud backlog（注意口径）"],
       invalidation:
         "若 Cloud 利润率扩张停滞或反转，同时增速掉到约 20% 以下，则利润引擎逻辑进入观察。",
       updated: "2026-08-26",
@@ -158,17 +159,19 @@ window.IB_DATA.GOOGL = {
       marketMisunderstanding:
         "多头默认 capex 天然是好事（「他们在投 AI 嘛」）。我把它当成未经证实的——直到 FCF 和 Cloud 经济学确认了回报。关键在于：$5140亿 Cloud backlog 能不能把这笔投入变回现金流。",
       supporting: [
-        { text: "Cloud backlog $5140亿、+82% 增速，为「capex 是需求驱动、而非盲目」提供了直接佐证。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
+        { text: "Q2 经营现金流仍达 $391 亿；TTM 自由现金流仍为正、约 $533 亿——单季 FCF 转负主要因 $449 亿 capex 超过当季经营现金流。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
+        { text: "Cloud 收入、利润与 backlog 同时大幅增长，说明至少一部分 capex 有真实需求承接。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
         { text: "管理层把 capex 描述为需求驱动（有客户在等产能）。", tag: "FACT" },
       ],
       contrary: [
-        { text: "2026 全年 capex 指引上调到 $1950–2050亿（上季为 $1800–1900亿）。", tag: "FACT", source: "q2-2026", asOf: "2026-07-22" },
+        { text: "2026 全年 capex 指引上调到 $1950–2050亿（上季为 $1800–1900亿）；Q2 单季 capex $449 亿。", tag: "FACT", source: "q2-2026", asOf: "2026-07-22" },
         { text: "2026 Q2 季度自由现金流史上首次转负，至 -$59亿。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
+        { text: "本季通过股权和债务市场筹集大量外部资本、同时暂停回购——说明 AI 扩张已不再完全依赖内部自由现金流。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
         { text: "若 AI 需求回归常态，全行业的 AI capex 有过度建设的风险。", tag: "INFERENCE" },
       ],
-      keyMetrics: ["CapEx", "自由现金流 FCF", "FCF 利润率", "CapEx / 收入"],
+      keyMetrics: ["TTM 自由现金流（而非单季）", "CapEx / 收入", "Cloud 营业利润 / CapEx（回报兑现的粗略观察量）"],
       invalidation:
-        "若 capex 继续攀升、而 FCF 长期为负或不回正，且 Cloud 增长未能把投入转化为回报，则资本在被摧毁→减仓。",
+        "若未来数季 CapEx 与折旧继续快速上升，而 Cloud 增长、Cloud 利润率和集团经营现金流未能同步改善，导致 TTM FCF 持续显著下降或转负，则该逻辑转为 Weakening。",
       updated: "2026-08-26",
     },
     {
@@ -218,10 +221,10 @@ window.IB_DATA.GOOGL = {
     },
     {
       name: "Google Cloud",
-      role: "利润拐点",
+      role: "第二个规模化利润引擎",
       howItMakesMoney:
-        "把算力、数据和 AI（Vertex、Gemini API、TPU）以经常性合同卖给企业。现在已转正并在扩张利润率。",
-      note: "AI capex 理应在这里变成可持续、高毛利的经常性收入。",
+        "把算力、数据和 AI（Vertex、Gemini API）以经常性合同卖给企业；现在还披露 TPU systems 的产品收入。已转正并在放大利润（Q2 营业利润约 $88亿）。",
+      note: "AI capex 正在这里变成可持续的经常性收入——也是 AI 全栈对外商业化的证据。",
     },
     {
       name: "Android / Chrome / Play（分发）",
@@ -245,13 +248,13 @@ window.IB_DATA.GOOGL = {
     verdict:
       "我的判断：净扩大。Alphabet 是极少数拥有 AI 全栈每一层的公司之一，这压低了它自建和服务 AI 的成本，也给了它对手比不了的分发。真正的风险在它自己家里——AI 答案对基于点击的 Search 广告模式的蚕食，可能快过新的 AI 变现去补上。",
     factors: [
-      { name: "Gemini（模型）", note: "前沿竞争力的模型家族，如今贯穿 Search、Workspace、Android、Cloud。", direction: "up" },
+      { name: "Gemini（消费分发）", note: "Gemini App 本季约 950M MAU、模型约 22B API tokens/分钟（2026 Q2）——不只是拥有技术，而是在规模化。", direction: "up" },
+      { name: "Gemini（企业采用）", note: "近 90% Fortune 100 使用 Gemini Enterprise（2026 Q2）——企业侧规模化落地。", direction: "up" },
       { name: "DeepMind（研究）", note: "世界级研究机构；难以复制的持久进展之源。", direction: "up" },
       { name: "Search 里的 AI（Overviews / AI Mode）", note: "生成式答案折进 Search——既是机会，也是蚕食风险。", direction: "flat" },
-      { name: "TPU / AI 基础设施", note: "自研芯片 = 训练和服务 AI 的成本结构性低于商用 GPU。", direction: "up" },
+      { name: "TPU / AI 基础设施", note: "TPU 为 Alphabet 在适配工作负载上提供潜在的成本、性能和供应控制优势；因未公开完整单位经济性，不能笼统断言其始终低于商用 GPU。", direction: "up" },
       { name: "分发（Chrome / Android / Search）", note: "以约零成本触达数十亿用户——对手买不到的护城河。", direction: "up" },
       { name: "数据", note: "几十年的查询、视频、地图数据，喂养模型质量与定向。", direction: "up" },
-      { name: "开发者生态", note: "Vertex、Gemini API、Android 开发者，作为 AI 的分发渠道。", direction: "flat" },
       { name: "AI 变现", note: "悬而未决的问题：Google 能不能把 AI 答案变现得像当年变现蓝色链接一样好？", direction: "warn" },
     ],
     cannibalization:
@@ -277,7 +280,7 @@ window.IB_DATA.GOOGL = {
     self: [
       { name: "Search", note: "现金引擎" },
       { name: "YouTube", note: "注意力 + 广告 + 订阅" },
-      { name: "Cloud", note: "利润拐点" },
+      { name: "Cloud", note: "第二个利润引擎（含 TPU systems）" },
       { name: "Gemini / DeepMind", note: "AI 层" },
       { name: "分发（Chrome / Android）", note: "触达" },
     ],
@@ -286,7 +289,7 @@ window.IB_DATA.GOOGL = {
       { name: "消费者", note: "数十亿 Search / Android / YouTube 用户" },
       { name: "开发者", note: "Vertex / Gemini / Android 的构建者" },
       { name: "创作者", note: "YouTube 生态" },
-      { name: "云客户", note: "GCP 上的企业" },
+      { name: "云客户", note: "GCP 上的企业——企业 AI 基础设施、AI solutions、TPU systems" },
       { name: "AI 公司", note: "TPU 产能 / Gemini API 的买家" },
     ],
   },
@@ -320,17 +323,17 @@ window.IB_DATA.GOOGL = {
       name: "Amazon（AWS）",
       attacking: "云领导地位与零售搜索广告费。",
       moatTargeted: "Cloud；产品搜索查询。",
-      evidence: "AWS 是云第一名；亚马逊抓住高意图的购物查询。",
+      evidence: "AWS 规模仍居云第一；亚马逊抓住高意图的购物查询。但 Google Cloud +82% 后已不宜再被简单称作「遥远第三名」——规模仍落后 AWS/Azure，但 AI 差异化与增长动能显著增强。",
       threat: "Medium",
-      thesisImpact: "侵蚀一部分高价值的商业查询。",
+      thesisImpact: "侵蚀一部分高价值的商业查询；云上的差距在 AI 侧收窄。",
     },
     {
       name: "Anthropic",
       attacking: "前沿模型质量、企业与编程。",
       moatTargeted: "Gemini 的模型领先；Cloud AI。",
-      evidence: "强劲的前沿模型；企业侧有进展。",
+      evidence: "强劲的前沿模型；企业侧有进展。注：Anthropic 同时可能是 Alphabet 的投资对象与 Cloud 伙伴——但持股关系未经官方确认，不作为 FACT。",
       threat: "Medium",
-      thesisImpact: "让模型领先持续可争夺；施压 Gemini 的差异化。",
+      thesisImpact: "让模型领先持续可争夺；施压 Gemini 的差异化。既是竞争者，也可能是投资/伙伴，关系复杂。",
     },
     {
       name: "Apple",
@@ -351,25 +354,24 @@ window.IB_DATA.GOOGL = {
     { label: "Cloud 收入增速", latest: "Q2 2026 +82% 同比（$248亿）", spark: [28, 30, 40, 55, 70, 82], unit: "% 同比", good: "up", note: "增长引擎，罕见加速；backlog $5140亿。", judgment: true },
     { label: "Cloud 营业利润", latest: "Q2 近乎翻三倍到 $88亿", spark: [3, 4, 5, 6, 7, 8.8], unit: "$B/季", good: "up", note: "拐点已变成加速。", judgment: true },
     { label: "CapEx（全年指引）", latest: "上调到 $1950–2050亿", spark: [140, 160, 175, 185, 190, 200], unit: "$B/年", note: "AI 下注的成本——单看有歧义（中性线）。只有对着 FCF 和 Cloud 增速才好判断。", judgment: true },
-    { label: "季度自由现金流 FCF", latest: "Q2 2026 首次转负 -$59亿", spark: [18, 17, 12, 5, -2, -5.9], unit: "$B/季", good: "up", note: "证明 capex 正在起作用的那个数字——现在是最尖锐的信号。", judgment: true },
+    { label: "自由现金流 FCF", latest: "Q2 单季首次转负 -$59亿（TTM 仍正 ~$533亿）", spark: [18, 17, 12, 5, -2, -5.9], unit: "$B/季", good: "up", note: "看 TTM 而非单季：单季转负是黄灯，主因 $449亿 capex 超过当季经营现金流（$391亿）。", judgment: true },
     { label: "AI Overview / Gemini 使用量", latest: "增长中；Gemini 已进 Chrome", spark: [2, 4, 6, 9, 12, 15], unit: "指数", good: "up", note: "AI 采纳 + 变现信号。", judgment: true },
   ],
 
   financials: {
-    note: "约数 / 示意——依赖任何数字前，请对照最新的 10-Q/10-K 核实。第一版特意不给一个看似精确、实则脆弱的目标价。",
+    note: "约数 / 示意——依赖任何数字前，请对照最新的 10-Q/10-K 核实。注意：Q2 2026 录得约 $99B 股权证券收益（equity securities gain），主要来自 SpaceX 与另一家未具名私人公司（外部推测为 Anthropic，未经官方确认）；这笔收益大部分为非现金、不可重复，会造成 GAAP 净利润和 EPS 的剧烈波动——估值应看核心经营利润、标准化 EPS 和 FCF，而不是 GAAP EPS。",
     rows: [
       { label: "收入", values: ["$307B", "$350B", "约 $390B"], periods: ["FY24", "FY25", "FY26e"] },
       { label: "营业利润率", values: ["约 32%", "约 33%", "约 32%"], periods: ["FY24", "FY25", "FY26e"] },
-      { label: "EPS", values: ["$5.80", "$8.00", "约 $9.00"], periods: ["FY24", "FY25", "FY26e"] },
-      { label: "自由现金流 FCF", values: ["约 $70B", "约 $73B", "约 $70B"], periods: ["FY24", "FY25", "FY26e"] },
-      { label: "CapEx", values: ["约 $52B", "约 $75B", "约 $90B"], periods: ["FY24", "FY25", "FY26e"] },
-      { label: "现金及有价证券", values: ["约 $95B", "约 $100B", "—"], periods: ["FY24", "FY25", ""] },
-      { label: "回购", values: ["约 $60B", "约 $65B", "—"], periods: ["FY24", "FY25", ""] },
-      { label: "P/E（前瞻）", values: ["约 22x", "约 23x", "—"], periods: ["", "当前", ""] },
-      { label: "EV / FCF", values: ["—", "约 28x", "—"], periods: ["", "当前", ""] },
+      { label: "EPS（GAAP 受证券收益严重失真）", values: ["$5.80", "$8.00", "看标准化"], periods: ["FY24", "FY25", "FY26e"] },
+      { label: "自由现金流 FCF（TTM）", values: ["约 $70B", "约 $73B", "约 $53B 且承压"], periods: ["FY24", "FY25", "TTM"] },
+      { label: "CapEx（全年指引）", values: ["约 $52B", "约 $75B", "$195–205B"], periods: ["FY24", "FY25", "FY26e"] },
+      { label: "非经营性股权资产（SpaceX 等，账面）", values: ["—", "约 $94B", "—"], periods: ["", "当前", ""] },
+      { label: "回购", values: ["约 $60B", "约 $65B", "已暂停"], periods: ["FY24", "FY25", "当前"] },
+      { label: "P/E（前瞻，看标准化）", values: ["约 22x", "约 23x", "—"], periods: ["", "当前", ""] },
     ],
     impliedExpectations:
-      "以低于其他 AI 巨头的前瞻倍数交易，价格隐含的是：市场预期中个位到低双位数的盈利增长、Search 完好但不加速。你并没有为「AI 领导者」这个结果付溢价——这正是不对称之处：如果 AI 全栈这条逻辑兑现，重估就是上行空间；如果 Search 只是守住，当前倍数也已经站得住。",
+      "本季把研究问题从「Google 有没有 AI」变成了「能否把 $200B 级 capex 转化成持续增长的经营现金流和每股价值」。价格仍以低于其他 AI 巨头的前瞻倍数交易——若 Cloud + AI 全栈的资本回报兑现，重估是上行空间；若巨额 capex 迟迟不转化为 FCF，则是主要下行风险。另注：约 $94B 的非经营性股权资产（SpaceX 等）增加 SOTP / 资产价值、提供资本配置弹性，但不应据此抬高整体判断，也别把 $99B 证券收益当成持仓总值或经营利润。",
   },
 
   timeline: [
