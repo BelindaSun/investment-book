@@ -11,14 +11,14 @@ window.IB_DATA.TSM = {
   tagline: "所有人的芯片都在这里流片——AI 时代的收费站，但坐在地缘断层线上。",
   oneLiner:
     "全球先进制程近乎垄断的代工厂。NVDA、AAPL、AMD、超大厂自研芯片全在这里流片。悬念不在需求，而在两件事：高毛利（2026 Q2 约 67.7%）与高 capex 的平衡，以及台湾的地缘尾部风险。",
-  updated: "2026-08-26",
+  updated: "2026-08-27",
   thesisStatus: "Strong",
   statusNote:
-    "先进制程与 CoWoS 封装近乎垄断，是整条 AI 供应链的收费站。2026 Q2 收入 $40.2B、毛利率 67.7%，均超预期，并上调全年增长指引至略高于 40%、capex 升至 $18.75–20B（AI 需求强劲）。唯一的重大尾部是台湾地缘风险。",
+    "先进制程与 CoWoS 封装近乎垄断，是整条 AI 供应链的收费站。2026 Q2 收入 $40.2B(+36%)、毛利率 67.7%、营业利润率 60.3%、净利 +77.4%，均超预期；上调全年增长指引至略高于 40%、2026 capex 升至 $60–64B、并追加 $100B 亚利桑那投资（AI 需求超过产能）。HPC 已占 66% 收入、2nm 开始放量（3%）；7 月营收 +44.7% 同比，动能延续。唯一的重大尾部是台湾地缘风险。",
 
   currentDecision: "持有",
   decisionReason:
-    "先进制程/CoWoS 近乎垄断、定价权强，Q2 超预期确认 AI 需求；主要变量是 capex 强度与地缘。当前不动仓位。",
+    "先进制程/CoWoS 近乎垄断、定价权强，Q2 超预期 + 7 月 +44.7% 确认 AI 需求超过产能；主要变量是 $60–64B capex 强度与地缘。当前不动仓位。",
   nextDecisionTriggers: [
     "竞争对手在先进节点实现规模量产并抢走大客户",
     "capex 持续攀升而毛利率结构性下滑",
@@ -26,7 +26,8 @@ window.IB_DATA.TSM = {
   ],
 
   sources: {
-    "q2-2026": { label: "TSMC 2026 Q2 业绩（以官方 IR 为准）", url: "https://investor.tsmc.com/", date: "2026-07", type: "IR" },
+    "q2-2026": { label: "TSMC 2026 Q2 业绩（官方 IR）", url: "https://investor.tsmc.com/", date: "2026-07-16", type: "IR" },
+    "jul-2026": { label: "TSMC 7 月营收 +44.7%、上调 capex（CNBC）", url: "https://www.cnbc.com/2026/08/10/tsmc-revenue-surge-ai-chip-big-tech.html", date: "2026-08-10", type: "media" },
     "px-2026-08-24": { label: "TSM 行情（stockanalysis 汇总）", url: "https://stockanalysis.com/stocks/tsm/", date: "2026-08-24", type: "media" },
   },
 
@@ -61,14 +62,14 @@ window.IB_DATA.TSM = {
         "在最先进制程和 CoWoS 封装上，TSMC 几乎没有对手（三星、Intel 代工落后）。所有想要最强 AI 芯片的客户都必须来，赋予它罕见的定价权。",
       marketMisunderstanding: "市场把它当「周期性代工厂」；实际它在先进节点上是近乎垄断的收费站。",
       supporting: [
-        { text: "2026 Q2 毛利率 67.7%、收入 $40.2B，双双超预期。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
-        { text: "上调 2026 全年增长指引至略高于 40%。", tag: "FACT", source: "q2-2026", asOf: "2026-07" },
+        { text: "2026 Q2 毛利率 67.7%、营业利润率 60.3%、收入 $40.2B(+36%)，均超预期。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
+        { text: "节点结构：2nm 已占晶圆收入 3%（开始放量）、3nm 30%、5nm 33%、7nm 11%——先进节点占比高。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
         { text: "CoWoS 封装产能是 AI 芯片的行业瓶颈。", tag: "FACT" },
       ],
       contrary: [
         { text: "Intel/三星若在先进节点追上，垄断溢价会被侵蚀。", tag: "INFERENCE" },
       ],
-      keyMetrics: ["先进制程收入占比", "毛利率", "CoWoS 产能利用"],
+      keyMetrics: ["先进制程收入占比", "毛利率 / 营业利润率", "CoWoS 产能利用"],
       invalidation: "若 竞争对手在先进节点实现规模量产、且抢走大客户，则 制程垄断逻辑削弱。",
       updated: "2026-08-26",
     },
@@ -79,17 +80,18 @@ window.IB_DATA.TSM = {
       status: "Healthy",
       trend: "up",
       statement:
-        "AI 芯片需求把 TSMC 的产能拉满，但维持技术领先需要巨额 capex（2026 指引升至 $18.75–20B）。增长与资本强度的平衡，决定自由现金流的质量。",
-      marketMisunderstanding: "多头只看增长，空头只看 capex；关键是两者的净效果——高毛利能否覆盖高投入。",
+        "AI 芯片需求把 TSMC 的产能拉满（HPC 已占 66% 收入），需求甚至超过产能；但维持技术领先需要巨额 capex（2026 指引升至 $60–64B，并追加 $100B 亚利桑那投资）。增长与资本强度的平衡，决定自由现金流的质量——目前毛利率约 67.7% 足以覆盖投入。",
+      marketMisunderstanding: "多头只看增长，空头只看 capex；关键是两者的净效果——约 67.7% 的毛利率目前能覆盖高投入。",
       supporting: [
-        { text: "AI 需求推动产能满载与提价。", tag: "FACT" },
+        { text: "AI 需求超过产能：HPC 平台收入环比 +20%、已占总收入 66%；全年增长指引上调至略高于 40%。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
+        { text: "7 月营收 +44.7% 同比（环比 +5.6%），动能延续。", tag: "FACT", source: "jul-2026", asOf: "2026-07-31" },
         { text: "毛利率维持在约 67–70% 的高位（2026 Q2 为 67.7%）。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
       ],
       contrary: [
-        { text: "capex 逐年抬升，压制短期自由现金流。", tag: "FACT" },
+        { text: "2026 capex 上调到 $60–64B、并追加 $100B 亚利桑那投资，压制短期自由现金流。", tag: "FACT", source: "jul-2026", asOf: "2026-08-10" },
         { text: "半导体历史强周期，AI 需求未必线性。", tag: "INFERENCE" },
       ],
-      keyMetrics: ["收入增速", "毛利率", "CapEx / 收入"],
+      keyMetrics: ["收入增速", "毛利率", "CapEx / 收入", "HPC 收入占比"],
       invalidation: "若 capex 持续攀升而毛利率结构性下滑，则 增长/资本平衡逻辑转弱。",
       updated: "2026-08-26",
     },
@@ -102,10 +104,10 @@ window.IB_DATA.TSM = {
       statement:
         "TSMC 的核心产能集中在台湾。两岸紧张、美国出口管制、以及被迫的产能外迁（美国/日本，成本更高），都构成对估值的永久性折价和真实尾部风险。",
       marketMisunderstanding: "牛市里地缘风险被忽视；但它是这只票区别于普通优质公司的关键变量。",
-      supporting: [{ text: "亚利桑那/日本设厂推进产能多元化。", tag: "FACT" }],
+      supporting: [{ text: "追加 $100B 亚利桑那投资，进一步推进产能多元化、缓解「全在台湾」的尾部。", tag: "FACT", source: "jul-2026", asOf: "2026-08-10" }],
       contrary: [
-        { text: "核心先进产能仍高度集中在台湾。", tag: "FACT" },
-        { text: "海外产能成本更高，摊薄毛利。", tag: "FACT" },
+        { text: "核心先进产能仍高度集中在台湾；海外产能爬坡需时间。", tag: "FACT" },
+        { text: "海外产能成本更高，摊薄毛利（多元化是有代价的对冲）。", tag: "FACT" },
       ],
       keyMetrics: ["台湾产能占比", "海外产能进度", "地缘紧张度"],
       invalidation: "若 地缘风险实质升级（冲突/封锁/严厉管制），则 整个投资逻辑面临重大重估。",
@@ -115,7 +117,8 @@ window.IB_DATA.TSM = {
 
   timeline: [
     { date: "2026-08-26", event: "为 TSM 开立投资账本（起点）", whyItMatters: "基线快照。", node: "全部", thesisImpact: "flat", action: "不动仓位——建立记录。", source: null, related: null },
-    { date: "2026-07", datePrecision: "month", event: "Q2 财报超预期：收入 $40.2B、毛利率 67.7%，上调全年指引至 >40%、capex 升至 $18.75–20B", whyItMatters: "确认 AI 需求强劲、定价权稳固；capex 上调需盯毛利与 FCF 平衡。", node: "制程垄断 / AI 需求 vs capex", thesisImpact: "up", action: "不动仓位；逻辑得到强化。", source: { label: "TSMC IR（官方为准）", url: "https://investor.tsmc.com/" }, related: { label: "Stock Why · TSM 2026-08-23", url: "https://stock-why-wiki-site.vercel.app/stocks/TSM#2026-08-23" } },
+    { date: "2026-07-16", event: "Q2 财报超预期：收入 $40.2B(+36%)、毛利率 67.7%、营业利润率 60.3%；上调全年指引 >40%、capex 升至 $60–64B、追加 $100B 亚利桑那投资", whyItMatters: "确认 AI 需求强劲（HPC 占 66%）、定价权稳固；capex 大幅上调需盯毛利与 FCF 平衡；亚利桑那追加投资缓解地缘尾部。", node: "制程垄断 / AI 需求 vs capex / 地缘", thesisImpact: "up", action: "不动仓位；三条逻辑均得到信息更新（含修正此前 capex 数据）。", source: { label: "TSMC IR（官方为准）", url: "https://investor.tsmc.com/" }, related: { label: "Stock Why · TSM 2026-08-23", url: "https://stock-why-wiki-site.vercel.app/stocks/TSM#2026-08-23" } },
+    { date: "2026-08-10", event: "7 月营收 +44.7% 同比（环比 +5.6%）", whyItMatters: "月度数据显示 AI 需求动能延续，超过产能——为「需求 vs capex」逻辑提供高频佐证。", node: "AI 需求 vs capex", thesisImpact: "up", action: "不动仓位；动能确认。", source: { label: "CNBC 2026-08-10", url: "https://www.cnbc.com/2026/08/10/tsmc-revenue-surge-ai-chip-big-tech.html" }, related: { label: "Stock Why · TSM 2026-08-23", url: "https://stock-why-wiki-site.vercel.app/stocks/TSM#2026-08-23" } },
   ],
 
   thesisEvolution: [
