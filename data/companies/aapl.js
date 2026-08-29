@@ -10,23 +10,26 @@ window.IB_DATA.AAPL = {
   holdingStatus: "held",
   tagline: "全球最强装机护城河，但在 AI 上是追赶者。",
   oneLiner:
-    "全世界最赚钱、黏性最高的消费硬件+服务生态。悬念不在现金流，而在两处逆风：AI 上明显落后，以及对 iPhone 和中国的高度依赖。",
-  updated: "2026-08-26",
+    "全世界最赚钱、黏性最高的消费硬件+服务生态。悬念不在现金流，而在两处逆风：AI 上明显落后（重建版 Siri 靠外包 Google Gemini 才交付），以及对 iPhone 和中国的高度依赖。",
+  updated: "2026-08-27",
   thesisStatus: "Healthy",
   statusNote:
-    "装机量 + 服务是台复利机器，现金流和回购极其稳健。但 AI 是明显短板（Apple Intelligence 平淡、Siri 延期），且高度依赖 iPhone 与中国。2026 年它相对大型科技股跑赢（YTD 约 +23%），部分因为「没重仓 AI capex」反而讨喜——这本身就值得警惕。",
+    "FY26 Q3（7/30）创 6 月季度纪录：总营收 $1094亿(+16%)、iPhone +22%、大中华 +22%（都强劲反弹、好于此前担忧）。但两点黄灯：Services $307亿 miss 预期（服务年金的关键读数），毛利率 50.1% 含约 2% 关税退款顺风。AI 端：6/8 发布用 Google Gemini 驱动的重建版 Siri——延迟两年后选择外包给竞争对手，坐实落后但务实交付。现金流/回购仍是堡垒。",
 
   currentDecision: "持有",
   decisionReason:
-    "装机+服务的复利护城河稳健、现金流强；但 AI 落后是真实逆风，且高度依赖 iPhone/中国。当前不动仓位，把相对强势当情绪而非逻辑改善。",
+    "硬件季强劲、iPhone/中国反弹缓解了集中风险；但 Services miss 是服务年金的黄灯，AI 靠外包 Gemini 交付（落后但务实）。当前不动仓位，把相对强势当情绪而非逻辑改善。",
   nextDecisionTriggers: [
-    "服务增速大幅放缓，或 App Store 抽成/Google 默认付费被监管实质削减",
-    "AI 功能持续令人失望并开始拖累换机/黏性",
-    "大中华区收入结构性下滑，或 iPhone 需求持续走弱",
+    "Services 增速连续放缓，或 App Store 抽成 / Google 默认付费被监管实质削减",
+    "Siri（含 Gemini 版）/Apple Intelligence 反响不佳、开始拖累换机与黏性",
+    "大中华区收入重新走弱、或 iPhone 需求转弱",
   ],
 
   sources: {
     "px-2026-08-12": { label: "大型科技股行情（Motley Fool 汇总）", url: "https://www.fool.com/investing/2026/08/12/alphabet-amazon-meta-platforms-and-microsoft-this/", date: "2026-08-12", type: "media" },
+    "q3fy26": { label: "Apple FY26 Q3 业绩（2026-07-30；以官方 IR 为准）", url: "https://www.macrumors.com/2026/07/30/apple-3q-2026-earnings/", date: "2026-07-30", type: "media" },
+    "siri-gemini-2026": { label: "Apple 用 Google Gemini 驱动重建版 Siri（CNN，WWDC 2026-06-08）", url: "https://www.cnn.com/2026/01/12/tech/apple-google-gemini-siri", date: "2026-06-08", type: "media" },
+    "antitrust-2025-09": { label: "美国 v. Google 搜索案裁决：保留非独家默认付费（DOJ/Fortune）", url: "https://fortune.com/2025/09/02/google-antitrust-remedy-ruling-exclusive-search-distribution-deals-chrome/", date: "2025-09-02", type: "gov" },
   },
 
   whyIOwnIt: [
@@ -60,12 +63,13 @@ window.IB_DATA.AAPL = {
         "约 20+ 亿活跃设备构成极高切换成本，服务（App Store、订阅、支付、广告）在其上高毛利变现，把一次性硬件销售转成经常性年金。",
       marketMisunderstanding: "空头盯着 iPhone 销量的周期；但服务的经常性收入才是价值的复利来源。",
       supporting: [
-        { text: "活跃设备与服务收入持续创新高。", tag: "FACT" },
+        { text: "FY26 Q3 总营收 $1094亿(+16%)、iPhone +22%，均创 6 月季度纪录；Services 也创纪录。", tag: "FACT", source: "q3fy26", asOf: "2026-06-30" },
+        { text: "反垄断裁决保留了（非独家的）默认搜索付费——Google 对 Apple 的巨额年付（服务收入一大块）得以延续。", tag: "FACT", source: "antitrust-2025-09", asOf: "2025-09-02" },
         { text: "生态锁定（iMessage、健康、支付）抬高切换成本。", tag: "FACT" },
       ],
       contrary: [
+        { text: "FY26 Q3 Services $307亿虽创纪录、却 miss 预期（$312亿）——年金引擎的增速是要盯的黄灯。", tag: "FACT", source: "q3fy26", asOf: "2026-06-30" },
         { text: "App Store 抽成面临全球监管与诉讼压力。", tag: "FACT" },
-        { text: "Google 默认搜索付费（服务收入的一大块）受反垄断威胁。", tag: "FACT" },
       ],
       keyMetrics: ["服务收入增速", "活跃设备数", "服务毛利率"],
       invalidation: "若 服务增速大幅放缓、且 App Store 抽成或 Google 付费被监管实质削减，则 服务年金逻辑转弱。",
@@ -73,46 +77,52 @@ window.IB_DATA.AAPL = {
     },
     {
       id: "ai-laggard",
-      title: "AI 是明显短板——追赶者而非领导者",
+      title: "AI 是明显短板——重建版 Siri 靠外包 Gemini 才交付",
       pillar: "AI 落后",
       status: "Watching",
-      trend: "down",
+      trend: "flat",
       statement:
-        "Apple Intelligence 反响平淡、Siri 升级一再延期。装机量给了它「AI 分发」的潜在优势，但产品端至今没兑现。这是最大的相对逆风。",
-      marketMisunderstanding: "多头说「Apple 有 20 亿设备，AI 一上就赢」；但迟迟不兑现的分发优势只是纸面优势。",
+        "延迟两年后，Apple 在 WWDC 2026（6/8）发布了重建版 Siri——但最难的推理任务路由到 Google Gemini（约 $10亿/年多年合约）。这是务实交付（终于有了能用的 AI Siri + 20 亿设备分发），也是战略承认落后（把前沿 AI 外包给竞争对手）。「纸面分发优势」变成了「靠 Google 兑现的分发」。",
+      marketMisunderstanding: "多头说「Apple 有 20 亿设备，AI 一上就赢」；空头说它彻底落后。现实居中——它选了速度和成熟能力（Gemini），代价是 AI 上依赖 Google。",
       supporting: [
-        { text: "庞大装机量是 AI 功能的现成分发渠道。", tag: "INFERENCE" },
+        { text: "重建版 Siri 已发布（2026-06-08），借 20 亿设备分发 + Gemini 能力，缓解了「什么都不交付」的风险。", tag: "FACT", source: "siri-gemini-2026", asOf: "2026-06-08" },
       ],
       contrary: [
-        { text: "Apple Intelligence 与 Siri 升级明显落后同侪。", tag: "FACT" },
-        { text: "可能被迫依赖第三方模型（Google/OpenAI）供给 AI。", tag: "FACT" },
+        { text: "把 Siri 最难的推理外包给 Google Gemini——坐实自研前沿 AI 落后，且 AI 上更依赖竞争对手。", tag: "FACT", source: "siri-gemini-2026", asOf: "2026-06-08" },
+        { text: "此前 Apple Intelligence 反响平淡、Siri 升级一再延期。", tag: "FACT" },
       ],
-      keyMetrics: ["Apple Intelligence 采纳", "Siri 升级进度", "AI 驱动的换机"],
-      invalidation: "若 AI 功能持续令人失望、且开始拖累换机与生态黏性，则 落后从「短板」升级为「护城河侵蚀」。",
-      updated: "2026-08-26",
+      keyMetrics: ["新 Siri 采纳 / 口碑", "AI 驱动的换机", "对 Google 的 AI 依赖度"],
+      invalidation: "若 新 Siri（含 Gemini 版）持续令人失望、或对 Google 的 AI 依赖被削弱，且开始拖累换机与生态黏性，则 落后从「短板」升级为「护城河侵蚀」。",
+      updated: "2026-08-27",
     },
     {
       id: "iphone-china",
       title: "对 iPhone 与中国的高度依赖是集中风险",
       pillar: "iPhone / 中国",
       status: "Watching",
-      trend: "warn",
+      trend: "flat",
       statement:
-        "iPhone 仍是收入的绝对主体，中国既是关键市场也是关键产能地。任一处的结构性走弱（需求、竞争、地缘、供应链）都会放大到整体。",
-      marketMisunderstanding: "牛市把稳定当理所当然；但收入与供应链的双重集中，是被低估的尾部。",
-      supporting: [{ text: "供应链多元化（印度等）在缓慢推进。", tag: "FACT" }],
+        "iPhone 仍是收入的绝对主体，中国既是关键市场也是关键产能地。任一处的结构性走弱都会放大到整体。FY26 Q3 两处都强劲反弹（iPhone +22%、大中华 +22%），缓解了此前的急迫担忧——但集中度本身没变，仍是要盯的尾部。",
+      marketMisunderstanding: "牛市把稳定当理所当然；但收入与供应链的双重集中，是被低估的尾部——即便本季反弹也没消除它。",
+      supporting: [
+        { text: "FY26 Q3 iPhone +22%、大中华 +22% 到 $188亿——都强劲反弹、好于此前担忧。", tag: "FACT", source: "q3fy26", asOf: "2026-06-30" },
+        { text: "供应链多元化（印度等）在缓慢推进。", tag: "FACT" },
+      ],
       contrary: [
-        { text: "iPhone 占收入比重仍然很高。", tag: "FACT" },
+        { text: "iPhone 占收入比重仍然很高；大中华虽 +22% 但仍略低于分析师预期（$196亿）。", tag: "FACT", source: "q3fy26", asOf: "2026-06-30" },
         { text: "中国本土竞争（华为回归）与地缘风险上升。", tag: "FACT" },
       ],
       keyMetrics: ["iPhone 收入占比", "大中华区收入", "供应链多元化进度"],
       invalidation: "若 大中华区收入结构性下滑、或 iPhone 需求持续走弱且无新增长极，则 集中风险兑现、逻辑削弱。",
-      updated: "2026-08-26",
+      updated: "2026-08-27",
     },
   ],
 
   timeline: [
     { date: "2026-08-26", event: "为 AAPL 开立投资账本（起点）", whyItMatters: "基线快照。", node: "全部", thesisImpact: "flat", action: "不动仓位——建立记录。", source: null, related: null },
+    { date: "2025-09-02", event: "反垄断搜索案裁决：保留（非独家的）默认搜索付费", whyItMatters: "Google 对 Apple 的巨额年付（服务收入的一大块）得以延续——对服务年金逻辑是利好，此前的一个尾部风险有利解除。", node: "服务 / 装机", thesisImpact: "up", action: "不动仓位；服务年金的一个尾部风险解除。", source: { label: "DOJ / Fortune 2025-09-02", url: "https://fortune.com/2025/09/02/google-antitrust-remedy-ruling-exclusive-search-distribution-deals-chrome/" }, related: { label: "Stock Why · AAPL 2026-08-24", url: "https://stock-why-wiki-site.vercel.app/stocks/AAPL#2026-08-24" } },
+    { date: "2026-06-08", event: "WWDC 2026：重建版 Siri 发布，最难推理外包给 Google Gemini（约 $10亿/年）", whyItMatters: "延迟两年后终于交付能用的 AI Siri（务实），但把前沿 AI 外包给竞争对手——坐实落后、并在 AI 上更依赖 Google。", node: "AI 落后", thesisImpact: "flat", action: "不动仓位；AI 逻辑从「什么都不交付」转为「靠 Google 兑现」，正反面并存。", source: { label: "CNN：Apple–Google Gemini Siri", url: "https://www.cnn.com/2026/01/12/tech/apple-google-gemini-siri" }, related: { label: "Stock Why · AAPL 2026-08-24", url: "https://stock-why-wiki-site.vercel.app/stocks/AAPL#2026-08-24" } },
+    { date: "2026-07-30", event: "FY26 Q3 财报：总营收 $1094亿(+16%)、iPhone +22%、大中华 +22%（创纪录）；但 Services miss、毛利率含关税退款顺风", whyItMatters: "硬件季强劲、iPhone/中国反弹缓解集中风险；但 Services $307亿 miss 预期（年金引擎黄灯），毛利率 50.1% 含约 2% 关税退款。", node: "服务 / iPhone / 中国", thesisImpact: "up", action: "不动仓位——硬件强化 vs Services 黄灯；盯服务增速。", source: { label: "Apple FY26 Q3 IR / MacRumors", url: "https://www.macrumors.com/2026/07/30/apple-3q-2026-earnings/" }, related: { label: "Stock Why · AAPL 2026-08-24", url: "https://stock-why-wiki-site.vercel.app/stocks/AAPL#2026-08-24" } },
     { date: "2026-08-12", event: "2026 年相对大型科技股跑赢（YTD 约 +23%）", whyItMatters: "部分因「低 AI capex 暴露」被当避风港追捧——是情绪驱动，不改变 AI 落后的基本面。", node: "全部 / AI 落后", thesisImpact: "flat", action: "不动仓位；把相对强势当情绪，不当逻辑改善。", source: { label: "Motley Fool 2026-08-12", url: "https://www.fool.com/investing/2026/08/12/alphabet-amazon-meta-platforms-and-microsoft-this/" }, related: { label: "Stock Why · AAPL 2026-08-24", url: "https://stock-why-wiki-site.vercel.app/stocks/AAPL#2026-08-24" } },
   ],
 
