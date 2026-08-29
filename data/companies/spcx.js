@@ -13,22 +13,23 @@ window.IB_DATA.SPCX = {
   tagline: "Starlink 印现金流 + Starship 降本期权——但估值把未来都定价了。",
   oneLiner:
     "刚上市的太空巨头：一边是 Starlink 规模化的经常性收入，一边是发射近乎垄断 + Starship 的长期降本期权。悬念全在估值——约 $1.8T 的市值，把很多年后的成功都提前定价了。",
-  updated: "2026-08-26",
+  updated: "2026-08-27",
   thesisStatus: "Watching",
   statusNote:
-    "2026-06-12 IPO（发行价 $135，代码 SPCX），当前约 $138、市值约 $1.87T（2026-08 网络行情，官方数据待核实）。业务质量极高（Starlink 现金流 + 发射领先 + Starship 期权），但作为新上市公司，披露仍薄、估值极端。这是一个「优秀公司，但价格是核心变量」的典型。目前定位为观察名单，先看披露、不建仓。",
+    "2026-06-12 IPO（$135，SPCX）。首份上市后财报（Q2，8/4）给了真实披露：营收 $78亿(+92%)、净亏损收窄到 $5.41亿；Starlink 订阅 1200 万（翻倍）、连接业务收入 $43亿(+66%)、且是唯一盈利分部（营业利润 $16.6亿）；CFO 称年底 ARR 奔 $1000亿。锁定期解禁未引发抛售（利好）。股价约 $125–138、仍在 $135 发行价附近。业务质量得到数据确认，但估值极端（~$1.8T）、且 Starlink ARPU 同比 -22%（国际扩张+低价套餐）。仍定位观察名单——好公司，但价格是核心变量。",
 
   currentDecision: "观察",
   decisionReason:
-    "业务质量高但刚上市、披露薄、估值约 $1.8T 把多年后的成功都定价了。先观察，等更充分的披露与锁定期波动，暂不建仓。",
+    "首份财报确认了 Starlink 现金流引擎（$43亿+66%、1200 万订阅、唯一盈利分部）、锁定期抛压担忧解除；但估值 ~$1.8T 仍把多年后的成功定价了。先观察，等估值消化或明显低估，暂不建仓。",
   nextDecisionTriggers: [
-    "更充分的财务披露（Starlink 用户/ARPU、Starship 里程碑）出来",
-    "锁定期到期后的估值消化",
-    "出现明显低于内在价值的价格",
+    "Starlink ARPU 企稳回升、或连接业务盈利持续扩大",
+    "Starship 出现可靠运营的实质里程碑",
+    "估值消化到明显低于内在价值的价格",
   ],
 
   sources: {
     "ipo-2026": { label: "SpaceX IPO / SPCX 行情（CNBC；官方招股书为准）", url: "https://www.cnbc.com/2026/08/10/spacex-spcx-stock-ipo-price.html", date: "2026-08-10", type: "media" },
+    "q2-2026": { label: "SpaceX Q2 2026 首份上市后财报（Fortune/CNN）", url: "https://fortune.com/2026/08/04/spacex-revenue-surges-92-to-7-8-billion-blowing-past-wall-street-expectations-by-nearly-1-billion/", date: "2026-08-04", type: "media" },
   },
 
   whyIOwnIt: [
@@ -62,15 +63,16 @@ window.IB_DATA.SPCX = {
         "Starlink 的全球宽带 + 直连手机业务，把一次性发射能力转化为经常性订阅收入。用户规模化后，它是支撑整个估值的现金流底座。",
       marketMisunderstanding: "很多人把 SpaceX 当「火箭公司」；真正的现金流故事是 Starlink 的订阅年金。",
       supporting: [
-        { text: "Starlink 用户与经常性收入持续扩张 (待核实)。", tag: "FACT" },
+        { text: "Q2 2026 连接业务（含 Starlink）收入 $43亿、+66% 同比；订阅达 1200 万（同比翻倍）；是唯一盈利分部（营业利润 $16.6亿）。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
+        { text: "CFO 称年底 ARR 奔 $1000亿——经常性收入规模化在兑现。", tag: "FACT", source: "q2-2026", asOf: "2026-08-04" },
         { text: "发射自持 → Starlink 部署成本内部化，形成成本优势。", tag: "INFERENCE" },
       ],
       contrary: [
-        { text: "卫星星座 capex 巨大，回本周期长 (待核实)。", tag: "INFERENCE" },
+        { text: "Starlink ARPU 同比 -22%（国际扩张 + 低价套餐）——量增但单客户价值在降。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
         { text: "Amazon Kuiper 等竞争者进入低轨宽带。", tag: "FACT" },
         { text: "各国频谱/落地监管带来不确定性。", tag: "FACT" },
       ],
-      keyMetrics: ["Starlink 用户数", "Starlink 经常性收入", "ARPU"],
+      keyMetrics: ["Starlink 订阅数", "连接业务收入 / 盈利", "ARPU"],
       invalidation: "若 Starlink 用户增长停滞、或竞争把 ARPU 打下来且无法覆盖 capex，则 现金流引擎逻辑转弱。",
       updated: "2026-08-26",
     },
@@ -102,15 +104,18 @@ window.IB_DATA.SPCX = {
       status: "Watching",
       trend: "warn",
       statement:
-        "约 $1.8T 的市值已经把很多年后的成功提前定价。叠加新股锁定期到期的抛压和薄披露，短期波动会很大，安全垫几乎为零。",
-      marketMisunderstanding: "IPO 光环容易让人忽视：好公司 + 极端价格 = 差的风险回报。",
-      supporting: [{ text: "IPO 定价 $135、当前约 $138、市值约 $1.87T。", tag: "FACT", source: "ipo-2026", asOf: "2026-08-10" }],
-      contrary: [
-        { text: "锁定期到期可能带来集中抛压 (待核实)。", tag: "INFERENCE" },
-        { text: "作为新上市公司，财务披露仍不充分。", tag: "FACT" },
+        "约 $1.8T 的市值已经把很多年后的成功提前定价。首份财报后两个担忧部分解除：披露不再薄（有了真实分部数据）、锁定期解禁也未引发抛售。但估值仍极端、公司整体仍净亏损（Q2 -$5.41亿），安全垫几乎为零。",
+      marketMisunderstanding: "IPO 光环容易让人忽视：好公司 + 极端价格 = 差的风险回报——即便基本面确认，价格仍是核心变量。",
+      supporting: [
+        { text: "IPO 定价 $135、当前约 $125–138、市值约 $1.87T；仍在发行价附近。", tag: "FACT", source: "q2-2026", asOf: "2026-08-04" },
+        { text: "锁定期解禁未引发预期中的抛售——一个尾部担忧有利解除。", tag: "FACT", source: "q2-2026", asOf: "2026-08-04" },
       ],
-      keyMetrics: ["市值/估值倍数", "锁定期时间表", "披露完整度"],
-      invalidation: "若 增长兑现不及极高预期、或锁定期抛压 + 薄披露引发重估，则 估值逻辑主导下行。",
+      contrary: [
+        { text: "公司整体仍净亏损（Q2 -$5.41亿，虽较去年 -$10亿收窄）。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
+        { text: "~$1.8T 的极端估值把多年后的 Starlink 规模 + Starship 成功都提前定价了。", tag: "INFERENCE" },
+      ],
+      keyMetrics: ["市值/估值倍数", "整体盈亏路径", "ARR 兑现进度"],
+      invalidation: "若 增长兑现不及极高预期、或盈利路径迟迟不清晰引发重估，则 估值逻辑主导下行。",
       updated: "2026-08-26",
     },
     {
