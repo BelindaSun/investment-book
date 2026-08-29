@@ -10,32 +10,32 @@ window.IB_DATA.MSFT = {
   holdingStatus: "held",
   tagline: "把 AI 塞进每一个企业工作流，靠 Azure + Copilot 收租。",
   oneLiner:
-    "全世界最强的企业分发渠道，正试图把它变成 AI 的收费入口。Q4 FY26 Azure 加速到 +43%、Copilot 付费座席翻倍到 30M+——AI 商业化正在兑现；新的悬念转向 capex 的回报节奏，以及重构后（27% 股权）的 OpenAI 关系怎么演化。",
+    "全世界最强的企业分发渠道，正把 Azure、Copilot、GitHub、Foundry、Fabric 拼成一套可规模化收费的企业 AI 平台。Q4 FY26 确认 AI 正转成 Azure 消费、Copilot 座席和增量 ARPU；新的悬念是：这种增长能否在 $50B+ 季度 capex 下产生足够的长期现金回报。",
   updated: "2026-08-27",
   thesisStatus: "Healthy",
   statusNote:
-    "Q4 FY26（7/29）明显强化了 AI 商业化：Azure +43%（固定汇率、大超指引，全年破 $1000亿）、Copilot 付费座席翻倍到 30M+、股价跳涨 ~17%。同时 OpenAI 关系重构落地——微软持约 27%（~$1350亿）、独家结束、但 OpenAI 承诺采购 $2500亿 Azure。开放焦点转向：capex $50B+/季的回报节奏，以及一处盈利质量提示——数据中心折旧年限从 15 年延长到 25 年，会压低当期折旧、抬高近期利润。",
+    "整体 Healthy、方向改善（AI monetization strengthening）。FY26 Q4（7/29）明显确认变现：Azure +43%（固定汇率、全年首破 $1000亿）、Microsoft Cloud 收入 $593亿 +27%、M365 Copilot 付费座席超过 30M（当季净新增座席环比翻倍）、GitHub Copilot 50M 用户、新增算力几乎立即被消化；FY26 经营现金流与 FCF 仍强劲。制约三处：Microsoft Cloud 毛利率降到 65%、Q4 capex $410亿（下季 >$500亿）、OpenAI 的 Azure 合同既是资产也是客户集中/合同期限风险。主要争议已从「AI 能否变现」转向「这种增长能否在 $50B+ 季度 capex 下产生足够的长期现金回报」。",
 
   currentDecision: "持有",
   decisionReason:
-    "Azure 大加速、Copilot 座席翻倍，AI 变现正在兑现；OpenAI 关系重构后更清晰（股权 + $2500亿 Azure 承诺）。开放焦点是 capex 回报与折旧口径变化。当前不动仓位。",
+    "Azure、Copilot、GitHub、Foundry、Fabric 正形成可规模化收费的企业 AI 平台，变现在兑现；经营现金流仍强。开放焦点是 $50B+ 季度 capex 的回报率与利润率是否被稀释。当前不动仓位。",
   nextDecisionTriggers: [
-    "Azure 增速掉档、或云毛利率（剔除折旧口径变化后）下滑",
-    "Copilot 座席增长或续约率出现明显拐点",
-    "OpenAI 进一步多云化 / 转向竞争，侵蚀 Azure 承诺或企业变现",
-    "capex 持续攀升而经营现金流 / FCF 未能同步",
+    "Azure 增速掉档、或 Microsoft Cloud 毛利率进一步下滑",
+    "Copilot 从 seat 到 seat+consumption 的 ARPU 提升停滞",
+    "OpenAI 多云化侵蚀微软对 API / 模型 / 算力消费入口的经济价值",
+    "capex + operating lease 投资持续上升而经营现金流 / FCF 未能同步",
   ],
 
   sources: {
     "px-2026-08-12": { label: "大型科技股行情（Motley Fool 汇总）", url: "https://www.fool.com/investing/2026/08/12/alphabet-amazon-meta-platforms-and-microsoft-this/", date: "2026-08-12", type: "media" },
     "q4fy26": { label: "Microsoft FY26 Q4 业绩（2026-07-29；以官方 IR 为准）", url: "https://www.cnbc.com/2026/07/29/microsoft-msft-q4-earnings-report-2026.html", date: "2026-07-29", type: "media" },
     "msft-openai-2025-10": { label: "微软官方博客：微软–OpenAI 合作新篇章", url: "https://blogs.microsoft.com/blog/2025/10/28/the-next-chapter-of-the-microsoft-openai-partnership/", date: "2025-10-28", type: "IR" },
-    "openai-terms-2026": { label: "微软–OpenAI 结束独家、股权 27%（Yahoo/Forbes）", url: "https://finance.yahoo.com/news/microsoft-and-openais-new-for-profit-deal-gives-windows-maker-27-stake-142521255.html", date: "2026-04-27", type: "media" },
+    "openai-terms-2026": { label: "微软–OpenAI 关系重构、微软 27% 股权（Yahoo/Forbes）", url: "https://finance.yahoo.com/news/microsoft-and-openais-new-for-profit-deal-gives-windows-maker-27-stake-142521255.html", date: "2026-04-27", type: "media" },
   },
 
   whyIOwnIt: [
     "全球企业软件的默认底座——把 AI 卖给已经在付费的数亿座席，几乎零获客成本。",
-    "Azure + OpenAI 让它坐上 AI 云的头等舱，同时自研 Maia 芯片对冲成本。",
+    "Azure + Foundry + Fabric + GitHub + Copilot 正拼成一套可规模化收费的企业 AI 平台（不只依赖 OpenAI）；自研 Maia 是潜在的成本工具，但尚未证明已对冲 Nvidia。",
     "多引擎高毛利现金流（Azure、M365、Windows、LinkedIn、Gaming），资本配置理性。",
   ],
 
@@ -56,7 +56,7 @@ window.IB_DATA.MSFT = {
   theses: [
     {
       id: "enterprise-distribution",
-      title: "企业分发是把 AI 变现的最短路径",
+      title: "企业分发与工作流嵌入",
       pillar: "企业分发",
       status: "Strong",
       trend: "up",
@@ -65,7 +65,7 @@ window.IB_DATA.MSFT = {
       marketMisunderstanding:
         "市场爱争「谁的模型最强」。我的看法：企业 AI 的胜负更取决于分发和嵌入工作流，而这正是微软的主场。",
       supporting: [
-        { text: "Copilot 付费座席翻倍到 30M+（4 月还是 20M+）；GitHub Copilot 达 50M 用户。", tag: "FACT", source: "q4fy26", asOf: "2026-06-30" },
+        { text: "M365 Copilot 付费座席超过 30M，当季净新增座席环比翻倍；GitHub Copilot 达 50M 用户（注：users 口径，与 M365 paid seats 不同）。", tag: "FACT", source: "q4fy26", asOf: "2026-06-30" },
         { text: "Copilot 直接嵌入企业已在用的 M365 / Teams / GitHub。", tag: "FACT" },
         { text: "企业采购倾向于既有供应商，降低了微软的销售摩擦。", tag: "INFERENCE" },
       ],
@@ -79,109 +79,113 @@ window.IB_DATA.MSFT = {
     },
     {
       id: "azure-ai",
-      title: "Azure 坐稳 AI 云头等舱，增长加速",
+      title: "Azure AI 基础设施与平台增长",
       pillar: "Azure AI",
       status: "Strong",
       trend: "up",
       statement:
-        "Azure 的 AI 工作负载把增长与心智都拉到云市场前列。Q4 FY26 增速加速到 +43%（需求超过产能），全年首破 $1000亿；重构后的 OpenAI 还承诺采购 $2500亿 Azure，进一步锁定前瞻收入。自研 Maia 芯片试图对冲对 NVDA 的成本依赖。",
+        "Azure 的 AI 工作负载把增长与心智都拉到云市场前列。Q4 FY26 增速加速到 +43%（需求超过产能），全年首破 $1000亿。重要信号：Microsoft Cloud 全年收入超过 $2140亿，其中近 90% 来自 frontier-model 公司之外的客户——说明 AI/云的投资案例并不只依赖 OpenAI。",
       marketMisunderstanding:
-        "空头担心 capex 吞噬利润。我的看法：只要 AI 消费转化为经常性 Azure 收入，capex 就是在铺高毛利的租金管道——而 +43% 与 $2500亿 承诺正是在兑现这一点。",
+        "空头担心 capex 吞噬利润。我的看法：只要 AI 消费转化为经常性 Azure 收入，capex 就是在铺租金管道——而 +43% 与算力被迅速消化正在兑现这一点。",
       supporting: [
-        { text: "Q4 FY26 Azure +43%（固定汇率），大超指引；全年 Azure 首破 $1000亿。下季指引 ~45%。", tag: "FACT", source: "q4fy26", asOf: "2026-06-30" },
-        { text: "OpenAI 承诺采购 $2500亿 Azure 服务，锁定巨额前瞻收入。", tag: "FACT", source: "openai-terms-2026", asOf: "2025-10-28" },
-        { text: "自研 Maia 芯片旨在降低长期算力成本（实际部署规模与经济性尚待验证）。", tag: "INFERENCE" },
+        { text: "Q4 FY26 Azure +43%（固定汇率），大超指引；全年 Azure 首破 $1000亿。（Q1 FY27 指引约 +45%——是指引，非已实现。）", tag: "FACT", source: "q4fy26", asOf: "2026-06-30" },
+        { text: "Microsoft Cloud 全年收入超过 $2140亿，其中近 90% 来自 OpenAI 等 frontier-model 公司之外的客户。", tag: "FACT", source: "q4fy26", asOf: "2026-06-30" },
+        { text: "新增算力几乎立即被客户需求消化。", tag: "FACT", source: "q4fy26", asOf: "2026-06-30" },
       ],
       contrary: [
         { text: "AWS 规模仍更大、Google Cloud 也在高增长，竞争激烈。", tag: "FACT" },
+        { text: "Microsoft Cloud 毛利率降到 65%，增长伴随利润率稀释。", tag: "FACT", source: "q4fy26", asOf: "2026-06-30" },
         { text: "Azure 增长高度依赖持续的大额 capex；需求受产能约束。", tag: "FACT" },
       ],
-      keyMetrics: ["Azure 增速", "Azure AI 贡献", "云毛利率（剔除折旧口径变化）"],
-      invalidation: "若 Azure 增速明显掉档、同时云毛利率（剔除折旧口径变化后）下滑，则 AI 云逻辑进入观察。",
+      keyMetrics: ["Azure 增速", "Microsoft Cloud 毛利率", "算力消化速度"],
+      invalidation: "若 Azure 增速明显掉档、同时 Microsoft Cloud 毛利率持续下滑，则 AI 云逻辑进入观察。",
       updated: "2026-08-27",
     },
     {
       id: "copilot-monetization",
-      title: "Copilot 变现开始兑现（座席翻倍）",
+      title: "Copilot：从座席采用走向 seat + consumption 变现",
       pillar: "Copilot 变现",
       status: "Strengthening",
       trend: "up",
       statement:
-        "变现从「待验证」进入「初步兑现」：付费座席从 4 月的 20M+ 翻倍到 30M+。采纳与放量得到证据支持；但真正决定长期价值的「留存 / 续约 / 每座席增量收入」仍待验证——所以是增强中，而非完全证明。",
-      marketMisunderstanding: "空头曾担心 Copilot 只是试点、变不了现。座席翻倍说明放量是真的；剩下要看的是留存深度。",
+        "变现从「待验证」进入「深化」：不只是座席数量，更重要的是商业模式从单纯 per-seat 扩展到 seat + consumption。真正决定长期价值的是 ARPU 能否随 consumption 持续抬升，同时覆盖越来越重的算力/折旧/租赁成本——所以是增强中，而非完全证明。",
+      marketMisunderstanding: "空头曾担心 Copilot 只是座席试点。真正的证据是变现在深化（seat+consumption、收入加速），而不只是座席计数。",
       supporting: [
-        { text: "付费座席从 20M+（4 月）翻倍到 30M+；GitHub Copilot 50M 用户。", tag: "FACT", source: "q4fy26", asOf: "2026-06-30" },
-        { text: "嵌入既有工作流，切换成本高，利于续约。", tag: "INFERENCE" },
+        { text: "M365 Copilot 付费座席超过 30M，当季净新增座席环比翻倍。", tag: "FACT", source: "q4fy26", asOf: "2026-06-30" },
+        { text: "Copilot 收入环比加速超过 60%；商业模式从 per-seat 扩展到 seat + consumption。", tag: "FACT", source: "q4fy26", asOf: "2026-06-30" },
+        { text: "大客户部署明显扩大；达到高使用率所需时间从数月缩短到数天。", tag: "FACT", source: "q4fy26", asOf: "2026-06-30" },
       ],
       contrary: [
-        { text: "留存 / 续约 / 每座席增量收入尚未充分披露，长期价值仍需验证。", tag: "INFERENCE" },
+        { text: "留存 / 续约 / 每座席+consumption 的长期 ARPU 仍需更多季度验证。", tag: "INFERENCE" },
         { text: "AI 助手同质化，定价权未必稳固。", tag: "INFERENCE" },
       ],
-      keyMetrics: ["Copilot 付费座席数", "留存 / 续约率", "每座席增量收入"],
-      invalidation: "若 座席增长停滞、续约率走低、或被迫降价，则 变现逻辑重新转弱。",
+      keyMetrics: ["Copilot 付费座席数", "seat + consumption ARPU", "Copilot 收入环比"],
+      invalidation: "若 seat + consumption 的 ARPU 提升停滞、续约率走低、或被迫降价，则 变现逻辑重新转弱。",
       updated: "2026-08-27",
     },
     {
       id: "openai-dependence",
-      title: "OpenAI 关系：从独家依赖到股权 + 锁定采购",
+      title: "OpenAI：股权 + IP/API 权利 + Azure 合同 + 多云竞合",
       pillar: "OpenAI 关系",
       status: "Watching",
       trend: "flat",
       statement:
-        "关系已从「独家依赖」重构为一种更清晰、更平衡的结构：微软持约 27% 股权（~$1350亿的资产）、拿到 OpenAI $2500亿 Azure 采购承诺、保留转售权到 2032；代价是独家结束、营收分成封顶、OpenAI 转向多云（与 AWS 大额合作）。净效果是「依赖」下降、「货币化」上升，但 OpenAI 作为竞争者的一面更明确。",
-      marketMisunderstanding: "市场时而把 OpenAI 当纯资产、时而当纯风险；重构后现实更清楚——是一份大额股权 + 锁定的 Azure 收入，叠加一个不再独家、正在多云化的合作方。",
+        "合作由「全面依赖」转向「有边界的独家权利 + 股权投资 + 大额 Azure 合同 + 更开放的多云竞合」。核心问题从「OpenAI 会不会离开 Azure」升级为「微软能否在 OpenAI 多云化的同时，保住 API、IP、Azure 消费和企业客户关系中的主要经济价值」。",
+      marketMisunderstanding: "市场把它简化成「独家结束」；实际微软仍保留 frontier-model 伙伴地位、Azure API 独家（至 AGI）、IP 权利（延至 2032），只是让出了算力优先购买权与部分非 API 产品的多云自由。",
       supporting: [
-        { text: "微软持 OpenAI（PBC）约 27%、估值约 $1350亿；OpenAI 承诺采购 $2500亿 Azure。", tag: "FACT", source: "openai-terms-2026", asOf: "2025-10-28" },
-        { text: "保留 OpenAI 技术转售权到 2032。", tag: "FACT", source: "msft-openai-2025-10", asOf: "2025-10-28" },
+        { text: "保留：OpenAI 仍是 frontier-model 伙伴；微软保留独家 IP 权利、Azure API 独家（至 AGI）、模型/产品 IP 权利延至 2032。", tag: "FACT", source: "msft-openai-2025-10", asOf: "2025-10-28" },
+        { text: "微软持 OpenAI（PBC）约 27%、估值约 $1350亿；OpenAI 另签增量 $2500亿 Azure 服务合同（增量承诺，交付时间/消耗速度/集中度仍有不确定性）。", tag: "FACT", source: "openai-terms-2026", asOf: "2025-10-28" },
       ],
       contrary: [
-        { text: "独家关系结束、Azure 独家取消、营收分成封顶；OpenAI 转向多云（与 AWS 大额合作）。", tag: "FACT", source: "openai-terms-2026", asOf: "2026-04-27" },
-        { text: "OpenAI 直接做企业产品，与 Copilot 存在竞合。", tag: "FACT" },
+        { text: "变化：微软失去 OpenAI 算力供应优先购买权；OpenAI 非 API 产品可跑在其他云、可与第三方联合开发；微软也可独立/与第三方推进 AGI。", tag: "FACT", source: "openai-terms-2026", asOf: "2026-04-27" },
+        { text: "OpenAI 多云化降低微软对模型、客户需求和算力消费入口的控制。", tag: "INFERENCE" },
       ],
-      keyMetrics: ["OpenAI Azure 消耗兑现度", "OpenAI 多云 / 竞合动向", "微软自研模型进展"],
-      invalidation: "若 OpenAI 大幅转向竞争 / 削减 Azure 采购，且微软自研模型未能补位，则 AI 领先来源与 Azure 承诺同时受损。",
+      keyMetrics: ["OpenAI Azure 消耗兑现度", "OpenAI 多云 / 竞合动向", "微软 API/IP 经济价值留存"],
+      invalidation: "若 OpenAI 多云化大幅侵蚀微软的 API / Azure 消费 / 企业客户经济价值，且微软自研与生态未能补位，则 AI 领先来源受损。",
       updated: "2026-08-27",
     },
     {
       id: "capex-return",
-      title: "巨额 AI capex 要转化成回报",
+      title: "AI CapEx → 现金回报与利润率",
       pillar: "CapEx → 回报",
       status: "Watching",
       trend: "warn",
       statement:
-        "AI 数据中心 capex 大幅抬升（Q4 $410亿、下季指引 >$500亿），这盘赌只有在 Azure 收入和 Copilot 变现真正兑现时才成立。目前 Azure +43% 与座席翻倍提供了正面证据，但 capex 的绝对规模和折旧口径变化，让「回报兑现」仍需持续验证。",
-      marketMisunderstanding: "多头默认「投 AI = 好」。我把 capex 当成未经证实，直到经营现金流确认回报——尤其要剔除折旧口径变化带来的账面美化。",
+        "资本投入极大（Q4 capex $410亿、下季 >$500亿），但当前已有收入、订单和现金流承接：Q4 经营现金流 $554亿(+30%)、FCF $196亿仍为正、商业 RPO $6780亿（剔除 OpenAI 后仍 +25%）。真正的风险是回报率和利润率被持续稀释，而不是目前已经出现现金流危机。",
+      marketMisunderstanding: "多头默认「投 AI = 好」；空头一看 FCF 承压就喊危机。现实居中：现金流和订单在承接投入，要盯的是投入的边际回报率与毛利率，而非当下的现金流安全。",
       supporting: [
-        { text: "Azure +43%、Copilot 座席翻倍，为「capex 有真实需求承接」提供了正面证据。", tag: "FACT", source: "q4fy26", asOf: "2026-06-30" },
+        { text: "Q4 经营现金流 $554亿（+30%）、自由现金流 $196亿仍为正；新增算力被迅速消化。", tag: "FACT", source: "q4fy26", asOf: "2026-06-30" },
+        { text: "商业 RPO 达 $6780亿，剔除 OpenAI 后仍增长 25%——订单为 capex 提供了真实承接。", tag: "FACT", source: "q4fy26", asOf: "2026-06-30" },
       ],
       contrary: [
         { text: "Q4 capex $410亿、下季指引 >$500亿；约 2/3 投向 GPU/CPU 等短周期资产。", tag: "FACT", source: "q4fy26", asOf: "2026-06-30" },
-        { text: "盈利质量提示：数据中心 / 办公楼折旧年限从 15 年延长到 25 年——压低当期折旧、抬高近期利润，需从毛利率中剔除后再判断。", tag: "FACT", source: "q4fy26", asOf: "2026-06-30" },
-        { text: "AI 需求若降温有过度建设风险。", tag: "INFERENCE" },
+        { text: "Microsoft Cloud 毛利率降到 65%——投入正在稀释利润率。", tag: "FACT", source: "q4fy26", asOf: "2026-06-30" },
+        { text: "口径提示（非盈利美化）：资产使用年限 15→25 年，对 FY27 营业利润帮助很小；主要影响是未来部分租赁从 finance lease 转为 operating lease，微软据此把 calendar 2026 reported capex 调整到约 $175B，但基础投资计划未变。→ 不能只看 reported capex 判断投资强度。", tag: "FACT", source: "q4fy26", asOf: "2026-07-29" },
       ],
-      keyMetrics: ["CapEx", "经营现金流 / FCF", "云毛利率（剔除折旧口径变化）"],
-      invalidation: "若 capex 继续快速攀升、而经营现金流 / FCF 未能同步、且 Azure 增长掉档，则 资本回报逻辑转为 Weakening。",
+      keyMetrics: ["经营现金流", "FCF", "FCF / CapEx", "Microsoft Cloud 毛利率", "RPO（剔除 OpenAI）", "operating lease 承诺"],
+      invalidation: "若 CapEx 与 operating lease 投资持续上升，而 Azure 增速、Cloud 毛利率、经营现金流和剔除 OpenAI 后的订单增长同步转弱，则 该逻辑转为 Weakening。",
       updated: "2026-08-27",
     },
   ],
 
   business: [
-    { name: "智能云（Azure 等）", role: "增长引擎", howItMakesMoney: "按消费售卖云计算、数据与 AI（Azure、OpenAI API、Fabric）。Q4 Azure +43%、全年破 $1000亿；OpenAI 承诺采购 $2500亿。", note: "AI capex 变现的主战场，正在加速兑现。" },
+    { name: "智能云（Azure / Foundry / Fabric 等）", role: "规模化 AI 基础设施与平台利润引擎", howItMakesMoney: "按消费售卖云、数据与 AI（Azure、Foundry、Fabric、OpenAI API）。Q4 Azure +43%、全年破 $1000亿；Microsoft Cloud 全年收入 >$2140亿，近 90% 来自 OpenAI 之外的客户。", note: "不只依赖 OpenAI——平台层（Foundry/Fabric）在独立放量。" },
     { name: "生产力与业务流程（M365 + Copilot、LinkedIn）", role: "高毛利现金牛", howItMakesMoney: "订阅 M365、Teams、LinkedIn，Copilot 在其上加价。", note: "企业分发的核心资产。" },
     { name: "更多个人计算（Windows、设备、Gaming）", role: "稳定配角", howItMakesMoney: "Windows 授权、Surface、Xbox/动视暴雪。", note: "现金牛，增长看游戏与内容。" },
   ],
 
   aiMoat: {
     summary: "核心问题：微软能否把企业分发和 OpenAI 关系，转化成难以撼动的 AI 变现护城河？",
-    verdict: "我的判断：企业侧净扩大——分发 + 工作流嵌入是别人难复制的，Q4 的 Azure +43% 与 Copilot 座席翻倍在兑现。风险从「OpenAI 依赖」转为「OpenAI 多云化 / 竞合」与 capex 回报。",
+    verdict: "更准确的护城河不是「Azure + OpenAI」，而是：企业分发 + Azure 基础设施 + data estate + 开发者平台 + 工作流嵌入。Q4 最强的证据不是「押中 OpenAI」，而是 Azure、Copilot、GitHub、Foundry、Fabric 正共同形成一套可规模化收费的企业 AI 平台。风险在 capex 回报与利润率稀释。",
     factors: [
-      { name: "企业分发", note: "数亿 M365/Windows/GitHub 座席，零获客加价；Copilot 付费座席 30M+。", direction: "up" },
-      { name: "OpenAI 关系（重构后）", note: "持约 27% 股权（~$1350亿）+ $2500亿 Azure 承诺；但独家结束、OpenAI 转向多云。", direction: "flat" },
-      { name: "Azure + 自研 Maia", note: "AI 云加速（+43%）+ 自研芯片对冲成本。", direction: "up" },
-      { name: "Copilot 工作流嵌入", note: "嵌得越深、切换成本越高；座席已翻倍。", direction: "up" },
-      { name: "Copilot 变现深度", note: "放量已兑现；留存 / 每座席收入仍待验证。", direction: "up" },
+      { name: "企业分发", note: "数亿 M365/Windows/GitHub 座席，零获客加价；M365 Copilot 付费座席 30M+。", direction: "up" },
+      { name: "Azure 基础设施", note: "AI 云加速（+43%）、算力被迅速消化；近 90% Cloud 收入来自 OpenAI 之外。", direction: "up" },
+      { name: "开发者平台（Foundry / Fabric / GitHub）", note: "Foundry 达 10 万客户、收入同比翻倍；Fabric 4 万+ 付费客户；GitHub Copilot 50M 用户。", direction: "up" },
+      { name: "Copilot 变现深化", note: "从 seat 扩展到 seat + consumption；收入环比加速 >60%。", direction: "up" },
+      { name: "OpenAI 关系（重构后）", note: "持约 27% 股权 + IP/API 独家（至 AGI）+ 增量 $2500亿 Azure；但让出算力优先权、部分产品多云。", direction: "flat" },
+      { name: "自研 Maia", note: "潜在的成本与供应控制工具，实际部署规模和经济性尚未充分证明——不能算已成功对冲 Nvidia 成本。", direction: "flat" },
     ],
-    cannibalization: "张力：OpenAI 既是微软的大额股权资产 + Azure 大客户，也在直接向企业扩张、并转向多云。要盯 OpenAI 的 Azure 采购兑现、企业产品动向与微软自研模型的补位速度。",
+    cannibalization: "张力：OpenAI 既是微软的大额股权资产 + Azure 大客户 + frontier 伙伴，也在向企业扩张、并转向多云。但 Q4 显示微软的企业 AI 平台已不只依赖 OpenAI（近 90% Cloud 收入来自其他客户）。要盯 OpenAI 的 Azure 采购兑现，以及 Foundry/Fabric/Copilot 的独立变现。",
   },
 
   drivers: [
@@ -195,14 +199,15 @@ window.IB_DATA.MSFT = {
   ecosystem: {
     upstream: [
       { name: "NVDA GPU", note: "Azure AI 算力主力" },
-      { name: "自研 Maia 芯片", note: "对冲算力成本" },
-      { name: "OpenAI 模型", note: "前沿能力来源" },
+      { name: "自研 Maia 芯片", note: "潜在成本/供应控制（未充分证明）" },
+      { name: "OpenAI", note: "股权资产 + Azure 大客户 + frontier 伙伴 + 潜在企业竞争者" },
+      { name: "电力 / 数据中心 / operating lease 伙伴", note: "未来算力扩张的重要上游约束" },
     ],
     self: [
-      { name: "Azure", note: "云 + AI" },
-      { name: "M365 + Copilot", note: "生产力现金牛" },
+      { name: "Azure", note: "云 + AI 基础设施" },
+      { name: "Foundry / Fabric / GitHub", note: "AI 应用、数据与开发者平台" },
+      { name: "M365 + Copilot", note: "生产力现金牛（seat + consumption）" },
       { name: "Windows / 设备", note: "个人计算" },
-      { name: "GitHub / LinkedIn", note: "开发者 + 职业网络" },
     ],
     downstream: [
       { name: "企业", note: "云 + 生产力客户" },
@@ -212,43 +217,45 @@ window.IB_DATA.MSFT = {
   },
 
   competition: [
-    { name: "Google（Cloud + Workspace + Gemini）", attacking: "企业生产力 + 云 AI。", moatTargeted: "M365 / Azure。", evidence: "Workspace + Gemini 直接对标。", threat: "High", thesisImpact: "施压企业分发与 Azure 两条逻辑。" },
-    { name: "Amazon（AWS）", attacking: "云领导地位。", moatTargeted: "Azure 份额。", evidence: "AWS 仍是云第一。", threat: "High", thesisImpact: "压制 Azure 份额上限。" },
-    { name: "OpenAI（竞合）", attacking: "直接向企业提供 AI 产品。", moatTargeted: "Copilot 企业变现。", evidence: "OpenAI 扩张企业业务。", threat: "Medium", thesisImpact: "把伙伴关系推向竞合。" },
+    { name: "Google（Cloud + Workspace + Gemini + TPU）", attacking: "Cloud+Gemini 打 Azure AI；Workspace+Gemini 打 M365 Copilot；自研 TPU 可能形成更低成本的垂直整合。", moatTargeted: "Azure / M365 / 云成本结构。", evidence: "Google Cloud 高增长、Gemini in Chrome/Workspace、TPU 全栈。", threat: "High", thesisImpact: "同时施压企业分发、Azure 与 Copilot 三条逻辑。" },
+    { name: "Amazon（AWS）", attacking: "云领导地位。", moatTargeted: "Azure 份额。", evidence: "AWS 规模仍居第一、且重新加速。", threat: "High", thesisImpact: "压制 Azure 份额上限。" },
+    { name: "OpenAI（竞合）", attacking: "向企业提供 AI 产品，且多云化。", moatTargeted: "Copilot 企业变现 + 微软对模型/需求/算力入口的控制。", evidence: "OpenAI 扩企业业务、非 API 产品可跑其他云。", threat: "Medium", thesisImpact: "风险不只是做企业产品，还包括多云化降低微软对模型、客户需求与算力消费入口的控制。" },
     { name: "Salesforce / 其他 SaaS", attacking: "各自嵌入 AI 助手。", moatTargeted: "工作流入口。", evidence: "各家都在做 Agent/Copilot。", threat: "Medium", thesisImpact: "分散 AI 助手心智。" },
   ],
 
   metrics: [
     { label: "Azure 增速（固定汇率）", latest: "Q4 FY26 +43%（下季指引 ~45%）", spark: [28, 30, 33, 37, 40, 43], unit: "% 同比", good: "up", note: "AI 云逻辑的核心信号；大超指引、全年破 $1000亿。", judgment: true },
-    { label: "Copilot 付费座席", latest: "30M+（4 月 20M+ 翻倍）", spark: [5, 9, 14, 20, 25, 30], unit: "M 座席", good: "up", note: "AI 变现的斜率——放量已兑现。", judgment: true },
-    { label: "云毛利率", latest: "约 70%（注意折旧口径变化）", spark: [72, 71, 70, 70, 69, 70], unit: "%", good: "up", note: "折旧年限 15→25 年会美化当期——判断要剔除口径变化。", judgment: true },
-    { label: "CapEx", latest: "Q4 $410亿，下季指引 >$500亿", spark: [18, 22, 28, 34, 41, 50], unit: "$B/季", note: "AI 下注成本——单看有歧义（中性线）。约 2/3 是 GPU/CPU 短周期资产。", judgment: true },
+    { label: "M365 Copilot 付费座席", latest: "30M+（当季净新增环比翻倍）", spark: [5, 9, 14, 20, 25, 30], unit: "M 座席", good: "up", note: "AI 变现的斜率；注意是净新增翻倍、非总座席翻倍。", judgment: true },
+    { label: "Microsoft Cloud 毛利率", latest: "Q4 65%（此前更高）", spark: [72, 71, 70, 69, 67, 65], unit: "%", good: "up", note: "增长伴随利润率稀释——要盯的信号。", judgment: true },
+    { label: "经营现金流 / FCF（季度）", latest: "Q4 OCF $554亿(+30%)、FCF $196亿", spark: [40, 45, 48, 50, 52, 55.4], unit: "$B/季", good: "up", note: "capex 有现金流承接的证据。", judgment: true },
+    { label: "CapEx（季度）", latest: "Q4 $410亿，下季指引 >$500亿", spark: [18, 22, 28, 34, 41, 50], unit: "$B/季", note: "AI 下注成本——单看有歧义（中性线）。约 2/3 是 GPU/CPU 短周期资产；部分未来投入转 operating lease，reported capex 口径变化。", judgment: true },
   ],
 
   financials: {
-    note: "约数 / 示意——微软财年 6 月底结束。注意两点盈利质量：① 数据中心 / 办公楼折旧年限从 15 年延长到 25 年，压低当期折旧、抬高近期利润率，比较时需还原口径；② 持有的 OpenAI 股权（约 $1350亿）是非经营性资产，会随 OpenAI 估值波动影响 GAAP 净利，别当经营利润。",
+    note: "约数 / 示意——微软财年 6 月底结束。两点口径提示（非盈利美化）：① 资产使用年限 15→25 年对 FY27 营业利润帮助很小，主要影响是未来部分数据中心租赁从 finance lease 转 operating lease、不再计入传统 capex（微软据此把 calendar 2026 reported capex 调到约 $175B，基础投资未变）——所以别只看 reported capex 判断投资强度；② 持有的 OpenAI 股权（约 $135B）是非经营性资产，随其估值波动影响 GAAP 净利，别当经营利润。",
     rows: [
-      { label: "收入（FY26 全年）", values: ["约 $245B", "约 $280B", "约 $320B"], periods: ["FY24", "FY25", "FY26"] },
-      { label: "营业利润率", values: ["约 44%", "约 45%", "约 45%（含折旧口径顺风）"], periods: ["FY24", "FY25", "FY26"] },
+      { label: "收入（FY26 全年）", values: ["约 $245B", "约 $280B", "$331.8B"], periods: ["FY24", "FY25", "FY26"] },
+      { label: "营业利润率", values: ["约 44%", "约 45%", "约 45%"], periods: ["FY24", "FY25", "FY26"] },
       { label: "Azure 全年收入", values: ["—", "—", "首破 $100B"], periods: ["", "", "FY26"] },
-      { label: "CapEx（季度）", values: ["约 $14B", "约 $22B", "$41B→>$50B"], periods: ["FY24", "FY25", "Q4→Q1e"] },
+      { label: "Microsoft Cloud 毛利率", values: ["—", "—", "Q4 65%"], periods: ["", "", "2026Q4"] },
+      { label: "CapEx（季度 / reported）", values: ["约 $14B", "约 $22B", "$41B→>$50B"], periods: ["FY24", "FY25", "Q4→Q1e"] },
       { label: "OpenAI 股权（约 27%，非经营性）", values: ["—", "—", "约 $135B"], periods: ["", "", "当前"] },
       { label: "P/E（前瞻）", values: ["—", "约 32x", "—"], periods: ["", "当前", ""] },
     ],
-    impliedExpectations: "倍数隐含 Azure 持续高增长 + Copilot 变现兑现——Q4 两者都在兑现，支撑了财报后 ~17% 跳涨。剩下的风险是 capex $50B+/季 的回报节奏，以及别把折旧口径变化和 OpenAI 股权重估当成经营质量。估值应看剔除这两项后的核心经营利润与现金流。",
+    impliedExpectations: "倍数隐含 Azure 持续高增长 + Copilot 变现兑现——Q4 两者都在兑现，支撑了财报后 ~17% 跳涨。剩下的风险是 $50B+ 季度 capex 的回报率与利润率稀释（Cloud 毛利率已降到 65%）。估值应看核心经营利润与现金流，别把 OpenAI 股权重估当成经营质量、也别只看 reported capex 判断投资强度。",
   },
 
   timeline: [
     { date: "2026-08-26", event: "为 MSFT 开立投资账本（起点）", whyItMatters: "基线快照。", node: "全部", thesisImpact: "flat", action: "不动仓位——建立记录。", source: null, related: null },
-    { date: "2025-10-28", event: "微软–OpenAI 关系重构：微软持约 27%（~$1350亿），独家结束，OpenAI 承诺 $2500亿 Azure 采购", whyItMatters: "把「独家依赖」变成「股权 + 锁定采购」；OpenAI 转向多云（AWS）。净效果：依赖下降、货币化上升，竞合更明确。", node: "OpenAI 关系 / Azure", thesisImpact: "flat", action: "不动仓位——关系结构更清晰，正反面并存。", source: { label: "微软官方博客 2025-10-28", url: "https://blogs.microsoft.com/blog/2025/10/28/the-next-chapter-of-the-microsoft-openai-partnership/" }, related: { label: "Stock Why · MSFT 2026-08-24", url: "https://stock-why-wiki-site.vercel.app/stocks/MSFT#2026-08-24" } },
-    { date: "2026-07-29", event: "Q4 FY26 财报：Azure +43%（全年破 $1000亿）、Copilot 座席翻倍到 30M+，股价跳涨 ~17%", whyItMatters: "AI 商业化强确认：Azure 大加速、Copilot 放量兑现。焦点转向 capex $50B+/季 的回报，与折旧年限 15→25 年的盈利质量提示。", node: "Azure / Copilot / CapEx", thesisImpact: "up", action: "不动仓位——逻辑强化，但 capex 回报与折旧口径要继续盯。", source: { label: "Microsoft FY26 Q4 IR / CNBC", url: "https://www.cnbc.com/2026/07/29/microsoft-msft-q4-earnings-report-2026.html" }, related: { label: "Stock Why · MSFT 2026-08-24", url: "https://stock-why-wiki-site.vercel.app/stocks/MSFT#2026-08-24" } },
+    { date: "2025-10-28", event: "微软–OpenAI 关系重构：微软持约 27%（~$1350亿）+ IP/API 独家（至 AGI），让出算力优先权、部分产品多云", whyItMatters: "由「全面依赖」转向「有边界的独家权利 + 股权 + 大额 Azure 合同 + 多云竞合」。核心问题升级为：微软能否在 OpenAI 多云化下保住 API/IP/Azure 消费的主要经济价值。", node: "OpenAI 关系 / Azure", thesisImpact: "flat", action: "不动仓位——关系结构更清晰，正反面并存。", source: { label: "微软官方博客 2025-10-28", url: "https://blogs.microsoft.com/blog/2025/10/28/the-next-chapter-of-the-microsoft-openai-partnership/" }, related: { label: "Stock Why · MSFT 2026-08-24", url: "https://stock-why-wiki-site.vercel.app/stocks/MSFT#2026-08-24" } },
+    { date: "2026-07-29", event: "Q4 FY26 财报：Azure +43%（全年破 $1000亿）、M365 Copilot 付费座席超 30M（净新增翻倍），股价跳涨 ~17%", whyItMatters: "AI 商业化强确认：Azure 大加速、Copilot 从 seat 走向 seat+consumption（收入环比 >60%）。焦点转向 $50B+/季 capex 的回报与利润率稀释（Cloud 毛利率降到 65%）。", node: "Azure / Copilot / CapEx", thesisImpact: "up", action: "不动仓位——逻辑强化，但 capex 回报与毛利率稀释要继续盯。", source: { label: "Microsoft FY26 Q4 IR / CNBC", url: "https://www.cnbc.com/2026/07/29/microsoft-msft-q4-earnings-report-2026.html" }, related: { label: "Stock Why · MSFT 2026-08-24", url: "https://stock-why-wiki-site.vercel.app/stocks/MSFT#2026-08-24" } },
   ],
 
   thesisEvolution: [
     { date: "2014 前", label: "Windows / Office 的围墙花园", note: "以授权为主，被视为增长见顶的老牌软件公司。" },
     { date: "2014–2022", label: "Nadella 的云转型", note: "Azure + 订阅化把公司重塑为云巨头，重回增长与重估。" },
     { date: "2023–2025", label: "OpenAI + Copilot 的 AI 时代", note: "抢先接入 OpenAI，Copilot 铺向全线产品，AI 叙事领先。" },
-    { date: "2026（当前）", label: "健康，AI 商业化兑现，焦点转向 capex 回报", note: "Q4 FY26：Azure +43%、Copilot 座席翻倍、股价 +17%；OpenAI 关系重构为股权 + $2500亿 Azure 承诺。焦点从「变现能否兑现」转到「capex $50B+/季 的回报 + 折旧口径」。仓位接近目标。" },
+    { date: "2026（当前）", label: "健康、方向改善：企业 AI 平台成型，焦点转向 capex 现金回报", note: "Q4 FY26：Azure +43%、M365 Copilot 付费座席超 30M（净新增翻倍）、收入从 seat 走向 seat+consumption、股价 +17%；Foundry/Fabric/GitHub 让平台不只依赖 OpenAI。焦点从「AI 能否变现」转到「$50B+ 季度 capex 能否产生足够长期现金回报、利润率会否被稀释」。仓位接近目标。" },
     { date: "2026-08-26", label: "AI 辅助初稿（待认领）", note: "本档案由 Claude 辅助生成初稿，尚未经 Belinda 逐条确认。Review 后再新增「Day Zero：thesis 正式认领」。" },
     { date: "未来", label: "什么会让我改变主意", note: "留白。Copilot 变现或 OpenAI 关系的实质变化时更新。" },
   ],
