@@ -10,20 +10,25 @@ window.IB_DATA.AVGO = {
   holdingStatus: "held",
   tagline: "帮超大厂造反 NVDA 的定制芯片 + VMware 软件收租。",
   oneLiner:
-    "一手做定制 AI ASIC（帮超大厂造「非 NVDA」的芯片），一手靠 VMware 等软件收高黏性的租。悬念在定制 ASIC 的持续性、软件整合的兑现，以及客户高度集中。",
-  updated: "2026-08-26",
+    "一手做定制 AI ASIC（帮超大厂造「非 NVDA」的芯片），一手靠 VMware 等软件收高黏性的租。FY26 Q2 AI 半导体 +143% 到 $108亿，定制 ASIC 逻辑正强力兑现；悬念转向客户集中与估值。",
+  updated: "2026-08-27",
   thesisStatus: "Healthy",
   statusNote:
-    "定制 AI ASIC 让它成为「自研芯片浪潮」的军火商——超大厂越想摆脱 NVDA，越依赖 Broadcom。VMware 把它变成软硬结合、现金流更稳的公司。风险在客户集中、债务/整合，以及定制订单的周期性。",
+    "定制 AI ASIC 逻辑正强力兑现：FY26 Q2（6/3 报）总营收 $222亿(+48%、创纪录)、其中 AI 半导体 $108亿(+143%)；毛利率 77.1%（半导体占比上升略摊薄）。客户已从超大厂扩到 Google/Meta/OpenAI/Anthropic。Q3 指引进一步加速（AI 半导体约 $160亿、+200%，尚未报）。VMware 软件把它变成软硬结合、现金流更稳的公司。风险转向：客户仍集中、并购债务、以及高估值的容错空间。",
 
   currentDecision: "持有",
   decisionReason:
-    "定制 ASIC 是自研浪潮的直接受益者、软件抬毛利与黏性；但客户集中 + 并购债务、估值偏高。当前不动仓位，等财报确认基本面。",
+    "Q2 财报强力确认定制 ASIC（AI 半导体 +143%）、客户基础在扩宽；软件抬毛利与黏性。但客户集中 + 并购债务、估值偏高。当前不动仓位。",
   nextDecisionTriggers: [
     "定制 ASIC 订单能见度下降、或主要客户转回通用 GPU",
     "软件客户大规模流失、或整合未兑现协同",
     "主要客户之一大幅削减定制订单",
   ],
+
+  sources: {
+    "q2fy26": { label: "Broadcom FY26 Q2 业绩（2026-06-03；官方 IR）", url: "https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-second-quarter-fiscal-year-2026-financial", date: "2026-06-03", type: "IR" },
+    "q3-guide": { label: "Broadcom Q3 FY26 指引 / 报道（CNBC）", url: "https://www.cnbc.com/2026/06/03/broadcom-avgo-earnings-report-q2-2026.html", date: "2026-06-03", type: "media" },
+  },
 
   whyIOwnIt: [
     "定制 AI ASIC 的头号玩家——超大厂造「非 NVDA」芯片都要找它，是自研浪潮的直接受益者。",
@@ -56,14 +61,15 @@ window.IB_DATA.AVGO = {
         "超大厂越想降低对 NVDA 的依赖，就越需要 Broadcom 帮它们设计定制加速器。它是「去 NVDA 化」浪潮里最直接、风险最分散的军火商。",
       marketMisunderstanding: "市场常把 AI 芯片叙事等同于 NVDA；Broadcom 是押注「客户自研替代」的另一面，且不需要赌哪家赢。",
       supporting: [
-        { text: "是多家超大厂定制 AI 芯片的关键设计合作方。", tag: "FACT" },
-        { text: "AI 定制芯片相关订单/backlog 增长（具体数字以财报为准，待核实）。", tag: "INFERENCE" },
+        { text: "FY26 Q2 AI 半导体收入 $108亿、+143% 同比；总营收 $222亿(+48%、创纪录)。", tag: "FACT", source: "q2fy26", asOf: "2026-05-03" },
+        { text: "为 Google、Meta、OpenAI、Anthropic 设计定制 AI 加速器（XPU/ASIC）——客户从超大厂扩到前沿 AI 实验室。", tag: "FACT", source: "q2fy26", asOf: "2026-05-03" },
+        { text: "Q3 指引 AI 半导体约 $160亿、+200% 同比（进一步加速；尚未报）。", tag: "FACT", source: "q3-guide", asOf: "2026-06-03" },
       ],
       contrary: [
-        { text: "定制订单集中在少数超大厂，能见度受其 capex 摆布。", tag: "FACT" },
+        { text: "定制订单集中在少数大客户，能见度受其 capex 摆布。", tag: "FACT" },
         { text: "若通用 GPU 重新占优，定制需求可能放缓。", tag: "INFERENCE" },
       ],
-      keyMetrics: ["AI 收入增速", "定制 ASIC backlog", "大客户数量"],
+      keyMetrics: ["AI 半导体收入增速", "定制 ASIC 客户数", "订单能见度"],
       invalidation: "若 定制 ASIC 订单能见度下降、或主要客户转回通用 GPU，则 定制芯片逻辑削弱。",
       updated: "2026-08-26",
     },
@@ -72,12 +78,12 @@ window.IB_DATA.AVGO = {
       title: "VMware + 软件转型抬毛利与黏性",
       pillar: "软件护城河",
       status: "Healthy",
-      trend: "flat",
+      trend: "up",
       statement:
         "把 VMware 等企业软件整合进来，Broadcom 从纯周期性芯片公司，转向软硬结合、经常性收入更高、毛利更稳的模式。",
       marketMisunderstanding: "有人只看芯片周期；软件组合其实在平滑周期、抬高整体质量。",
       supporting: [
-        { text: "软件占比上升，带来经常性、高毛利收入。", tag: "FACT" },
+        { text: "基础设施软件（VMware 等）Q3 指引约 $89亿、+31% 同比——经常性、高毛利收入在放量。", tag: "FACT", source: "q3-guide", asOf: "2026-06-03" },
         { text: "企业虚拟化的高切换成本形成黏性。", tag: "INFERENCE" },
       ],
       contrary: [
@@ -97,9 +103,12 @@ window.IB_DATA.AVGO = {
       statement:
         "AI 定制收入高度依赖少数超大厂；连续大额并购（VMware 等）也带来可观债务。任一处出问题都会放大到财务与估值。",
       marketMisunderstanding: "牛市里把集中当「大客户背书」；同一批客户的减速会同步放大下行。",
-      supporting: [{ text: "现金流足以覆盖债务与分红。", tag: "FACT" }],
+      supporting: [
+        { text: "现金流足以覆盖债务与分红。", tag: "FACT" },
+        { text: "客户基础在扩宽（从超大厂到 OpenAI、Anthropic），略微缓解单一客户集中。", tag: "FACT", source: "q2fy26", asOf: "2026-05-03" },
+      ],
       contrary: [
-        { text: "前几大客户贡献很高比例的 AI 收入。", tag: "FACT" },
+        { text: "前几大客户仍贡献很高比例的 AI 收入。", tag: "FACT" },
         { text: "并购推高了资产负债表杠杆。", tag: "FACT" },
       ],
       keyMetrics: ["客户集中度", "净负债/EBITDA", "自由现金流"],
@@ -110,6 +119,7 @@ window.IB_DATA.AVGO = {
 
   timeline: [
     { date: "2026-08-26", event: "为 AVGO 开立投资账本（起点）", whyItMatters: "基线快照。", node: "全部", thesisImpact: "flat", action: "不动仓位——建立记录。", source: null, related: null },
+    { date: "2026-06-03", event: "FY26 Q2 财报：总营收 $222亿(+48%、创纪录)、AI 半导体 $108亿(+143%)；Q3 指引 AI 半导体 ~$160亿(+200%)", whyItMatters: "定制 ASIC 逻辑强力兑现——AI 半导体三位数增长、客户扩到 OpenAI/Anthropic；Q3 指引进一步加速。软件（VMware）+31% 也在放量。", node: "定制 ASIC / 软件", thesisImpact: "up", action: "不动仓位——基本面确认，估值偏高、客户集中仍要盯。", source: { label: "Broadcom FY26 Q2 IR / CNBC", url: "https://www.cnbc.com/2026/06/03/broadcom-avgo-earnings-report-q2-2026.html" }, related: { label: "Stock Why · AVGO 2026-08-24", url: "https://stock-why-wiki-site.vercel.app/stocks/AVGO#2026-08-24" } },
     { date: "2026-08", datePrecision: "month", event: "资金面：ARK 等机构加仓 AI 芯片股（含 AVGO）", whyItMatters: "这是 fund flow / 情绪面，不是基本面证据——刻意放在时间线而非 thesis 的支持证据里。真正要等的是财报里的定制 ASIC 订单与毛利。", node: "情绪 / 资金面", thesisImpact: "flat", action: "不动仓位；把机构加仓当情绪，等财报确认基本面。", source: { label: "资金流报道（aggregator，仅供参考）", url: "https://tickeron.com/ticker/AVGO/" }, related: { label: "Stock Why · AVGO 2026-08-24", url: "https://stock-why-wiki-site.vercel.app/stocks/AVGO#2026-08-24" } },
   ],
 
