@@ -160,7 +160,7 @@ h2.section-title { font-size: 1.5rem; margin: 0 0 6px; font-weight: 600; }
 .divider { border: none; border-top: 1px solid var(--border-soft); margin: 34px 0; }
 
 /* ---------------- Portfolio home ---------------- */
-.home-wrap { padding: 46px 40px 0; }
+.home-wrap { padding: 46px 60px 0; }
 .home-head { margin-bottom: 26px; }
 .home-head .section-title { font-size: 2rem; }
 .stale-inline { color: var(--down); }
