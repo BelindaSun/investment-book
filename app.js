@@ -227,13 +227,15 @@
     if (staleCount) bits.push(`<span class="stale-inline">${staleCount} 个待复盘</span>`);
 
     return `
-      <div class="home-head">
-        <div class="eyebrow">投资组合</div>
-        <h1 class="section-title">我的投资账本</h1>
-        <p class="section-lede">${bits.join(" · ")}</p>
+      <div class="home-wrap">
+        <div class="home-head">
+          <div class="eyebrow">投资组合</div>
+          <h1 class="section-title">我的投资账本</h1>
+          <p class="section-lede">${bits.join(" · ")}</p>
+        </div>
+        <div class="pf-head"><span></span><span>标的</span><span>逻辑</span><span>仓位</span><span>收益 / 状态</span><span>更新</span><span>一句话</span></div>
+        ${groups}
       </div>
-      <div class="pf-head"><span></span><span>标的</span><span>逻辑</span><span>仓位</span><span>收益 / 状态</span><span>更新</span><span>一句话</span></div>
-      ${groups}
     `;
   }
 
