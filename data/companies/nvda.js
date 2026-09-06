@@ -12,10 +12,10 @@ window.IB_DATA.NVDA = {
   tagline: "AI 建设浪潮里的卖铲人——向全行业收过路费。",
   oneLiner:
     "这轮 AI 的算力底座。真正要验证的不是「需求还在不在」，而是「这道护城河是在变宽，还是正被超大厂自研芯片和推理商品化悄悄侵蚀」。",
-  updated: "2026-08-27",
+  updated: "2026-09-02",
   thesisStatus: "Strong",
   statusNote:
-    "需求侧强劲、可见度高（8/26 财报确认），数据中心是绝对主体。真正的长期悬念在两处：一是下游 AI 的投资回报（推理经济学）能否持续支撑 capex；二是超大厂——最大的买家——同时在自研 ASIC 替代 NVIDIA。毛利率仍处 75% 高位、属正常波动。质量极高，但估值把「持续高增长 + 高毛利」都定价进去了——容错空间小。",
+    "需求侧强劲、可见度高（8/26 财报确认），数据中心是绝对主体。真正的长期悬念在两处：一是下游 AI 的投资回报（推理经济学）能否持续支撑 capex；二是超大厂——最大的买家——同时在自研 ASIC 替代 NVIDIA。毛利率仍处 75% 高位、属正常波动。质量极高，但估值把「持续高增长 + 高毛利」都定价进去了——容错空间小。9/2 签约收购 Hugging Face（总额约 $129亿，拟 2027 上半年完成），把护城河向「模型分发 / 开发者入口」垂直延伸——新增三个观察点：反垄断审查、开放中立承诺能否兑现、整合执行。",
 
   currentDecision: "持有",
   decisionReason:
@@ -31,6 +31,9 @@ window.IB_DATA.NVDA = {
     "px-2026-08-12": { label: "大型科技股行情（Motley Fool 汇总）", url: "https://www.fool.com/investing/2026/08/12/alphabet-amazon-meta-platforms-and-microsoft-this/", date: "2026-08-12", type: "media" },
     "q2fy27": { label: "NVIDIA FY2027 Q2 业绩（2026-08-26；以官方 IR 为准）", url: "https://investor.nvidia.com/", date: "2026-08-26", type: "IR" },
     "q2fy27-cnbc": { label: "CNBC：NVDA Q2 FY27 财报直播", url: "https://www.cnbc.com/2026/08/26/nvidia-nvda-earnings-report-q2-2027-live-updates.html", date: "2026-08-26", type: "media" },
+    "hf-8k": { label: "NVIDIA 8-K：收购 Hugging Face 定义协议（2026-09-02；SEC 原文）", url: "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000078/nvda-20260902.htm", date: "2026-09-02", type: "SEC" },
+    "hf-blog": { label: "NVIDIA Blog：NVIDIA to Acquire Hugging Face（官方）", url: "https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face/", date: "2026-09-02", type: "IR" },
+    "hf-bbg": { label: "Bloomberg：Nvidia 收购 Hugging Face 约 $130亿", url: "https://www.bloomberg.com/news/articles/2026-09-03/nvidia-agrees-to-13-billion-deal-for-ai-platform-hugging-face", date: "2026-09-03", type: "media" },
   },
 
   whyIOwnIt: [
@@ -71,10 +74,13 @@ window.IB_DATA.NVDA = {
         { text: "CUDA 生态 + 开发者习惯构成高切换成本。", tag: "FACT" },
         { text: "从单卡走向 NVLink/InfiniBand/整机架的系统级整合，卖的是整集群而非单卡。", tag: "FACT" },
         { text: "产品节奏加快（一年一代），拉开与追赶者的身位。", tag: "FACT" },
+        { text: "2026-09-02 签约收购 Hugging Face（总额约 $129亿：约 $119亿 购买价 + 至多约 $10亿 留才股权），拟 2027 上半年完成、待监管批准。HF 是最大开源模型/开发者社区（1800万+开发者、300万+模型），公司承诺保持平台开放、支持其他芯片厂商。", tag: "FACT", source: "hf-8k", asOf: "2026-09-02" },
+        { text: "若完成，护城河从 CUDA 向上延伸到「模型分发 + 开发者入口」，把生态锁定再抬高一层。（前瞻性判断，交易尚未完成。）", tag: "INFERENCE" },
       ],
       contrary: [
         { text: "芯片层的绝对领先可被追赶，护城河靠一年一代的节奏维持。", tag: "INFERENCE" },
         { text: "自研 ASIC 的替代威胁真实存在——单独作为「垂直整合 / 自研 ASIC + 地缘」一条处理。", tag: "INFERENCE" },
+        { text: "Hugging Face 收购面临新风险：卖铲人收购开发者中立入口，反垄断审查是实打实的门槛；若「保持开放/中立」承诺被市场怀疑，反而可能引发开发者外流。整合与信任执行是新变量。", tag: "INFERENCE" },
       ],
       keyMetrics: ["开发者/框架生态", "网络（NVLink/InfiniBand）attach", "产品节奏（Blackwell→Rubin）"],
       invalidation:
@@ -323,6 +329,17 @@ window.IB_DATA.NVDA = {
   },
 
   timeline: [
+    {
+      date: "2026-09-02",
+      event: "M&A：签约收购 Hugging Face（总额约 $129亿，约 $119亿购买价 + 至多约 $10亿留才股权），拟 2027 上半年完成、待监管批准",
+      whyItMatters:
+        "NVDA 迄今最大规模收购之一，战略含义是从硬件向「模型分发 / 开发者生态」垂直整合——若完成，把护城河从 CUDA 延伸到最大开源模型社区（1800万+开发者、300万+模型），深化生态锁定。公司承诺保持平台开放、支持其他芯片厂商。三个新增观察变量：① 反垄断审查（卖铲人收购开发者中立入口）；② 开放/中立承诺能否兑现，否则可能反噬、引发开发者外流；③ 整合执行。（另有传闻的「~$200亿 Groq 资产」为最大收购之说未能核实，此处不采信。）",
+      node: "全栈护城河 / 生态",
+      thesisImpact: "up",
+      action: "不动仓位——战略上深化生态护城河，但交易未完成、且新增反垄断与中立性风险；把三个观察变量记入盯点，不作为加仓理由。",
+      source: { label: "NVIDIA 8-K / Blog（2026-09-02，SEC 原文）", url: "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000078/nvda-20260902.htm" },
+      related: { label: "Stock Why · NVDA 2026-09-03", url: "https://stock-why-wiki-site.vercel.app/stocks/NVDA#2026-09-03" },
+    },
     {
       date: "2026-08-26",
       event: "为 NVDA 开立投资账本（这条记录的起点）",
