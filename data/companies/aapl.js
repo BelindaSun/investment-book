@@ -10,11 +10,11 @@ window.IB_DATA.AAPL = {
   holdingStatus: "held",
   tagline: "全球最强装机护城河，AI 从延期进入产品验证期。",
   oneLiner:
-    "全世界最赚钱、黏性最高的消费硬件+服务生态。FY26 Q3 硬件、服务、中国全面恢复双位数增长；Siri AI 已发布并进入测试，从「持续延期」进入「等待用户采用与商业验证」。核心悬念：Siri AI 能否把装机分发优势转化为真实产品价值。",
-  updated: "2026-08-29",
+    "全世界最赚钱、黏性最高的消费硬件+服务生态。FY26 Q3 硬件、服务、中国全面恢复双位数增长；9/9 发布会 iPhone 18 Pro（$1199 起）落地、Siri AI 英文 beta 面向用户推出——换机周期与 AI 验证窗口同时打开。核心悬念：Siri AI 能否把装机分发优势转化为真实产品价值。",
+  updated: "2026-09-09",
   thesisStatus: "Healthy",
   statusNote:
-    "FY26 Q3 Healthy / Improving——硬件需求、服务年金、中国恢复与资本回报逻辑均明显强化。总营收 $1094亿(+16%)、iPhone $543亿(+22%)、Mac $104亿(+29%)、Services $307亿(+12%)、Greater China $188亿(+22%)、所有地区双位数增长、EPS $2.02(+29%)、九个月经营现金流约 $1170亿、九个月回购约 $618亿。AI 端：Siri AI 已在 WWDC26 发布并进入开发者测试，从延期项目进入产品验证阶段。注意：毛利率 50.1% 含约2个百分点关税退款顺风，EPS 含约 $0.11 关税退款影响；Services 增长主要来自广告和云服务，增长质量需分层理解。",
+    "FY26 Q3 Healthy / Improving——硬件需求、服务年金、中国恢复与资本回报逻辑均明显强化。总营收 $1094亿(+16%)、iPhone $543亿(+22%)、Mac $104亿(+29%)、Services $307亿(+12%)、Greater China $188亿(+22%)、所有地区双位数增长、EPS $2.02(+29%)、九个月经营现金流约 $1170亿、九个月回购约 $618亿。AI 端：Siri AI 已在 WWDC26 发布并进入开发者测试，从延期项目进入产品验证阶段。注意：毛利率 50.1% 含约2个百分点关税退款顺风，EPS 含约 $0.11 关税退款影响；Services 增长主要来自广告和云服务，增长质量需分层理解。9/9 发布会：iPhone 18 Pro（$1199 起，+$100）、折叠屏 iPhone Duo（$1999）、A20 Pro（全球首款 TSMC 2nm 手机芯片）；Siri AI 以英文 beta 面向用户推出（发布时欧盟不可用）——换机与 AI 两条催化进入兑现窗口，但尚无采用/销量数据，出货≠验证。",
 
   currentDecision: "持有",
   decisionReason:
@@ -29,6 +29,7 @@ window.IB_DATA.AAPL = {
     "q3fy26": { label: "Apple FY26 Q3 财报（2026-07-30；以官方 IR 为准）", url: "https://www.macrumors.com/2026/07/30/apple-3q-2026-earnings/", date: "2026-07-30", type: "media" },
     "wwdc26-siri": { label: "WWDC 2026：新一代 Siri AI 发布（2026-06-08）", url: "https://www.cnn.com/2026/01/12/tech/apple-google-gemini-siri", date: "2026-06-08", type: "media" },
     "antitrust-2025-09": { label: "美国 v. Google 搜索案裁决：保留非独家默认付费（DOJ/Fortune）", url: "https://fortune.com/2025/09/02/google-antitrust-remedy-ruling-exclusive-search-distribution-deals-chrome/", date: "2025-09-02", type: "gov" },
+    "event-2026-09": { label: "Apple 2026 秋季发布会（2026-09-09；CNBC 直播 / MacRumors）", url: "https://www.cnbc.com/2026/09/09/apple-event-today-live-updates.html", date: "2026-09-09", type: "media" },
   },
 
   whyIOwnIt: [
@@ -89,11 +90,12 @@ window.IB_DATA.AAPL = {
       supporting: [
         { text: "超过 20 亿活跃设备提供巨大 AI 分发入口。", tag: "FACT" },
         { text: "Siri AI 已在 WWDC26（2026-06-08）公开发布并进入开发者测试，具备 personal context、onscreen awareness、跨应用操作和 broad world knowledge。", tag: "FACT", source: "wwdc26-siri", asOf: "2026-06-08" },
+        { text: "2026-09-09 发布会：Siri AI 以英文 beta 面向用户推出（称支持 30 万+ App），随 iPhone 18 Pro / A20 Pro 出货——从开发者测试进入消费者验证窗口。", tag: "FACT", source: "event-2026-09", asOf: "2026-09-09" },
         { text: "Siri 深度整合操作系统、个人数据和跨应用操作，这是独立聊天机器人难以复制的结构性优势。", tag: "INFERENCE" },
         { text: "Apple Silicon 与端侧处理支持隐私和低延迟。", tag: "FACT" },
       ],
       contrary: [
-        { text: "Siri AI 尚未大规模正式上线，仍处于测试阶段。", tag: "FACT", source: "wwdc26-siri", asOf: "2026-06-08" },
+        { text: "Siri AI 首发仅英文 beta、发布时欧盟不可用、中国受限——覆盖面被语言与地域限制，「已出货」不等于「已验证」。", tag: "FACT", source: "event-2026-09", asOf: "2026-09-09" },
         { text: "尚无可靠的用户采用、留存和换机贡献数据。", tag: "FACT" },
         { text: "中国和欧盟部分 AI 功能仍面临监管或推出限制。", tag: "FACT" },
         { text: "部分通用知识能力可能依赖第三方模型——这既是模块化采购策略，也是自研能力的局限。关键是 Apple 是否仍掌握用户界面、个人数据、系统动作和最终经济价值。", tag: "INFERENCE" },
@@ -117,6 +119,7 @@ window.IB_DATA.AAPL = {
         { text: "Greater China $188亿，+22%；九个月 Greater China +30%。", tag: "FACT", source: "q3fy26", asOf: "2026-06-30" },
         { text: "中国增长主要由 iPhone 推动；人民币升值提供了部分顺风。", tag: "FACT", source: "q3fy26", asOf: "2026-06-30" },
         { text: "供应链多元化（印度等）在缓慢推进。", tag: "FACT" },
+        { text: "2026-09-09 发布 iPhone 18 Pro（$1199 起，+$100）/ Pro Max（$1299）、折叠屏 iPhone Duo（$1999，10/23）；提价 + 2nm 芯片领先，体现定价权，换机周期催化启动（销量待验证）。", tag: "FACT", source: "event-2026-09", asOf: "2026-09-09" },
       ],
       contrary: [
         { text: "iPhone 约占总收入 49.6%——仍是最大的单一依赖。", tag: "FACT", source: "q3fy26", asOf: "2026-06-30" },
@@ -141,6 +144,7 @@ window.IB_DATA.AAPL = {
   ],
 
   timeline: [
+    { date: "2026-09-09", event: "秋季发布会：iPhone 18 Pro（$1199 起，+$100）/ Pro Max（$1299）、折叠屏 iPhone Duo（$1999，10/23 上市）、A20 Pro（全球首款 TSMC 2nm 手机芯片）；Siri AI 英文 beta 面向用户推出（称支持 30 万+ App，发布时欧盟不可用）", whyItMatters: "两条 thesis 的催化同时进入兑现窗口：① Siri AI 从开发者测试走到消费者 beta——AI 产品验证正式开始（但仅英文、欧盟不可用、无采用数据，出货≠验证）；② iPhone 18 Pro 提价 $100 且 2nm 芯片领先，换机周期催化启动。观察点：Siri AI 口碑与采用、换机拉动、以及内存等物料涨价对硬件毛利的潜在压力（后者待核实）。", node: "AI 产品 / iPhone", thesisImpact: "up", action: "不动仓位——催化进入验证窗口，但尚无采用/销量数据；等 Siri AI 口碑与换机数据出来再评估。", source: { label: "Apple 发布会 / CNBC 2026-09-09", url: "https://www.cnbc.com/2026/09/09/apple-event-today-live-updates.html" }, related: { label: "Stock Why · AAPL 2026-09-09", url: "https://stock-why-wiki-site.vercel.app/stocks/AAPL#2026-09-09" } },
     { date: "2026-08-29", event: "FY26 Q3 财报后整改：thesis 措辞与数据更新", whyItMatters: "三条核心 thesis（装机+服务 Strong ↑、Siri AI Watching ↑、iPhone/中国 Watching ↑）全部更新。AI thesis 从「明显落后」改为「产品验证待定」，iPhone/中国趋势从 warn 改为 improving。盈利质量拆分关税退款影响。", node: "全部", thesisImpact: "up", action: "不动仓位——thesis 措辞调整，非交易信号。", source: null, related: null },
     { date: "2026-08-26", event: "为 AAPL 开立投资账本（起点）", whyItMatters: "基线快照。", node: "全部", thesisImpact: "flat", action: "不动仓位——建立记录。", source: null, related: null },
     { date: "2025-09-02", event: "反垄断搜索案裁决：保留（非独家的）默认搜索付费", whyItMatters: "Google 对 Apple 的巨额年付（服务收入的一大块）得以延续——对服务年金逻辑是利好，此前的一个尾部风险有利解除。", node: "服务 / 装机", thesisImpact: "up", action: "不动仓位；服务年金的一个尾部风险解除。", source: { label: "DOJ / Fortune 2025-09-02", url: "https://fortune.com/2025/09/02/google-antitrust-remedy-ruling-exclusive-search-distribution-deals-chrome/" }, related: { label: "Stock Why · AAPL 2026-08-24", url: "https://stock-why-wiki-site.vercel.app/stocks/AAPL#2026-08-24" } },
