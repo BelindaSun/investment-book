@@ -11,7 +11,7 @@ window.IB_DATA.TSM = {
   tagline: "所有人的芯片都在这里流片——AI 时代的收费站，但坐在地缘断层线上。",
   oneLiner:
     "全球先进逻辑制程拥有难以复制的规模、良率与客户信任优势的代工厂。NVDA、AAPL、AMD、超大厂自研芯片全在这里流片。核心悬念：$60–64B 年度 CapEx 能否持续转化为先进制程收入、定价权与自由现金流，以及台湾集中度与海外扩产的结构性矛盾。",
-  updated: "2026-08-29",
+  updated: "2026-09-09",
   thesisStatus: "Strong",
   statusNote:
     "Strong / ↑——先进制程与 CoWoS 封装领先地位稳固，AI 需求持续拉满产能。Q2 收入 $40.2B(+33.7%)、毛利率 67.7%、营业利润率 60.3%；2nm 已贡献 3% 晶圆收入、7nm 及以下先进制程占 77%、HPC 占 66%。全年增长指引上调至略高于 40%、CapEx $60–64B。Q2 经营现金流约 NT$783B、CapEx 约 NT$496B、FCF 约 NT$287B（仍为正）。注意：毛利率 67.7% 受产能利用率提升与成本改善帮助，Q3 指引 65–67%；2nm 爬坡将稀释约 3–4pp、海外工厂早期稀释约 2–3pp。主要尾部风险包括台湾地缘、海外扩产毛利稀释、AI 资本开支周期与客户集中、出口管制、高额 CapEx 回报兑现。",
@@ -28,6 +28,7 @@ window.IB_DATA.TSM = {
   sources: {
     "q2-2026": { label: "TSMC 2026 Q2 业绩（官方 IR）", url: "https://investor.tsmc.com/", date: "2026-07-16", type: "IR" },
     "jul-2026": { label: "TSMC 7 月营收 +44.7%、上调 capex（CNBC）", url: "https://www.cnbc.com/2026/08/10/tsmc-revenue-surge-ai-chip-big-tech.html", date: "2026-08-10", type: "media" },
+    "aapl-2nm-2026-09": { label: "Apple A20 Pro = 全球首款 TSMC 2nm 手机芯片（2026-09-09 发布会；CNBC）", url: "https://www.cnbc.com/2026/09/09/apple-event-today-live-updates.html", date: "2026-09-09", type: "media" },
   },
 
   whyIOwnIt: [
@@ -65,6 +66,7 @@ window.IB_DATA.TSM = {
         { text: "7nm 及以下先进制程占晶圆收入 77%：2nm 3%、3nm 30%、5nm 33%、7nm 11%。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
         { text: "CoWoS 先进封装产能是当前 AI 芯片的行业供应瓶颈，供不应求。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
         { text: "2nm 已开始放量（3% 晶圆收入），制程路线图执行力持续验证。", tag: "FACT", source: "q2-2026", asOf: "2026-06-30" },
+        { text: "2026-09-09 Apple A20 Pro 成为全球首款量产 TSMC 2nm(N2) 的手机芯片，随 iPhone 18 Pro 出货——2nm 从内部放量走到大客户消费级出货，技术领先兑现为量产。", tag: "FACT", source: "aapl-2nm-2026-09", asOf: "2026-09-09" },
       ],
       contrary: [
         { text: "Intel/三星若在先进节点追上，技术溢价会被侵蚀——当前领先不等于永久垄断。", tag: "INFERENCE" },
@@ -134,6 +136,7 @@ window.IB_DATA.TSM = {
   ],
 
   timeline: [
+    { date: "2026-09-09", event: "Apple A20 Pro = 全球首款 TSMC 2nm(N2) 手机芯片，随 iPhone 18 Pro 出货", whyItMatters: "2nm 从「已放量 3% 晶圆收入」进入首个大批量消费级客户出货——N2 制程路线图执行与 leading-edge 放量得到验证，对『制程领先』逻辑是正面佐证。与 AAPL 9/9 发布会互为印证（Apple 端是换机催化，TSM 端是 2nm 放量兑现）。毛利端仍受 2nm 爬坡稀释约 3–4pp，属爬坡期而非结构性恶化。", node: "制程领先 / 2nm 放量", thesisImpact: "up", action: "不动仓位——2nm 放量得到大客户出货验证。", source: { label: "Apple 发布会 / CNBC 2026-09-09", url: "https://www.cnbc.com/2026/09/09/apple-event-today-live-updates.html" }, related: { label: "Stock Why · TSM 2026-09-12", url: "https://stock-why-wiki-site.vercel.app/stocks/TSM#2026-09-12" } },
     { date: "2026-08-29", event: "财报后整改：thesis 措辞校正与数据修正", whyItMatters: "修正 CapEx 数据（全年 $60–64B、Q2 单季 $15.7B）；thesis 结构调整为三条（制程领先 Strong ↑、AI 需求/资本效率 Strengthening ↑、台湾/海外扩产 Watching ⚠）；补入毛利率稀释（2nm 爬坡 3–4pp、海外 2–3pp）与 FCF 数据。", node: "全部", thesisImpact: "flat", action: "不动仓位——事实校正与 thesis 校准，非交易信号。", source: null, related: null },
     { date: "2026-08-26", event: "为 TSM 开立投资账本（起点）", whyItMatters: "基线快照。", node: "全部", thesisImpact: "flat", action: "不动仓位——建立记录。", source: null, related: null },
     { date: "2026-07-16", event: "Q2 财报超预期：收入 $40.2B(+33.7%)、毛利率 67.7%、营业利润率 60.3%；上调全年指引 >40%、CapEx $60–64B、追加 $100B 亚利桑那投资", whyItMatters: "确认 AI 需求强劲（HPC 占 66%）、定价权稳固；CapEx 高但 FCF 仍为正（Q2 FCF 约 NT$287B）；海外扩产将稀释毛利率 2–4pp。", node: "制程领先 / AI 需求 / 地缘", thesisImpact: "up", action: "不动仓位；三条逻辑均得到信息更新。", source: { label: "TSMC IR（官方为准）", url: "https://investor.tsmc.com/" }, related: { label: "Stock Why · TSM 2026-08-23", url: "https://stock-why-wiki-site.vercel.app/stocks/TSM#2026-08-23" } },
