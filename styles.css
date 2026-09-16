@@ -535,6 +535,14 @@ h2.section-title { font-size: 1.5rem; margin: 0 0 6px; font-weight: 600; }
   .pf-why { flex: 1 1 100%; white-space: normal; margin-top: 2px; }
 }
 
+/* ---- quote (live price) links ----------------------------------------- */
+.pos-quote { margin-top: 12px; }
+.quote-link {
+  font-family: var(--font-sans); font-size: 12.5px; color: var(--link); text-decoration: none;
+  border-bottom: 1px dotted var(--border);
+}
+.quote-link:hover { color: var(--accent-strong); border-bottom-color: var(--accent); }
+
 /* ---- macro backdrop banner (portfolio home) --------------------------- */
 .macro-banner {
   display: flex;

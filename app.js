@@ -404,6 +404,7 @@
         <div class="panel">
           <div class="panel-label">${held ? "我的持仓" : "持仓状态"} ${p.note ? '· <span style="text-transform:none;letter-spacing:0">占位</span>' : ""}</div>
           ${posBody}
+          <div class="pos-quote">${quoteLink(c, "看实时行情")}</div>
         </div>
         <div class="panel">
           <div class="panel-label">逻辑健康度</div>
@@ -704,10 +705,21 @@
   function sectionHead(eyebrow, title, lede) {
     return `<div class="eyebrow">${esc(eyebrow)}</div><h2 class="section-title">${esc(title)}</h2>${lede ? `<p class="section-lede">${esc(lede)}</p>` : ""}`;
   }
+  // Quote page (live price + period changes). Static site keeps no live prices —
+  // we link out. Default Yahoo Finance by ticker; a company may override with
+  // quoteUrl (full URL) or quoteSymbol (e.g. an exchange-prefixed symbol).
+  function quoteUrlOf(c) {
+    return c.quoteUrl || "https://finance.yahoo.com/quote/" + encodeURIComponent(c.quoteSymbol || c.ticker);
+  }
+  function quoteLink(c, label) {
+    return `<a class="quote-link" href="${esc(quoteUrlOf(c))}" target="_blank" rel="noopener">${esc(label || "看实时行情")} ↗</a>`;
+  }
   function crosslink(c) {
     const s = c.stockWhy;
-    if (!s) return "";
-    return `<div class="crosslink"><span class="cl-icon">🧭</span><div class="cl-body"><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label || "Stock Why 维基")} ↗</a><div>${esc(s.note || "")}</div></div></div>`;
+    const quote = `<div class="crosslink"><span class="cl-icon">📈</span><div class="cl-body"><a href="${esc(quoteUrlOf(c))}" target="_blank" rel="noopener">${esc(c.ticker)} 实时行情（Yahoo Finance）↗</a><div>实时价，以及 日 / 周 / 月 / 年 / 5 年 涨跌 —— 本账本只存手动快照，行情看这里。</div></div></div>`;
+    if (!s) return quote;
+    const sw = `<div class="crosslink"><span class="cl-icon">🧭</span><div class="cl-body"><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label || "Stock Why 维基")} ↗</a><div>${esc(s.note || "")}</div></div></div>`;
+    return sw + quote;
   }
   const impactWord = (t) => ({ up: "强化", down: "削弱", warn: "可能证伪", flat: "不变" }[t] || "");
   const num = (x) => (typeof x === "number" && isFinite(x) ? x : 0);
