@@ -233,10 +233,45 @@
           <h1 class="section-title">我的投资账本</h1>
           <p class="section-lede">${bits.join(" · ")}</p>
         </div>
+        ${renderMacroBanner()}
         <div class="pf-head"><span></span><span>标的</span><span>逻辑</span><span>仓位</span><span>收益 / 状态</span><span>更新</span><span>一句话</span></div>
         ${groups}
       </div>
     `;
+  }
+
+  // Macro backdrop banner — reads window.IB_MACRO. Absent/empty → renders nothing.
+  // Macro is valuation/discount-rate context only; it never alters a company thesis.
+  function renderMacroBanner() {
+    const m = window.IB_MACRO;
+    if (!m || !Array.isArray(m.items) || !m.items.length) return "";
+    const items = m.items.slice().sort((a, b) => (String(a.date) < String(b.date) ? 1 : -1));
+    const latest = items[0];
+    const older = items.slice(1, 4);
+    const linkOf = (r) =>
+      r && r.url ? `<a class="macro-link" href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.label || "Stock Why ↗")}</a>` : "";
+    const olderHtml = older.length
+      ? `<div class="macro-recent"><span class="macro-recent-label">近期</span>${older
+          .map((it) => `<span class="macro-chip"><span class="macro-chip-date">${esc(it.date)}</span>${esc(it.headline)}</span>`)
+          .join("")}</div>`
+      : "";
+    return `
+      <div class="macro-banner" role="note" aria-label="宏观背景">
+        <div class="macro-accent"></div>
+        <div class="macro-body">
+          <div class="macro-top">
+            <span class="macro-label">${esc(m.label || "宏观背景")}</span>
+            <span class="macro-date">${esc(latest.date || "")}</span>
+          </div>
+          <div class="macro-headline">${esc(latest.headline || "")}</div>
+          ${latest.detail ? `<div class="macro-detail">${esc(latest.detail)}</div>` : ""}
+          ${latest.portfolio ? `<div class="macro-line"><span class="macro-tag">对组合</span>${esc(latest.portfolio)}</div>` : ""}
+          ${latest.watch ? `<div class="macro-line"><span class="macro-tag">盯</span>${esc(latest.watch)}</div>` : ""}
+          ${latest.related ? `<div class="macro-src">${linkOf(latest.related)}</div>` : ""}
+          ${m.note ? `<div class="macro-foot">${esc(m.note)}</div>` : ""}
+          ${olderHtml}
+        </div>
+      </div>`;
   }
 
   function homeRow(c) {
