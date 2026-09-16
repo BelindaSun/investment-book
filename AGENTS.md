@@ -14,6 +14,24 @@ book focused on "does it change my thesis."
   (flagged if `updated` is > `STALE_DAYS` = 45 days old). This is the scaling
   answer — you scan the forest here and drill into a company only when it moved.
 - **Company view** (`#/TICKER`) renders only the sections a company actually has.
+- **Macro backdrop banner** sits atop the portfolio home, above the rows: a dated
+  strip driven by `data/macro.js` (`window.IB_MACRO = {label, note, items:[…]}`),
+  rendered by `renderMacroBanner()`. It shows the latest item expanded (date,
+  headline, `对组合` valuation/discount-rate implication, `盯` watch, Stock Why
+  link) and older ones collapsed as dated chips. Macro is **context only — it never
+  changes a company thesis** (the banner footer says so; keep it that way). Add an
+  item to the TOP of `items`; verify the number first and link causation to Stock
+  Why. Absent/empty `IB_MACRO` → the banner renders nothing.
+
+## Prices are link-out, never live in-book
+- The site is static and **stores no live prices** — it links out instead.
+  `quoteUrlOf(c)` defaults to `finance.yahoo.com/quote/<ticker>`; override per
+  company with `quoteSymbol` (bare symbol) or `quoteUrl` (full URL) for exotic
+  listings. Quote links appear on the home (a `行情` column just before `逻辑`) and
+  on the company overview (a Yahoo card beside Stock Why + a `看实时行情` link in the
+  position panel). The ONLY in-book price is `position.currentPrice` — a manual,
+  dated snapshot for P/L (see the field reference). Don't add a live-price fetcher;
+  it's a decision journal, not a ticker.
 
 ## Depth scales with tier — don't fill every section for every company
 - `tier`: `core` (full 12 sections) · `active` (Overview + Thesis + Timeline +
