@@ -68,6 +68,10 @@ book focused on "does it change my thesis."
   ticker/enum consistency, duplicate thesis ids, missing invalidation, unsourced
   numeric FACTs (warn), placeholder position on a held name (warn), bad dates,
   dangling source refs. Errors must be zero; read warnings.
+- If validation errors were caused by your edit, fix them and re-validate without
+  asking. Report warnings to the user; don't suppress them. Never change thesis
+  judgments, FACT/INFERENCE tags, evidence strength, or position status merely to
+  make validation pass — those are user decisions.
 
 ## Golden rules
 - **Never put company facts in `app.js`.** It is a generic template. All content
