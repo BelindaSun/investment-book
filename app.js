@@ -195,7 +195,14 @@
     document.title = "我的投资账本";
     const main = $("#main");
     main.innerHTML = renderHome();
-    main.querySelectorAll(".pf-row").forEach((r) => r.addEventListener("click", () => selectCompany(r.dataset.ticker)));
+    main.querySelectorAll(".pf-row").forEach((r) => {
+      r.addEventListener("click", () => selectCompany(r.dataset.ticker));
+      r.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); selectCompany(r.dataset.ticker); }
+      });
+    });
+    // Quote link opens the external quote page; don't also fire the row's navigation.
+    main.querySelectorAll(".pf-quote").forEach((a) => a.addEventListener("click", (e) => e.stopPropagation()));
     if (spyObserver) spyObserver.disconnect();
     if (location.hash !== "#/") location.hash = "#/";
     window.scrollTo(0, 0);
@@ -234,7 +241,7 @@
           <p class="section-lede">${bits.join(" · ")}</p>
         </div>
         ${renderMacroBanner()}
-        <div class="pf-head"><span></span><span>标的</span><span>逻辑</span><span>仓位</span><span>收益 / 状态</span><span>更新</span><span>一句话</span></div>
+        <div class="pf-head"><span></span><span>标的</span><span>行情</span><span>逻辑</span><span>仓位</span><span>收益 / 状态</span><span>更新</span><span>一句话</span></div>
         ${groups}
       </div>
     `;
@@ -288,15 +295,16 @@
     const retCell = held
       ? `<span class="pf-return ${ret == null ? "" : ret >= 0 ? "pos" : "neg"}">${ret == null ? "—" : (ret >= 0 ? "+" : "") + ret.toFixed(0) + "%"}</span>`
       : `<span class="pf-hold hold-${holdingOf(c)}">${esc(HOLDING_LABEL[holdingOf(c)])}</span>`;
-    return `<button class="pf-row" data-ticker="${esc(c.ticker)}">
+    return `<div class="pf-row" role="button" tabindex="0" data-ticker="${esc(c.ticker)}">
       <span class="pf-dot ${statusClass(c.thesisStatus)}"><span class="dot"></span></span>
       <span class="pf-id"><span class="pf-ticker">${esc(c.ticker)}</span><span class="pf-name">${esc(c.name || "")}</span></span>
+      <a class="pf-quote" href="${esc(quoteUrlOf(c))}" target="_blank" rel="noopener" title="${esc(c.ticker)} 实时行情（Yahoo Finance）">行情&nbsp;↗</a>
       <span class="pf-thesis ${statusClass(c.thesisStatus)}">${esc(statusText(c.thesisStatus))}</span>
       <span class="pf-weight">${weightCell}</span>
       ${retCell}
       <span class="pf-age ${stale ? "stale" : ""}" title="${d == null ? "" : d + " 天前更新"}">${stale ? "⚠ " : ""}${age}</span>
       <span class="pf-why">${esc(c.tagline || c.oneLiner || "")}</span>
-    </button>`;
+    </div>`;
   }
 
   // ---- company view -----------------------------------------------------
