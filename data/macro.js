@@ -15,6 +15,14 @@ window.IB_MACRO = {
   note: "宏观只作为估值 / 折现率背景，不改变任何单一公司的 thesis；因果溯源见 Stock Why。",
   items: [
     {
+      date: "2026-09-17",
+      headline: "FOMC 加息 25bp 至 3.75%–4.00%（2023 年来首次），点阵图暗示年内或再加",
+      detail: "9/15–16 议息会议后 12-0 全票加息；声明强调通胀仍高企；Warsh 发布会偏鹰（经济走强、通胀未降温、地缘紧张）；道指 -631 点，10Y 收 5.003%（19 年来首次收上 5%）。",
+      portfolio: "分母端压力从预期变成现实：长久期 / 高估值持仓（ORCL、NVDA、AVGO）估值逆风加剧；相对利好当期现金流确定 / 低 PE（AAPL、GOOGL、MSFT、医药批次）。这是敏感度，不是买卖建议。",
+      watch: "12 月 FOMC 是否兑现再加息、PCE 通胀数据、油价 / 伊朗局势、10Y 5% 能否守住。",
+      related: { label: "Stock Why · 利率 ↗", url: "https://stock-why-wiki-site.vercel.app/industries/macro-rates#2026-09-17" },
+    },
+    {
       date: "2026-09-16",
       headline: "10Y 美债突破 5%，折现率升至近 18 年最高",
       detail: "10Y 收益率 9/14 首次突破 5%（2007 年 7 月来首次），受油价、通胀黏性、$40 万亿国债 / 赤字发行与加息预期共同推动。",
