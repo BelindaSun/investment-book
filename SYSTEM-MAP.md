@@ -1,6 +1,6 @@
 # 投资系统地图 · System Map
 
-**v0.1 · 2026-09-28**
+**v0.1.1 · 2026-09-28**
 
 > 这份文件在三个 repo 根目录各有一份，**内容完全相同**：`stock-why-wiki`、`investment-book`、`investment-research`。
 > 改其中一份，就要同步改另外两份，并更新上面的版本和日期。
@@ -29,7 +29,9 @@ Stock Why 和 Investment Book 是**主干**（2026-08 起在跑）。Deep Resear
 | **Investment Lab** | `investment-research` 的 `01-lab/`、`04-system/` | 我怎么学会判断？怎么校准自己？ | 方法卡、Journal、盲测、Belinda Investment System | `investment-research/README.md` |
 
 - Stock Why 内部还分窗口：**小德**（Claude）负责分析 + 质检，**小缪**负责建档（手册①）和画关系图（手册②）。
-- Stock Why 的本地工作目录在 Mac 上（`/Users/sunbelinda1108/Project/Why/wiki/`），带自动推送钩子。
+- **以 GitHub 为准，不依赖 Mac。** 三个 repo 的正本都在 GitHub，云端对话每次从 GitHub 拉取，Mac 不开也照常工作。
+  - 云端对话推到本次指定的分支，**合进 `main` 后才上线**（Stock Why 的 GitHub Pages 关系图、展示网站都跟 `main`）。
+  - Mac 本地的 Stock Why（`/Users/sunbelinda1108/Project/Why/wiki/`）有自动推送钩子。**Mac 隔了一段时间再打开，先 `git pull` 再动手**，否则旧版本一推就会和云端的改动冲突。
 - Deep Research 和 Lab 共用 `investment-research` 这一个 repo，按文件夹划分归属。
 
 ---
@@ -79,3 +81,4 @@ Stock Why 和 Investment Book 是**主干**（2026-08 起在跑）。Deep Resear
 
 ## 修订记录
 - 2026-09-28 v0.1 初版：四个对话的分工、路由表、共同规矩、当前约定和待定事项。
+- 2026-09-28 v0.1.1 写明「以 GitHub 为准、不依赖 Mac」：云端推分支 → 合 main 上线；Mac 久未打开先 pull。
