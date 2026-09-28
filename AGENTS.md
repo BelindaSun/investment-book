@@ -8,6 +8,10 @@ Wiki (which does horizontal market-move analysis). Keep the two complementary,
 not duplicative: link to Stock Why Wiki for "why the market moved," keep this
 book focused on "does it change my thesis."
 
+How this repo divides work with Stock Why Wiki and Investment Research (Deep
+Research + Investment Lab) is in `SYSTEM-MAP.md` — an identical copy lives in
+all three repos; if you edit one, update the other two.
+
 ## Views
 - **Portfolio home** (`#/`) is the landing view: all holdings as rows, grouped by
   `tier`, each showing thesis status, weight, snapshot return, and staleness
