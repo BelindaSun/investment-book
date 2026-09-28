@@ -5,5 +5,6 @@
  */
 window.IB_MANIFEST = [
   "GOOGL", "NVDA", "MSFT", "AMZN", "META", "AAPL", "TSM", "AVGO", "SPCX", "CBRS", "ORCL",
+  "BABA", "0700.HK", "002371.SZ",
   "LLY", "NVO", "VRTX", "REGN", "ISRG", "MRK", "AMGN", "BNTX", "MRNA", "PFE",
 ];
