@@ -12,7 +12,7 @@ window.IB_DATA.NVDA = {
   tagline: "AI 建设浪潮里的卖铲人——向全行业收过路费。",
   oneLiner:
     "这轮 AI 的算力底座。真正要验证的不是「需求还在不在」，而是「这道护城河是在变宽，还是正被超大厂自研芯片和推理商品化悄悄侵蚀」。",
-  updated: "2026-09-02",
+  updated: "2026-09-28",
   thesisStatus: "Strong",
   statusNote:
     "需求侧强劲、可见度高（8/26 财报确认），数据中心是绝对主体。真正的长期悬念在两处：一是下游 AI 的投资回报（推理经济学）能否持续支撑 capex；二是超大厂——最大的买家——同时在自研 ASIC 替代 NVIDIA。毛利率仍处 75% 高位、属正常波动。质量极高，但估值把「持续高增长 + 高毛利」都定价进去了——容错空间小。9/2 签约收购 Hugging Face（总额约 $129亿，拟 2027 上半年完成），把护城河向「模型分发 / 开发者入口」垂直延伸——新增三个观察点：反垄断审查、开放中立承诺能否兑现、整合执行。",
@@ -34,6 +34,7 @@ window.IB_DATA.NVDA = {
     "hf-8k": { label: "NVIDIA 8-K：收购 Hugging Face 定义协议（2026-09-02；SEC 原文）", url: "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000078/nvda-20260902.htm", date: "2026-09-02", type: "SEC" },
     "hf-blog": { label: "NVIDIA Blog：NVIDIA to Acquire Hugging Face（官方）", url: "https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face/", date: "2026-09-02", type: "IR" },
     "hf-bbg": { label: "Bloomberg：Nvidia 收购 Hugging Face 约 $130亿", url: "https://www.bloomberg.com/news/articles/2026-09-03/nvidia-agrees-to-13-billion-deal-for-ai-platform-hugging-face", date: "2026-09-03", type: "media" },
+    "buyback-2026-09-28": { label: "WSJ / Reuters：NVIDIA 新增 $1500亿 回购授权（美国史上最大，2026-09-28）", url: "https://www.wsj.com/tech/ai/nvidia-adds-record-150-billion-to-stock-buyback-910f96a8", date: "2026-09-28", type: "media" },
   },
 
   whyIOwnIt: [
@@ -329,6 +330,17 @@ window.IB_DATA.NVDA = {
   },
 
   timeline: [
+    {
+      date: "2026-09-28",
+      event: "资本配置：董事会新增 $1500亿 回购授权——美国史上最大单次增量（超 Apple 2024年5月 $1100亿）；剩余总额度升至 $2350亿，计划在 FY2028（2028年1月结束）前执行。距上次 +$800亿 仅隔约四个月。",
+      whyItMatters:
+        "事实层：FY27 上半年营收约 $1778亿、自由现金流近 $700亿，同期已花 $398亿回购 2.03亿股；7月季末现金及等价物约 $224亿。公司同时在投 AI 初创与云厂商（投资组合：13 家上市 + 229 家未上市，退出 ROI 超过 3 倍），并计划把投资组合产生的超额 FCF 以回购 +「逐步提高股息」的形式返还股东。Huang 原话：「现金生成让我们既有能力投资推进转型的技术、也有能力回馈股东。」——没有牺牲增长投资来凑回购。信号层（推断）：「这轮授权反映我们对长期机会的信心」——董事会用真金白银为 AI infrastructure 周期的持久性背书，是对「算力需求结构性」与「推理经济学」逻辑的间接强化，但不等于已验证的需求数据。机械层面（事实）：+$1500亿约占市值（~$5.4万亿）的 2.7%、总额度 $2350亿约占 4.2%，EPS 增厚是慢变量；消息后股价盘前约 +2%（上周五收 $225.07，5月14日历史高点 $236.54）。",
+      node: "资本配置 / 现金生成",
+      thesisImpact: "up",
+      action: "不动仓位——资本配置的纪律性和管理层信心信号都加分，但不改变任何一条 thesis 的证伪条件；继续盯推理经济学（AI ROI 能否兑现）与自研 ASIC 替代。",
+      source: { label: "WSJ / Reuters：NVIDIA 新增 $1500亿 回购授权（2026-09-28）", url: "https://www.wsj.com/tech/ai/nvidia-adds-record-150-billion-to-stock-buyback-910f96a8" },
+      related: null,
+    },
     {
       date: "2026-09-02",
       event: "M&A：签约收购 Hugging Face（总额约 $129亿，约 $119亿购买价 + 至多约 $10亿留才股权），拟 2027 上半年完成、待监管批准",
