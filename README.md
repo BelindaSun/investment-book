@@ -13,6 +13,8 @@ Bloomberg 终端。它对每一家公司、跨越很多年，只回答一个问�
 市场事件 → Stock Why 维基（为什么会发生？） → 投资账本（它改变我的逻辑吗？） → 仓位决策
 ```
 
+它和 Stock Why、Investment Research 的完整分工见 [`SYSTEM-MAP.md`](SYSTEM-MAP.md)。
+
 ---
 
 ## 怎么用
